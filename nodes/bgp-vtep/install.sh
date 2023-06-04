@@ -1,3 +1,5 @@
+echo "Installation du noeud bgp-vtep"
+
 sudo apt update && sudo apt install curl
 # add GPG key
 curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
