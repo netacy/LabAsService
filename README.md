@@ -24,7 +24,7 @@ Il convient tout d'abord câbler l'infrastrucure globale :
 - Les points d'accès wifi
 - La gateway vxlan - qinq
 
-[Topologie Wifi](img/TopoWifi.png)
+![Topologie Wifi](img/TopoWifi.png)
 
 
 ### Installation
