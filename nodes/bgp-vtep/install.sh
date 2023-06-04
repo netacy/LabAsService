@@ -35,7 +35,4 @@ sed -i "s/NIC/$nic/g" /etc/frr/frr.conf
 sed -i "s/BGPRR/$rr/g" /etc/frr/frr.conf
 
 
-
-cp ./nodes/bgp-vtep/start.sh /etc/frr
-
 #reboot
