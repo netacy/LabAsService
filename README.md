@@ -1,9 +1,6 @@
 # LabAsService
 Virtualisez vos lab wifi !
 
-![Alt text](img/TopoWifi.png)
-
-
 ## Pour commencer
 
 Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à des point d'accès wifi dans une topologie virtuelle.
@@ -26,6 +23,9 @@ Il convient tout d'abord câbler l'infrastrucure globale :
 
 - Les points d'accès wifi
 - La gateway vxlan - qinq
+
+[Topologie Wifi](img/TopoWifi.png)
+
 
 ### Installation
 
