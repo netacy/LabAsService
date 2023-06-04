@@ -22,10 +22,13 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 Il convient tout d'abord câbler l'infrastrucure globale :
 
 - Les points d'accès wifi
-- La gateway vxlan - qinq
+- le serveur bgp-vtep 
 
 ![Topologie Wifi](img/TopoWifi.png)
 
+Dans votre datacenter préféré vous pouvez provisionner les machines :
+- srv-poe
+- bgp-rr
 
 ### Installation
 
