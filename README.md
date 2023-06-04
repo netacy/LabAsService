@@ -36,10 +36,6 @@ _exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [..
 
 Ensuite vous pouvez montrer ce que vous obtenez au final...
 
-## Contributing
-
-Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example.org) pour savoir comment le faire.
-
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
 * **Julien HOARAU** _alias_ [netacy](https://github.com/netacy)
