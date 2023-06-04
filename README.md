@@ -4,15 +4,26 @@ Virtualisez vos lab wifi !
 
 ## Pour commencer
 
-Entrez ici les instructions pour bien débuter avec votre projet...
+Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à des point d'accès wifi dans une topologie virtuelle.
+
+
+## Ressources matérielles :
+
+* [Debian](https://www.debian.org) -  VXLAN Tunnel End Point
+* [FRRouting](https://frrouting.org) - Plan de contrôle de l'infrastructure VXLAN - BGP EVPN
+* [Environnement de virtualisation - EVE-NG](https://www.eve-ng.net/)
+
+## Ressources logicielles :
+* [Switch Cisco WS-C3750-48PS-S](https://www.cisco.com/c/en/us/products/switches/catalyst-3750-series-switches/datasheet-listing.html) - 137 euros d'occasion
+* [adaptateur USB3 -> ethernet]() - mettre la référence
+* [PC générique]
 
 ### Pré-requis
 
-Ce qu'il est requis pour commencer avec votre projet...
+Il convient tout d'abord câbler l'infrastrucure globale :
 
-- Programme 1
-- Programme 2
-- etc...
+- Les points d'accès wifi
+- La gateway vxlan - qinq
 
 ### Installation
 
@@ -29,29 +40,14 @@ Ensuite vous pouvez montrer ce que vous obtenez au final...
 
 Dites comment faire pour lancer votre projet
 
-## Fabriqué avec
-
-Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
-
-_exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
 
 ## Contributing
 
 Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example.org) pour savoir comment le faire.
 
-## Versions
-Listez les versions ici 
-_exemple :_
-**Dernière version stable :** 5.0
-**Dernière version :** 5.1
-Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
-
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
-* **Julien HOARAU** _alias_ [netacy](https://github.com/netacy/contributors)
+* **Julien HOARAU** _alias_ [netacy](https://github.com/netacy)
 
 
 
