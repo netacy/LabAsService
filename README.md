@@ -2,6 +2,7 @@
 Virtualisez vos lab wifi !
 
 [logo]: TopoWifi.png "Infrastructure globale"
+![Alt text](img/TopoWifi.png)
 
 
 ## Pour commencer
