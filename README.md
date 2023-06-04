@@ -27,8 +27,8 @@ Il convient tout d'abord câbler l'infrastrucure globale :
 ![Topologie Wifi](img/TopoWifi.png)
 
 Dans votre datacenter préféré vous pouvez provisionner les machines :
-- srv-poe
-- bgp-rr
+- srv-poe (Debian 11)
+- bgp-rr (Debian 11)
 
 ### Installation
 
