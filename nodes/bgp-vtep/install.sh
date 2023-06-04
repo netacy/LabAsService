@@ -17,7 +17,7 @@ cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
 
 echo "Liste des cartes réseaux détéctées : "
 echo "-------------------------------------"
-ls /class/sys/net
+ls /sys/class/net
 echo "-------------------------------------"
 echo "Quelle carte vous connecte à internet ? :"
 read nic
@@ -35,4 +35,4 @@ sed -i "s/BGPRR/$rr/g" /etc/frr/frr.conf
 
 cp ./nodes/bgp-vtep/start.sh /etc/frr
 
-reboot
+#reboot
