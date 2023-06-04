@@ -1,6 +1,8 @@
 # LabAsService
 Virtualisez vos lab wifi !
 
+[logo]: img/TopoWifi.png "Infrastructure globale"
+
 
 ## Pour commencer
 
