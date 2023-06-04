@@ -1,0 +1,28 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+modprobe iptable_nat
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o pnet0 -j MASQUERADE
+iptables -A FORWARD -i pnet1 -j ACCEPT
+iptables -I INPUT -p udp -i pnet0 --dport 67 -j DROP
+
+# reduction du MSS pour éviter dle dépassement du MTU
+iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN  -j TCPMSS --set-mss 1406
+iptables -A OUTPUT -p tcp --tcp-flags SYN,RST SYN  -j TCPMSS --set-mss 1406
+iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN  -j TCPMSS --set-mss 1406
+
+# filtrer également les trames taguées
+echo 1 > /proc/sys/net/bridge/bridge-nf-filter-vlan-tagged
+
+exit 0

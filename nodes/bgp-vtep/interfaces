@@ -1,0 +1,853 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+up echo "1" > /proc/sys/net/ipv4/ip_forward
+up echo "1" > /proc/sys/net/ipv4/conf/all/proxy_arp
+
+
+iface eth0 inet manual
+auto pnet0
+iface pnet0 inet static
+    address 10.108.143.50
+    netmask 255.255.0.0
+    gateway 10.108.255.254
+    dns-nameservers 10.100.100.20 10.100.100.21
+    bridge_ports eth0
+    bridge_stp off
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2001
+iface vxlan2001 inet manual
+pre-up ip link add vxlan2001 type vxlan id 2001 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2001 dst 10.108.142.1
+
+auto vxlan1001
+iface vxlan1001 inet manual
+pre-up ip link add vxlan1001 type vxlan id 1001 dstport 0 nolearning
+
+auto br2001
+iface br2001 inet manual
+bridge_ports vxlan2001 vxlan1001
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2002
+iface vxlan2002 inet manual
+pre-up ip link add vxlan2002 type vxlan id 2002 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2002 dst 10.108.142.1
+
+auto vxlan1002
+iface vxlan1002 inet manual
+pre-up ip link add vxlan1002 type vxlan id 1002 dstport 0 nolearning
+
+auto br2002
+iface br2002 inet manual
+bridge_ports vxlan2002 vxlan1002
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2003
+iface vxlan2003 inet manual
+pre-up ip link add vxlan2003 type vxlan id 2003 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2003 dst 10.108.142.1
+
+auto vxlan1003
+iface vxlan1003 inet manual
+pre-up ip link add vxlan1003 type vxlan id 1003 dstport 0 nolearning
+
+auto br2003
+iface br2003 inet manual
+bridge_ports vxlan2003 vxlan1003
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2004
+iface vxlan2004 inet manual
+pre-up ip link add vxlan2004 type vxlan id 2004 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2004 dst 10.108.142.1
+
+auto vxlan1004
+iface vxlan1004 inet manual
+pre-up ip link add vxlan1004 type vxlan id 1004 dstport 0 nolearning
+
+auto br2004
+iface br2004 inet manual
+bridge_ports vxlan2004 vxlan1004
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2005
+iface vxlan2005 inet manual
+pre-up ip link add vxlan2005 type vxlan id 2005 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2005 dst 10.108.142.1
+
+auto vxlan1005
+iface vxlan1005 inet manual
+pre-up ip link add vxlan1005 type vxlan id 1005 dstport 0 nolearning
+
+auto br2005
+iface br2005 inet manual
+bridge_ports vxlan2005 vxlan1005
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2006
+iface vxlan2006 inet manual
+pre-up ip link add vxlan2006 type vxlan id 2006 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2006 dst 10.108.142.1
+
+auto vxlan1006
+iface vxlan1006 inet manual
+pre-up ip link add vxlan1006 type vxlan id 1006 dstport 0 nolearning
+
+auto br2006
+iface br2006 inet manual
+bridge_ports vxlan2006 vxlan1006
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2007
+iface vxlan2007 inet manual
+pre-up ip link add vxlan2007 type vxlan id 2007 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2007 dst 10.108.142.1
+
+auto vxlan1007
+iface vxlan1007 inet manual
+pre-up ip link add vxlan1007 type vxlan id 1007 dstport 0 nolearning
+
+auto br2007
+iface br2007 inet manual
+bridge_ports vxlan2007 vxlan1007
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2008
+iface vxlan2008 inet manual
+pre-up ip link add vxlan2008 type vxlan id 2008 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2008 dst 10.108.142.1
+
+auto vxlan1008
+iface vxlan1008 inet manual
+pre-up ip link add vxlan1008 type vxlan id 1008 dstport 0 nolearning
+
+auto br2008
+iface br2008 inet manual
+bridge_ports vxlan2008 vxlan1008
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2009
+iface vxlan2009 inet manual
+pre-up ip link add vxlan2009 type vxlan id 2009 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2009 dst 10.108.142.1
+
+auto vxlan1009
+iface vxlan1009 inet manual
+pre-up ip link add vxlan1009 type vxlan id 1009 dstport 0 nolearning
+
+auto br2009
+iface br2009 inet manual
+bridge_ports vxlan2009 vxlan1009
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2010
+iface vxlan2010 inet manual
+pre-up ip link add vxlan2010 type vxlan id 2010 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2010 dst 10.108.142.1
+
+auto vxlan1010
+iface vxlan1010 inet manual
+pre-up ip link add vxlan1010 type vxlan id 1010 dstport 0 nolearning
+
+auto br2010
+iface br2010 inet manual
+bridge_ports vxlan2010 vxlan1010
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2011
+iface vxlan2011 inet manual
+pre-up ip link add vxlan2011 type vxlan id 2011 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2011 dst 10.108.142.1
+
+auto vxlan1011
+iface vxlan1011 inet manual
+pre-up ip link add vxlan1011 type vxlan id 1011 dstport 0 nolearning
+
+auto br2011
+iface br2011 inet manual
+bridge_ports vxlan2011 vxlan1011
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2012
+iface vxlan2012 inet manual
+pre-up ip link add vxlan2012 type vxlan id 2012 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2012 dst 10.108.142.1
+
+auto vxlan1012
+iface vxlan1012 inet manual
+pre-up ip link add vxlan1012 type vxlan id 1012 dstport 0 nolearning
+
+auto br2012
+iface br2012 inet manual
+bridge_ports vxlan2012 vxlan1012
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2013
+iface vxlan2013 inet manual
+pre-up ip link add vxlan2013 type vxlan id 2013 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2013 dst 10.108.142.1
+
+auto vxlan1013
+iface vxlan1013 inet manual
+pre-up ip link add vxlan1013 type vxlan id 1013 dstport 0 nolearning
+
+auto br2013
+iface br2013 inet manual
+bridge_ports vxlan2013 vxlan1013
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2014
+iface vxlan2014 inet manual
+pre-up ip link add vxlan2014 type vxlan id 2014 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2014 dst 10.108.142.1
+
+auto vxlan1014
+iface vxlan1014 inet manual
+pre-up ip link add vxlan1014 type vxlan id 1014 dstport 0 nolearning
+
+auto br2014
+iface br2014 inet manual
+bridge_ports vxlan2014 vxlan1014
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2015
+iface vxlan2015 inet manual
+pre-up ip link add vxlan2015 type vxlan id 2015 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2015 dst 10.108.142.1
+
+auto vxlan1015
+iface vxlan1015 inet manual
+pre-up ip link add vxlan1015 type vxlan id 1015 dstport 0 nolearning
+
+auto br2015
+iface br2015 inet manual
+bridge_ports vxlan2015 vxlan1015
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2016
+iface vxlan2016 inet manual
+pre-up ip link add vxlan2016 type vxlan id 2016 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2016 dst 10.108.142.1
+
+auto vxlan1016
+iface vxlan1016 inet manual
+pre-up ip link add vxlan1016 type vxlan id 1016 dstport 0 nolearning
+
+auto br2016
+iface br2016 inet manual
+bridge_ports vxlan2016 vxlan1016
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2017
+iface vxlan2017 inet manual
+pre-up ip link add vxlan2017 type vxlan id 2017 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2017 dst 10.108.142.1
+
+auto vxlan1017
+iface vxlan1017 inet manual
+pre-up ip link add vxlan1017 type vxlan id 1017 dstport 0 nolearning
+
+auto br2017
+iface br2017 inet manual
+bridge_ports vxlan2017 vxlan1017
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2018
+iface vxlan2018 inet manual
+pre-up ip link add vxlan2018 type vxlan id 2018 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2018 dst 10.108.142.1
+
+auto vxlan1018
+iface vxlan1018 inet manual
+pre-up ip link add vxlan1018 type vxlan id 1018 dstport 0 nolearning
+
+auto br2018
+iface br2018 inet manual
+bridge_ports vxlan2018 vxlan1018
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2019
+iface vxlan2019 inet manual
+pre-up ip link add vxlan2019 type vxlan id 2019 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2019 dst 10.108.142.1
+
+auto vxlan1019
+iface vxlan1019 inet manual
+pre-up ip link add vxlan1019 type vxlan id 1019 dstport 0 nolearning
+
+auto br2019
+iface br2019 inet manual
+bridge_ports vxlan2019 vxlan1019
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2020
+iface vxlan2020 inet manual
+pre-up ip link add vxlan2020 type vxlan id 2020 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2020 dst 10.108.142.1
+
+auto vxlan1020
+iface vxlan1020 inet manual
+pre-up ip link add vxlan1020 type vxlan id 1020 dstport 0 nolearning
+
+auto br2020
+iface br2020 inet manual
+bridge_ports vxlan2020 vxlan1020
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2021
+iface vxlan2021 inet manual
+pre-up ip link add vxlan2021 type vxlan id 2021 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2021 dst 10.108.142.1
+
+auto vxlan1021
+iface vxlan1021 inet manual
+pre-up ip link add vxlan1021 type vxlan id 1021 dstport 0 nolearning
+
+auto br2021
+iface br2021 inet manual
+bridge_ports vxlan2021 vxlan1021
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2022
+iface vxlan2022 inet manual
+pre-up ip link add vxlan2022 type vxlan id 2022 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2022 dst 10.108.142.1
+
+auto vxlan1022
+iface vxlan1022 inet manual
+pre-up ip link add vxlan1022 type vxlan id 1022 dstport 0 nolearning
+
+auto br2022
+iface br2022 inet manual
+bridge_ports vxlan2022 vxlan1022
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2023
+iface vxlan2023 inet manual
+pre-up ip link add vxlan2023 type vxlan id 2023 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2023 dst 10.108.142.1
+
+auto vxlan1023
+iface vxlan1023 inet manual
+pre-up ip link add vxlan1023 type vxlan id 1023 dstport 0 nolearning
+
+auto br2023
+iface br2023 inet manual
+bridge_ports vxlan2023 vxlan1023
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2024
+iface vxlan2024 inet manual
+pre-up ip link add vxlan2024 type vxlan id 2024 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2024 dst 10.108.142.1
+
+auto vxlan1024
+iface vxlan1024 inet manual
+pre-up ip link add vxlan1024 type vxlan id 1024 dstport 0 nolearning
+
+auto br2024
+iface br2024 inet manual
+bridge_ports vxlan2024 vxlan1024
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2025
+iface vxlan2025 inet manual
+pre-up ip link add vxlan2025 type vxlan id 2025 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2025 dst 10.108.142.1
+
+auto vxlan1025
+iface vxlan1025 inet manual
+pre-up ip link add vxlan1025 type vxlan id 1025 dstport 0 nolearning
+
+auto br2025
+iface br2025 inet manual
+bridge_ports vxlan2025 vxlan1025
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2026
+iface vxlan2026 inet manual
+pre-up ip link add vxlan2026 type vxlan id 2026 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2026 dst 10.108.142.1
+
+auto vxlan1026
+iface vxlan1026 inet manual
+pre-up ip link add vxlan1026 type vxlan id 1026 dstport 0 nolearning
+
+auto br2026
+iface br2026 inet manual
+bridge_ports vxlan2026 vxlan1026
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2027
+iface vxlan2027 inet manual
+pre-up ip link add vxlan2027 type vxlan id 2027 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2027 dst 10.108.142.1
+
+auto vxlan1027
+iface vxlan1027 inet manual
+pre-up ip link add vxlan1027 type vxlan id 1027 dstport 0 nolearning
+
+auto br2027
+iface br2027 inet manual
+bridge_ports vxlan2027 vxlan1027
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2028
+iface vxlan2028 inet manual
+pre-up ip link add vxlan2028 type vxlan id 2028 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2028 dst 10.108.142.1
+
+auto vxlan1028
+iface vxlan1028 inet manual
+pre-up ip link add vxlan1028 type vxlan id 1028 dstport 0 nolearning
+
+auto br2028
+iface br2028 inet manual
+bridge_ports vxlan2028 vxlan1028
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2029
+iface vxlan2029 inet manual
+pre-up ip link add vxlan2029 type vxlan id 2029 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2029 dst 10.108.142.1
+
+auto vxlan1029
+iface vxlan1029 inet manual
+pre-up ip link add vxlan1029 type vxlan id 1029 dstport 0 nolearning
+
+auto br2029
+iface br2029 inet manual
+bridge_ports vxlan2029 vxlan1029
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2030
+iface vxlan2030 inet manual
+pre-up ip link add vxlan2030 type vxlan id 2030 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2030 dst 10.108.142.1
+
+auto vxlan1030
+iface vxlan1030 inet manual
+pre-up ip link add vxlan1030 type vxlan id 1030 dstport 0 nolearning
+
+auto br2030
+iface br2030 inet manual
+bridge_ports vxlan2030 vxlan1030
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2031
+iface vxlan2031 inet manual
+pre-up ip link add vxlan2031 type vxlan id 2031 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2031 dst 10.108.142.1
+
+auto vxlan1031
+iface vxlan1031 inet manual
+pre-up ip link add vxlan1031 type vxlan id 1031 dstport 0 nolearning
+
+auto br2031
+iface br2031 inet manual
+bridge_ports vxlan2031 vxlan1031
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2032
+iface vxlan2032 inet manual
+pre-up ip link add vxlan2032 type vxlan id 2032 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2032 dst 10.108.142.1
+
+auto vxlan1032
+iface vxlan1032 inet manual
+pre-up ip link add vxlan1032 type vxlan id 1032 dstport 0 nolearning
+
+auto br2032
+iface br2032 inet manual
+bridge_ports vxlan2032 vxlan1032
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan973
+iface vxlan973 inet manual
+pre-up ip link add vxlan973 type vxlan id 973 dstport 0 nolearning
+
+auto pnet_wlan_uc1in
+iface pnet_wlan_uc1in inet manual
+bridge_ports vxlan973 eth3
+bridge_stp off
+#-----------------------------------------------
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan974
+iface vxlan974 inet manual
+pre-up ip link add vxlan974 type vxlan id 974 dstport 0 nolearning
+
+auto pnet_wlan_uc1ou
+iface pnet_wlan_uc1ou inet manual
+bridge_ports vxlan974 eth8
+bridge_stp off
+#-----------------------------------------------
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan975
+iface vxlan975 inet manual
+pre-up ip link add vxlan975 type vxlan id 975 dstport 0 nolearning
+
+auto pnet_wlan_uc2in
+iface pnet_wlan_uc2in inet manual
+bridge_ports vxlan975 eth6
+bridge_stp off
+#-----------------------------------------------
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan976
+iface vxlan976 inet manual
+pre-up ip link add vxlan976 type vxlan id 976 dstport 0 nolearning
+
+auto pnet_wlan_uc2ou
+iface pnet_wlan_uc2ou inet manual
+bridge_ports vxlan976 eth7
+bridge_stp off
+#-----------------------------------------------
+
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan977
+iface vxlan977 inet manual
+pre-up ip link add vxlan977 type vxlan id 977 dstport 0 nolearning
+
+auto pnet_wlan_uc3in
+iface pnet_wlan_uc3in inet manual
+bridge_ports vxlan977 eth4
+bridge_stp off
+#-----------------------------------------------
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan978
+iface vxlan978 inet manual
+pre-up ip link add vxlan978 type vxlan id 978 dstport 0 nolearning
+
+auto pnet_wlan_uc3ou
+iface pnet_wlan_uc3ou inet manual
+bridge_ports vxlan978 eth9
+bridge_stp off
+#-----------------------------------------------
+
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan979
+iface vxlan979 inet manual
+pre-up ip link add vxlan979 type vxlan id 979 dstport 0 nolearning
+
+auto pnet_wlan_uc4in
+iface pnet_wlan_uc4in inet manual
+bridge_ports vxlan979 eth1
+bridge_stp off
+#-----------------------------------------------
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan980
+iface vxlan980 inet manual
+pre-up ip link add vxlan980 type vxlan id 980 dstport 0 nolearning
+
+auto pnet_wlan_uc4ou
+iface pnet_wlan_uc4ou inet manual
+bridge_ports vxlan980 eth2
+bridge_stp off
+#-----------------------------------------------
+##
+
+
+
+##
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan900
+iface vxlan900 inet manual
+pre-up ip link add vxlan900 type vxlan id 900 dstport 0 nolearning
+
+auto pnet900
+iface pnet900 inet static
+address 10.108.135.254
+netmask 255.255.252.0
+bridge_ports vxlan900
+bridge_stp off
+#-----------------------------------------------
+
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2033
+iface vxlan2033 inet manual
+pre-up ip link add vxlan2033 type vxlan id 2033 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2033 dst 10.108.142.1
+
+auto vxlan1033
+iface vxlan1033 inet manual
+pre-up ip link add vxlan1033 type vxlan id 1033 dstport 0 nolearning
+
+auto br2033
+iface br2033 inet manual
+bridge_ports vxlan2033 vxlan1033
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2034
+iface vxlan2034 inet manual
+pre-up ip link add vxlan2034 type vxlan id 2034 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2034 dst 10.108.142.1
+
+auto vxlan1034
+iface vxlan1034 inet manual
+pre-up ip link add vxlan1034 type vxlan id 1034 dstport 0 nolearning
+
+auto br2034
+iface br2034 inet manual
+bridge_ports vxlan2034 vxlan1034
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2035
+iface vxlan2035 inet manual
+pre-up ip link add vxlan2035 type vxlan id 2035 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2035 dst 10.108.142.1
+
+auto vxlan1035
+iface vxlan1035 inet manual
+pre-up ip link add vxlan1035 type vxlan id 1035 dstport 0 nolearning
+
+auto br2035
+iface br2035 inet manual
+bridge_ports vxlan2035 vxlan1035
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2036
+iface vxlan2036 inet manual
+pre-up ip link add vxlan2036 type vxlan id 2036 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2036 dst 10.108.142.1
+
+auto vxlan1036
+iface vxlan1036 inet manual
+pre-up ip link add vxlan1036 type vxlan id 1036 dstport 0 nolearning
+
+auto br2036
+iface br2036 inet manual
+bridge_ports vxlan2036 vxlan1036
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2037
+iface vxlan2037 inet manual
+pre-up ip link add vxlan2037 type vxlan id 2037 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2037 dst 10.108.142.1
+
+auto vxlan1037
+iface vxlan1037 inet manual
+pre-up ip link add vxlan1037 type vxlan id 1037 dstport 0 nolearning
+
+auto br2037
+iface br2037 inet manual
+bridge_ports vxlan2037 vxlan1037
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2038
+iface vxlan2038 inet manual
+pre-up ip link add vxlan2038 type vxlan id 2038 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2038 dst 10.108.142.1
+
+auto vxlan1038
+iface vxlan1038 inet manual
+pre-up ip link add vxlan1038 type vxlan id 1038 dstport 0 nolearning
+
+auto br2038
+iface br2038 inet manual
+bridge_ports vxlan2038 vxlan1038
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2039
+iface vxlan2039 inet manual
+pre-up ip link add vxlan2039 type vxlan id 2039 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2039 dst 10.108.142.1
+
+auto vxlan1039
+iface vxlan1039 inet manual
+pre-up ip link add vxlan1039 type vxlan id 1039 dstport 0 nolearning
+
+auto br2039
+iface br2039 inet manual
+bridge_ports vxlan2039 vxlan1039
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2040
+iface vxlan2040 inet manual
+pre-up ip link add vxlan2040 type vxlan id 2040 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2040 dst 10.108.142.1
+
+auto vxlan1040
+iface vxlan1040 inet manual
+pre-up ip link add vxlan1040 type vxlan id 1040 dstport 0 nolearning
+
+auto br2040
+iface br2040 inet manual
+bridge_ports vxlan2040 vxlan1040
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2041
+iface vxlan2041 inet manual
+pre-up ip link add vxlan2041 type vxlan id 2041 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2041 dst 10.108.142.1
+
+auto vxlan1041
+iface vxlan1041 inet manual
+pre-up ip link add vxlan1041 type vxlan id 1041 dstport 0 nolearning
+
+auto br2041
+iface br2041 inet manual
+bridge_ports vxlan2041 vxlan1041
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2042
+iface vxlan2042 inet manual
+pre-up ip link add vxlan2042 type vxlan id 2042 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2042 dst 10.108.142.1
+
+auto vxlan1042
+iface vxlan1042 inet manual
+pre-up ip link add vxlan1042 type vxlan id 1042 dstport 0 nolearning
+
+auto br2042
+iface br2042 inet manual
+bridge_ports vxlan2042 vxlan1042
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2043
+iface vxlan2043 inet manual
+pre-up ip link add vxlan2043 type vxlan id 2043 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2043 dst 10.108.142.1
+
+auto vxlan1043
+iface vxlan1043 inet manual
+pre-up ip link add vxlan1043 type vxlan id 1043 dstport 0 nolearning
+
+auto br2043
+iface br2043 inet manual
+bridge_ports vxlan2043 vxlan1043
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2044
+iface vxlan2044 inet manual
+pre-up ip link add vxlan2044 type vxlan id 2044 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2044 dst 10.108.142.1
+
+auto vxlan1044
+iface vxlan1044 inet manual
+pre-up ip link add vxlan1044 type vxlan id 1044 dstport 0 nolearning
+
+auto br2044
+iface br2044 inet manual
+bridge_ports vxlan2044 vxlan1044
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2045
+iface vxlan2045 inet manual
+pre-up ip link add vxlan2045 type vxlan id 2045 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2045 dst 10.108.142.1
+
+auto vxlan1045
+iface vxlan1045 inet manual
+pre-up ip link add vxlan1045 type vxlan id 1045 dstport 0 nolearning
+
+auto br2045
+iface br2045 inet manual
+bridge_ports vxlan2045 vxlan1045
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2046
+iface vxlan2046 inet manual
+pre-up ip link add vxlan2046 type vxlan id 2046 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2046 dst 10.108.142.1
+
+auto vxlan1046
+iface vxlan1046 inet manual
+pre-up ip link add vxlan1046 type vxlan id 1046 dstport 0 nolearning
+
+auto br2046
+iface br2046 inet manual
+bridge_ports vxlan2046 vxlan1046
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2047
+iface vxlan2047 inet manual
+pre-up ip link add vxlan2047 type vxlan id 2047 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2047 dst 10.108.142.1
+
+auto vxlan1047
+iface vxlan1047 inet manual
+pre-up ip link add vxlan1047 type vxlan id 1047 dstport 0 nolearning
+
+auto br2047
+iface br2047 inet manual
+bridge_ports vxlan2047 vxlan1047
+bridge_stp off
+#-----------------------------------------------
+#+++++++++++++++++++++++++++++++++++++++++++++++
+auto vxlan2048
+iface vxlan2048 inet manual
+pre-up ip link add vxlan2048 type vxlan id 2048 remote 10.108.142.1 dstport 4789 dev eth0
+post-up bridge fdb append 00:00:00:00:00:00 dev vxlan2048 dst 10.108.142.1
+
+auto vxlan1048
+iface vxlan1048 inet manual
+pre-up ip link add vxlan1048 type vxlan id 1048 dstport 0 nolearning
+
+auto br2048
+iface br2048 inet manual
+bridge_ports vxlan2048 vxlan1048
+bridge_stp off
+#-----------------------------------------------
