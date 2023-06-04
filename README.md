@@ -6,13 +6,13 @@ Virtualisez vos lab wifi !
 Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à des point d'accès wifi dans une topologie virtuelle.
 
 
-## Ressources matérielles :
+## Ressources logicielles :
 
-* [Debian](https://www.debian.org) -  VXLAN Tunnel End Point
+* [Debian 11](https://www.debian.org) -  VXLAN Tunnel End Point
 * [FRRouting](https://frrouting.org) - Plan de contrôle de l'infrastructure VXLAN - BGP EVPN
 * [Environnement de virtualisation - EVE-NG](https://www.eve-ng.net/)
 
-## Ressources logicielles :
+## Ressources matérielles :
 * [Switch Cisco WS-C3750-48PS-S](https://www.cisco.com/c/en/us/products/switches/catalyst-3750-series-switches/datasheet-listing.html) - 137 euros d'occasion
 * [adaptateur USB3 -> ethernet]() - mettre la référence
 * [PC générique]
