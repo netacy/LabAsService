@@ -1,3 +1,6 @@
+pwd 
+exit
+
 echo "Installation du noeud bgp-vtep"
 apt update && apt install curl sudo gnupg
 # add GPG key
@@ -11,3 +14,5 @@ echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) $FRRVER | sudo tee -
 # update and install FRR
 sudo apt update && sudo apt install frr frr-pythontools
 hostnamectl set-hostname bgp-vtep
+
+#reboot
