@@ -39,7 +39,21 @@ mount -t auto  /dev/nbd1p1 /mnt/tmp
 # Script à modifier ici
 chroot /mnt/tmp  <<"EOT"
 echo "chroot!!!"
-ls -l
+apt update && apt install curl sudo gnupg bridge-utils
+# add GPG key
+curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
+
+# possible values for FRRVER: frr-6 frr-7 frr-8 frr-stable
+# frr-stable will be the latest official stable release
+FRRVER="frr-stable"
+echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) $FRRVER | sudo tee -a /etc/apt/sources.list.d/frr.list
+
+# update and install FRR
+sudo apt update && sudo apt install frr frr-pythontools
+hostnamectl set-hostname eve-vtep
+
+# activation du process bgp
+sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 EOT
 
 umount /mnt/tmp
