@@ -30,7 +30,13 @@ Dans votre datacenter préféré vous pouvez provisionner les machines :
 - srv-poe (Debian 11)
 - bgp-rr (Debian 11)
 
-### Installation
+Installez également Debian 11 sur la machine bgp-vtep
+
+### Installation 1/6 : sw-wifi
+### Installation 2/6 : bgp-rr
+### Installation 3/6 : srv-poe
+
+### Installation 4/6: bgp-vtep
 
 Les étapes pour installer votre programme....
 
@@ -40,6 +46,10 @@ _exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [..
 
 
 Ensuite vous pouvez montrer ce que vous obtenez au final...
+
+### Installation 5/6: eve
+
+### Installation 6/6: eve-vtep
 
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
