@@ -8,6 +8,7 @@ case $1 in
     ./nodes/bgp-vtep/install.sh
     ;;
   bgp-vtep2)
+    chmod +x ./nodes/bgp-vtep/installNext.sh
     ./nodes/bgp-vtep/installNext.sh
     ;;
   Romania)
