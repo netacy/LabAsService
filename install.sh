@@ -11,8 +11,8 @@ case $1 in
     chmod +x ./nodes/bgp-vtep/installNext.sh
     ./nodes/bgp-vtep/installNext.sh
     ;;
-  Romania)
-    echo -n "Romanian"
+  bgp-rr)
+    ./nodes/bgp-rr/install.sh
     ;;
 
 
