@@ -26,22 +26,22 @@ cp /etc/network/interfaces /etc/network/interfaces.ori
 for vni in $(seq $first $last)
 do
     # Création de l'interface VXLAN
-	echo "#-----------------------------------------------"  >> /etc/network/interface
-	echo "auto $nic.$vni" >> /etc/network/interface
-	echo "iface $nic.$vni inet manual" >> /etc/network/interface
-	echo "pre-up ip link add link $nic $nic.$vni type vlan proto 802.1ad id $vni" >> /etc/network/interface
+	echo "#-----------------------------------------------"  >> /etc/network/interfaces
+	echo "auto $nic.$vni" >> /etc/network/interfaces
+	echo "iface $nic.$vni inet manual" >> /etc/network/interfaces
+	echo "pre-up ip link add link $nic $nic.$vni type vlan proto 802.1ad id $vni" >> /etc/network/interfaces
 	
-	echo "" >> /etc/network/interface
-	echo "auto vxlan$vni" >> /etc/network/interface
-	echo "iface vxlan$vni inet manual" >> /etc/network/interface
-	echo "pre-up ip link add vxlan$vni type vxlan id $vni dstport 0 nolearning" >> /etc/network/interface
+	echo "" >> /etc/network/interfaces
+	echo "auto vxlan$vni" >> /etc/network/interfaces
+	echo "iface vxlan$vni inet manual" >> /etc/network/interfaces
+	echo "pre-up ip link add vxlan$vni type vxlan id $vni dstport 0 nolearning" >> /etc/network/interfaces
 
-	echo "" >> /etc/network/interface
-	echo "auto br$vni" >> /etc/network/interface
-	echo "iface br$vni inet manual" >> /etc/network/interface
-	echo "bridge_ports vxlan$vni $nic.$vni" >> /etc/network/interface
-	echo "bridge_stp off"  >> /etc/network/interface
+	echo "" >> /etc/network/interfaces
+	echo "auto br$vni" >> /etc/network/interfaces
+	echo "iface br$vni inet manual" >> /etc/network/interfaces
+	echo "bridge_ports vxlan$vni $nic.$vni" >> /etc/network/interfaces
+	echo "bridge_stp off"  >> /etc/network/interfaces
 
-	echo "#-----------------------------------------------"  >> /etc/network/interface
+	echo "#-----------------------------------------------"  >> /etc/network/interfaces
 # Création du pont associé
 done
