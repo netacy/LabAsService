@@ -62,13 +62,14 @@ Attention, la carte réseau vous connectant à internet a certainement été ren
  
  **Vérification 2/2**
 La commande ``brctl show``commande doit faire apparaitre les ponts entre les réseaux vxlan et qinq :
-``
+```
 root@bgp-vtep:~# brctl show
 bridge name     bridge id               STP enabled     interfaces
 br1001          8000.3aa97a437e71       no              eth1.1001
                                                         vxlan1001
 br1002          8000.c20468ef7534       no              eth1.1002
-                                                        vxlan1002``
+                                                        vxlan1002
+```
 
 
 ### Installation 5/6: eve
