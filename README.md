@@ -34,6 +34,21 @@ Installez également Debian 11 sur la machine bgp-vtep
 
 ### Installation 1/6 : sw-wifi
 ### Installation 2/6 : bgp-rr
+Commencez par configurer l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
+
+Passez ensuite à l'installation des dépendances :
+```
+apt update
+apt install git
+git clone https://www.github.com/netacy/LabAsService
+```
+
+```
+cd ./LabAsService
+./install.sh bgp-vtep2
+```
+Et c'est tout ! 
+Notez bien l'adresse IP de ce serveur bgp-rr (rr = route reflector), nous en aurons besoin pour la suite
 ### Installation 3/6 : srv-poe
 
 ### Installation 4/6: bgp-vtep
