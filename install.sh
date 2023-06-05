@@ -20,6 +20,9 @@ case $1 in
   eve)
     ./nodes/eve/install.sh
     ;;
+  eve-vtep)
+    ./nodes/eve-vtep/install.sh
+    ;;
 
   *)
     echo -n "Parmètre invalide"
