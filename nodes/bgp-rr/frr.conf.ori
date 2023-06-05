@@ -1,0 +1,30 @@
+frr version 7.2
+frr defaults traditional
+hostname bgp-rr
+log syslog informational
+service integrated-vtysh-config
+!
+ip route NETID/CIDR NIC
+!
+router bgp 65000
+ bgp router-id MYIP
+ bgp log-neighbor-changes
+ no bgp default ipv4-unicast
+ bgp cluster-id MYIP
+ coalesce-time 1000
+ bgp bestpath as-path multipath-relax
+ timers bgp 10 30
+ neighbor fabric peer-group
+ neighbor fabric remote-as 65000
+ neighbor fabric update-source MYIP
+ neighbor fabric capability extended-nexthop
+ bgp listen range 0.0.0.0/0 peer-group fabric
+ !
+ address-family l2vpn evpn
+  neighbor fabric activate
+  neighbor fabric route-reflector-client
+  neighbor fabric allowas-in
+ exit-address-family
+!
+line vty
+!
