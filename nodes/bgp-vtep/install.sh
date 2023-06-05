@@ -38,7 +38,7 @@ sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 systemctl stop frr
 systemctl start frr
 
-chmod +x ./nodes/bgp-vtep/install.sh
-./nodes/bgp-vtep/install.sh
+chmod +x ./nodes/bgp-vtep/genIf.sh
+./nodes/bgp-vtep/genIf.sh
 
 #reboot
