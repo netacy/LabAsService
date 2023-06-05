@@ -57,11 +57,10 @@ cd ./LabAsService
 ```
 Attention, la carte réseau vous connectant à internet a certainement été renommée en eth0, il convient de rééditer le fichier ``/etc/network/interfaces`` pour corriger ca...
 
-**Vérification**
- 1/2 - Votre machine doit pouvoir accéder au réseau de votre département/internet
- 2/2 - ```brctl show```
-
-Cette dernière commande doit faire apparaitre les interfaces 
+**Vérification 1/2 **
+ Votre machine doit pouvoir accéder au réseau de votre département/internet
+ **Vérification 2/2 **
+La commande ``brctl show``commande doit faire apparaitre les ponts entre les réseaux vxlan et qinq :
 ``
 root@bgp-vtep:~# brctl show
 bridge name     bridge id               STP enabled     interfaces
