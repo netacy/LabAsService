@@ -17,15 +17,17 @@ hostnamectl set-hostname bgp-rr
 # activation du process bgp
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 
-#cp ./nodes/bgp-rr/frr.conf.ori /etc/frr
-#cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
+cp ./nodes/bgp-rr/frr.conf.ori /etc/frr
+cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
 
 
 # NIC 
-MYIP=$(ip a | grep dynamic | head -n 1| cut -d' ' -f6 | cut -d'/' -f1)
-echo $MYIP
 # NETID 
 # CIDR
+
+MYIP=$(ip a | grep dynamic | head -n 1| cut -d' ' -f6 | cut -d'/' -f1)
+echo "Adresse IP = $MYIP"
+sed -i "s/MYIP/$MYIP/g" /etc/frr/frr.conf
 
 systemctl restart frr
 
