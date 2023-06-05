@@ -38,7 +38,7 @@ sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 systemctl stop frr
 systemctl start frr
 
-chmod +x ./LabAsService/nodes/bgp-vtep/install.sh
-./LabAsService/nodes/bgp-vtep/install.sh
+chmod +x ./nodes/bgp-vtep/install.sh
+./nodes/bgp-vtep/install.sh
 
 #reboot
