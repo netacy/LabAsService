@@ -17,7 +17,9 @@ case $1 in
   srv-poe)
     ./nodes/srv-poe/install.sh
     ;;
-
+  eve)
+    ./nodes/eve/install.sh
+    ;;
 
   *)
     echo -n "Parmètre invalide"
