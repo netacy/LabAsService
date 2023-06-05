@@ -45,7 +45,7 @@ git clone https://www.github.com/netacy/LabAsService
 
 ```
 cd ./LabAsService
-./install.sh bgp-vtep2
+./install.sh bgp-rr
 ```
 Et c'est tout ! 
 Notez bien l'adresse IP de ce serveur bgp-rr (rr = route reflector), nous en aurons besoin pour la suite
