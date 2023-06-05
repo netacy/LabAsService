@@ -94,7 +94,7 @@ br1002          8000.c20468ef7534       no              eth1.1002
 
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
-* **Julien HOARAU** _alias_ [netacy](https://github.com/netacy)
+* **Julien HOARAU** 
 
 
 
