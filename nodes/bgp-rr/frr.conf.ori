@@ -4,7 +4,7 @@ hostname bgp-rr
 log syslog informational
 service integrated-vtysh-config
 !
-ip route NETID/CIDR NIC
+#ip route NETID/CIDR NIC
 !
 router bgp 65000
  bgp router-id MYIP

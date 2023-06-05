@@ -22,7 +22,8 @@ sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 
 
 # NIC 
-# MYIP
+MYIP=$(ip a | grep dyncamic | head -n 1| cut -d' ' -f6 | cut -d'/' -f1)
+ehco $MYIP
 # NETID 
 # CIDR
 
