@@ -43,5 +43,5 @@ do
 	echo "bridge_stp off"  >> /etc/network/interfaces
 
 	echo "#-----------------------------------------------"  >> /etc/network/interfaces
-# Création du pont associé
 done
+systemctl restart networking
