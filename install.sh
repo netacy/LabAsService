@@ -14,6 +14,9 @@ case $1 in
   bgp-rr)
     ./nodes/bgp-rr/install.sh
     ;;
+  srv-poe)
+    ./nodes/srv-poe/install.sh
+    ;;
 
 
   *)
