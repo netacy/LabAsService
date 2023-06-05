@@ -12,6 +12,8 @@
 # By default this script does nothing.
 
 modprobe iptable_nat
+modprobe br_netfilter
+
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
 # reduction du MSS pour éviter dle dépassement du MTU

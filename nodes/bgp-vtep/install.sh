@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Installation du noeud bgp-vtep"
-apt update && apt install curl sudo gnupg bridge-utils
+apt update && apt install curl sudo gnupg bridge-utils iptables ebtables
 # add GPG key
 curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
 
