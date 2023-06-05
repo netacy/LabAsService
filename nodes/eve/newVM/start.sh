@@ -31,8 +31,12 @@ mkdir /mnt/tmp
 diskFile=/opt/unetlab/addons/qemu/uap/virtioa.qcow2
 qemu-nbd -c /dev/nbd1 $diskFile
 
+sleep 2
 
 # Montage pour chroot
 mount -t auto  /dev/nbd1p1 /mnt/tmp
-chroot /mnt/tmp
+chroot /mnt/tmp  <<"EOT"
 echo "chroot!!!"
+ls -l
+EOT
+
