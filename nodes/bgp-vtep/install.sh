@@ -35,6 +35,8 @@ sed -i "s/NIC/$nic/g" /etc/frr/frr.conf
 sed -i "s/BGPRR/$rr/g" /etc/frr/frr.conf
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 
+sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"net.ifnames=0 biosdevname=0\"/g" /etc/default/grub
+
 systemctl stop frr
 systemctl start frr
 
