@@ -37,6 +37,11 @@ Installez également Debian 11 sur la machine bgp-vtep
 ### Installation 3/6 : srv-poe
 
 ### Installation 4/6: bgp-vtep
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
 
 Les étapes pour installer votre programme....
 
