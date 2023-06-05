@@ -1,0 +1,92 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+iface ens192 inet manual
+auto pnet_bridgeEth0
+iface pnet_bridgeEth0 inet manual
+    bridge_ports ens192
+    bridge_stp off
+#    post-up /opt/unetlab/scripts/rootIfUp.sh &
+
+
+iface ens224 inet manual
+auto pnet_vmnet0
+iface pnet_vmnet0 inet manual
+    bridge_ports ens224
+    bridge_stp off
+    post-up dhclient pnet_vmnet0 &
+
+
+# The primary network interface
+iface eth0 inet manual
+auto pnet0
+iface pnet0 inet static
+    address 10.108.140.210
+    netmask 255.255.0.0
+    gateway 10.108.255.254
+    dns-nameservers 10.100.100.20 10.100.100.21
+    pre-up ip link set dev eth0 up
+    bridge_ports eth0
+    bridge_stp off
+
+
+auto pnet_natnet
+iface pnet_natnet inet static
+    address 192.168.99.254
+    netmask 255.255.255.0
+    bridge_ports eth10
+    bridge_stp off
+
+
+auto vxlan900
+iface vxlan900 inet manual
+pre-up ip link add vxlan900 type vxlan id 900 dstport 0 nolearning
+
+
+auto pnet_IUT
+iface pnet_IUT inet manual
+bridge_ports vxlan900
+bridge_stp off
+
+
+iface ens162 inet manual
+auto pnet_vmnet7
+iface pnet_vmnet7 inet manual
+    bridge_ports ens162
+    bridge_stp off
+
+iface ens161 inet manual
+auto pnet_vmnet3
+iface pnet_vmnet3 inet manual
+    bridge_ports ens161
+    bridge_stp off
+
+iface ens193 inet manual
+auto pnet_vmnet4
+iface pnet_vmnet4 inet manual
+    bridge_ports ens193
+    bridge_stp off
+
+iface ens225 inet manual
+auto pnet_vmnet5
+iface pnet_vmnet5 inet manual
+    bridge_ports ens225
+    bridge_stp off
+
+iface ens257 inet manual
+auto pnet_vmnet6
+iface pnet_vmnet6 inet manual
+    bridge_ports ens257
+    bridge_stp off
+
+iface ens256 inet manual
+auto pnet_bridgeHome
+iface pnet_bridgeHome inet manual
+    post-up dhclient pnet_bridgeHome &
+    bridge_ports ens256
+    bridge_stp off
