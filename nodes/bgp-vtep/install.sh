@@ -38,4 +38,4 @@ sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 systemctl stop frr
 systemctl start frr
 
-reboot
+#reboot
