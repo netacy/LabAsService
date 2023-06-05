@@ -38,11 +38,14 @@ Installez également Debian 11 sur la machine bgp-vtep
 
 ### Installation 4/6: bgp-vtep
 ```
-function test() {
-  console.log("notice the blank line before this function?");
-}
+apt update
+apt install git
+git clone https://www.github.com/netacy/LabAsService
 ```
-
+```
+cd ./LabAsService
+./install.sh bgp-vtep
+```
 Les étapes pour installer votre programme....
 
 Dites ce qu'il faut faire...
