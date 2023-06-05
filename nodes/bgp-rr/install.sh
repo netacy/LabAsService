@@ -16,12 +16,16 @@ hostnamectl set-hostname bgp-rr
 
 # activation du process bgp
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
-cp ./nodes/bgp-rr/frr.conf.ori /etc/frr
-cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
+
+#cp ./nodes/bgp-rr/frr.conf.ori /etc/frr
+#cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
+
 
 # NIC 
 # MYIP
 # NETID 
 # CIDR
+
+systemctl restart frr
 
 #reboot
