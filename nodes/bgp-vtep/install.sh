@@ -33,6 +33,9 @@ echo
 sed -i "s/IPADDRESS/$IP/g" /etc/frr/frr.conf
 sed -i "s/NIC/$nic/g" /etc/frr/frr.conf
 sed -i "s/BGPRR/$rr/g" /etc/frr/frr.conf
+sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 
+systemctl stop frr
+systemctl start frr
 
-#reboot
+reboot
