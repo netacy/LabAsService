@@ -57,9 +57,7 @@ sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 EOT
 
 umount /mnt/tmp
-echo "zerofree..."
-zerofree -v /dev/nbd1p1
-
+#echo "zerofree..."
+#zerofree -v /dev/nbd1p1
 qemu-nbd -d /dev/nbd1
-#sleep 1
-#modprobe -r nbd
+
