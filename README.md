@@ -37,6 +37,7 @@ Installez également Debian 11 sur la machine bgp-vtep
 ### Installation 3/6 : srv-poe
 
 ### Installation 4/6: bgp-vtep
+Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
 ```
 apt update
 apt install git
@@ -46,14 +47,8 @@ git clone https://www.github.com/netacy/LabAsService
 cd ./LabAsService
 ./install.sh bgp-vtep
 ```
-Les étapes pour installer votre programme....
+Les interfaces réseaux vont être renomées, vérifez 
 
-Dites ce qu'il faut faire...
-
-_exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [...]
-
-
-Ensuite vous pouvez montrer ce que vous obtenez au final...
 
 ### Installation 5/6: eve
 
