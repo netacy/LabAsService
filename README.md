@@ -38,6 +38,8 @@ Installez également Debian 11 sur la machine bgp-vtep
 
 ### Installation 4/6: bgp-vtep
 Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
+
+Passez ensuite à l'installation des dépendances :
 ```
 apt update
 apt install git
@@ -47,8 +49,12 @@ git clone https://www.github.com/netacy/LabAsService
 cd ./LabAsService
 ./install.sh bgp-vtep
 ```
-Les interfaces réseaux vont être renomées, vérifez 
-
+Le nom d'hôte et les interfaces réseaux vont être renomées, attendez le redémarrage.
+Nous allons personnaliser votre configuration vxlan en fonction de vos besoins :
+```
+cd ./LabAsService
+./install.sh bgp-vtep2
+```
 
 ### Installation 5/6: eve
 
