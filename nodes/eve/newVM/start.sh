@@ -35,8 +35,17 @@ sleep 2
 
 # Montage pour chroot
 mount -t auto  /dev/nbd1p1 /mnt/tmp
+
+# Script à modifier ici
 chroot /mnt/tmp  <<"EOT"
 echo "chroot!!!"
 ls -l
 EOT
 
+umount /mnt/tmp
+echo "zerofree..."
+zerofree -v /dev/nbd1p1
+
+qemu-nbd -d /dev/nbd1
+#sleep 1
+#modprobe -r nbd
