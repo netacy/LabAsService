@@ -31,7 +31,7 @@ do
 	echo "iface $nic.$vni inet manual" >> /etc/network/interface
 	echo "pre-up ip link add link $nic $nic.$vni type vlan proto 802.1ad id $vni" >> /etc/network/interface
 	
-	echo >> /etc/network/interface
+	echo "" >> /etc/network/interface
 	echo "auto vxlan$vni" >> /etc/network/interface
 	echo "iface vxlan$vni inet manual" >> /etc/network/interface
 	echo "pre-up ip link add vxlan$vni type vxlan id $vni dstport 0 nolearning" >> /etc/network/interface
