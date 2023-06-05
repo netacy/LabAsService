@@ -17,5 +17,12 @@ hostnamectl set-hostname bgp-vtep
 sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"net.ifnames=0 biosdevname=0\"/g" /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
+cp ./nodes/bgp-vtep/rc.local.service /etc/systemd/system
+cp ./nodes/bgp-vtep/rc.local /etc/
+chmod +x /etc/rc.local
+
+systemctl enable rc-local
+
+
 
 reboot

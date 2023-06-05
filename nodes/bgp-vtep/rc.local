@@ -13,9 +13,6 @@
 
 modprobe iptable_nat
 echo 1 > /proc/sys/net/ipv4/ip_forward
-iptables -t nat -A POSTROUTING -o pnet0 -j MASQUERADE
-iptables -A FORWARD -i pnet1 -j ACCEPT
-iptables -I INPUT -p udp -i pnet0 --dport 67 -j DROP
 
 # reduction du MSS pour éviter dle dépassement du MTU
 iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN  -j TCPMSS --set-mss 1406
