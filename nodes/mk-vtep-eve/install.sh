@@ -17,13 +17,13 @@ cp -r /opt/unetlab/addons/qemu/linux-debian11 /opt/unetlab/addons/qemu/$imageNam
 newTemplate=/opt/unetlab/html/templates/intel/$imageName-vtep.yml
 cp /opt/unetlab/html/templates/intel/vtep.yml $newTemplate
 
-$eths=""
+eths=""
 for id in $(seq 1 $nb)
 do
     echo $id
     eths=$eths"- $id\r\n"
 done
-
+echo $eths
 sed -i "s/_description_/$description/g" $newTemplate
 sed -i "s/_name_/$imageName/g" $newTemplate
-sed -i "s/_eth_/$eth/g" $newTemplate
+sed -i "s/_eth_/$eths/g" $newTemplate
