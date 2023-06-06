@@ -21,8 +21,8 @@ cp ./nodes/eve-vtep/net.sh /root/
 cp ./nodes/eve-vtep/frr/frr.conf /etc/frr/
 chmod +x /root/net.sh
 
-cp ./nodes/bgp-vtep/rc.local.service /etc/systemd/system
-cp ./nodes/bgp-vtep/rc.local /etc/
+cp ./nodes/eve-vtep/rc.local.service /etc/systemd/system
+cp ./nodes/eve-vtep/rc.local /etc/
 chmod +x /etc/rc.local
 systemctl enable rc-local
 
