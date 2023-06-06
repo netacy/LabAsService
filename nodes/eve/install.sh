@@ -14,14 +14,13 @@ mydir=/opt/unetlab/addons/qemu/linux-debian11
 mkdir $mydir
 mv virtioa.qcow2  $mydir
 
-# Création d'un template vtep
-cp -r $mydir /opt/unetlab/addons/qemu/linux-uap
-
-
 
 # Réglages EVE-NG
 # Suppression des templates non disponibles
 cp ./nodes/eve/includes/config.php /opt/unetlab/html/includes
+cp ./nodes/eve/scripts/addtobridge.sh /opt/unetlab/scripts
+chmod +x /opt/unetlab/scripts
+cp ./nodes/eve/templates/vtep.yml /opt/unetlab/html/templates/intel
 
 modprobe nbd
 

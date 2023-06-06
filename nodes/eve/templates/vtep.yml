@@ -23,28 +23,19 @@
 # ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
----
 type: qemu
-description: Bridge B
-name: brxb
+description: _description_
+name: _name_
 cpulimit: 1
-icon: 0_UbiquitiNanobeamB.png
+icon: 0_UbiquitiNanobeamA.png
 cpu: 1
 ram: 512
 ethernet: 8
 eth_name:
-- br1b
-- br2b
-- br3b
-- br4b
-- br5b
-- br6b
-- br7b
-- br8b
+_eth_
 console: vnc
 shutdown: 1
 qemu_arch: x86_64
 qemu_nic: virtio-net-pci
-qemu_options: -machine type=pc,accel=kvm -k fr -vga std -usbdevice tablet -boot order=dc -device virtio-net-pci,netdev=myNet3 -netdev tap,id=myNet3,ifname=__base3,script=/opt/unetlab/scripts/addtobridge.sh -fsdev local,security_model=passthrough,id=fsdev0,path=/root -device virtio-9p-pci,id=fs0,fsdev=fsdev0,mount_tag=hostshare
+qemu_options: -machine type=pc,accel=kvm -k fr -vga std -usbdevice tablet -boot order=dc -device virtio-net-pci,netdev=myNet2 -netdev tap,id=myNet2,ifname=__base2,script=/opt/unetlab/scripts/addtobridge.sh -fsdev local,security_model=passthrough,id=fsdev0,path=/root -device virtio-9p-pci,id=fs0,fsdev=fsdev0,mount_tag=hostshare
 
-...
