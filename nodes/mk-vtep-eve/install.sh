@@ -14,7 +14,7 @@ cp -r /opt/unetlab/addons/qemu/linux-debian11 /opt/unetlab/addons/qemu/$imageNam
 
 
 # Création d'un template
-newTemplate=/opt/unetlab/html/templates/intel/$imageName-vtep.yml
+newTemplate=/opt/unetlab/html/templates/intel/$imageName.yml
 cp /opt/unetlab/html/templates/intel/vtep.yml $newTemplate
 
 eths=""
