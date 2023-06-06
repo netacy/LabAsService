@@ -20,8 +20,9 @@ if [ -f "$first" ]; then
 else
    # fin de parametrage   
    grub-mkconfig -o /boot/grub/grub.cfg
-   reboot
    touch $first
+   reboot
+   
 fi
 
 exit 0
