@@ -22,10 +22,11 @@ chmod +x /root/net.sh
 
 # activation du process bgp
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
+systemctl disable frr
 
 IP="monIP"
 RR="monRR"
 
 sed -i "s/_IP_/$IP/g" /etc/frr/frr.conf
-sed -i "s/_IP_/$RR/g" /etc/frr/frr.conf
+sed -i "s/_RR_/$RR/g" /etc/frr/frr.conf
 
