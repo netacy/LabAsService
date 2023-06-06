@@ -15,7 +15,7 @@ mkdir $mydir
 mv virtioa.qcow2  $mydir
 
 # Création d'un template vtep
-cp -r $mydir /opt/unetlab/addons/qemu/uap
+cp -r $mydir /opt/unetlab/addons/qemu/linux-uap
 
 
 
