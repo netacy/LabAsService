@@ -15,11 +15,16 @@ sudo apt update && sudo apt install -y frr frr-pythontools
 # Renommage des interfaces
 sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"net.ifnames=0 biosdevname=0\"/g" /etc/default/grub
 #sudo grub-mkconfig -o /boot/grub/grub.cfg
-sed -i "s/ro quiet/ro net.ifnames=0 biosdevname=0/g" /boot/grub/grub.cfg
+
 
 cp ./nodes/eve-vtep/net.sh /root/
 cp ./nodes/eve-vtep/frr/frr.conf /etc/frr/
 chmod +x /root/net.sh
+
+cp ./nodes/bgp-vtep/rc.local.service /etc/systemd/system
+cp ./nodes/bgp-vtep/rc.local /etc/
+chmod +x /etc/rc.local
+systemctl enable rc-local
 
 # activation du process bgp
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
