@@ -28,7 +28,7 @@ fi
 modprobe nbd
 mkdir /mnt/tmp
 
-diskFile=/opt/unetlab/addons/qemu/uap/virtioa.qcow2
+diskFile=/opt/unetlab/addons/qemu/linux-uap/virtioa.qcow2
 qemu-nbd -c /dev/nbd1 $diskFile
 
 sleep 2
