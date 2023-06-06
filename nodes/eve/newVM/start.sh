@@ -40,9 +40,9 @@ mount -t auto  /dev/nbd1p1 /mnt/tmp
 chroot /mnt/tmp  <<"EOT"
 echo "chroot!!!"
 apt update
-apt install git
+apt install git curl sudo gnupg bridge-utils 
 git clone https://github.com/netacy/LabAsService
-cd LabAsService
+cd ./LabAsService
 chmod +x ./install.sh
 ./install.sh eve-vtep
 EOT
