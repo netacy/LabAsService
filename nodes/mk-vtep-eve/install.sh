@@ -21,7 +21,7 @@ eths=""
 for id in $(seq 1 $nb)
 do
     echo $id
-    eths=$eths"- $id\r\n"
+    eths=$eths"- $imageName$id\r\n"
 done
 echo $eths
 sed -i "s/_description_/$description/g" $newTemplate
