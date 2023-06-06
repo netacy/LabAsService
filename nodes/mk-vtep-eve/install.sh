@@ -20,6 +20,7 @@ cp /opt/unetlab/html/templates/intel/vtep.yml $newTemplate
 $eths=""
 for id in $(seq 1 $nb)
 do
+    echo $id
     eths=$eths"- $id\r\n"
 done
 
