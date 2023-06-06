@@ -10,7 +10,7 @@ echo "Description - avec espace (ex: AP Cisco ): "
 read description
 
 # Copie de l'image
-cp /opt/unetlab/addons/qemu/linux-debian11 /opt/unetlab/addons/qemu/$imageName-vtep
+cp -r /opt/unetlab/addons/qemu/linux-debian11 /opt/unetlab/addons/qemu/$imageName-vtep
 
 
 # Création d'un template
