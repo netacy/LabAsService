@@ -40,7 +40,7 @@ mount -t auto  /dev/nbd1p1 /mnt/tmp
 chroot /mnt/tmp  <<"EOT"
 echo "chroot!!!"
 apt update
-apt install -y git curl sudo gnupg bridge-utils 
+apt install -y git curl sudo gnupg bridge-utils
 git clone https://github.com/netacy/LabAsService
 cd ./LabAsService
 chmod +x ./install.sh
