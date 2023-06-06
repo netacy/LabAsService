@@ -3,7 +3,7 @@
 echo "Identifiant du 1er vxlan (vni) : "
 read vni
 echo "Nombre de vni : "
-echo nb
+read nb
 echo "Nom de l'image - sans espace (ex: cisco-ap): "
 read imageName
 echo "Description - avec espace (ex: AP Cisco ): "
