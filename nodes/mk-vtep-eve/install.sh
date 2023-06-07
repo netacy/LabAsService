@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Identifiant du 1er vxlan (vni) : "
 read vni
