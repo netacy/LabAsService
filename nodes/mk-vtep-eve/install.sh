@@ -55,7 +55,7 @@ mkdir -p /mnt/tmp
 qemu-nbd -c /dev/nbd1 $diskFile
 
 sleep 2
-
+ 
 # Montage pour chroot
 mount -t auto  /dev/nbd1p1 /mnt/tmp
 
