@@ -37,5 +37,5 @@ console: vnc
 shutdown: 1
 qemu_arch: x86_64
 qemu_nic: virtio-net-pci
-qemu_options: -machine type=pc,accel=kvm -k fr -vga std -usbdevice tablet -boot order=dc -device virtio-net-pci,netdev=myNet2 -netdev tap,id=myNet2,ifname=__base2,script=/opt/unetlab/scripts/addtobridge.sh -fsdev local,security_model=passthrough,id=fsdev0,path=/root -device virtio-9p-pci,id=fs0,fsdev=fsdev0,mount_tag=hostshare
+qemu_options: -machine type=pc,accel=kvm -k fr -vga std -usbdevice tablet -boot order=dc -device virtio-net-pci,netdev=vtep_xxxx_,mac=50:22:00:04:00:07 -netdev tap,id=vtep_xxxx_,ifname=_vtep_xxxx_,script=no
 

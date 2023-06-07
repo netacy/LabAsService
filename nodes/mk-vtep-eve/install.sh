@@ -27,3 +27,4 @@ echo $eths
 sed -i "s/_description_/$description/g" $newTemplate
 sed -i "s/_name_/$imageName/g" $newTemplate
 sed -i "s/_eth_/$eths/g" $newTemplate
+sed -i "s/_xxxx_/_$RANDOM_/g" $newTemplate
