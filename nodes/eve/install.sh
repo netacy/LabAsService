@@ -26,7 +26,7 @@ chmod +x /etc/rc.local
 
 
 cp ./nodes/eve/scripts/addtobridge.sh /opt/unetlab/scripts
-chmod +x /opt/unetlab/scripts
+chmod +x /opt/unetlab/scripts/addtobridge.sh
 cp ./nodes/eve/templates/vtep.yml /opt/unetlab/html/templates/intel
 
 systemctl enable rc-local.service
