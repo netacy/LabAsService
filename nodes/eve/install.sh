@@ -32,8 +32,8 @@ cp ./nodes/eve/templates/vtep.yml /opt/unetlab/html/templates/intel
 systemctl enable rc-local.service
 systemctl start rc-local.service
 
-apt update
 apt install -y isc-dhcp-server
+
 cp ./nodes/eve/dhcp/dhcpd.conf /etc/dhcp
 echo "INTERFACES=\"pnet99\"" > /etc/default/isc-dhcp-server 
 systemctl enable isc-dhcp-server 
