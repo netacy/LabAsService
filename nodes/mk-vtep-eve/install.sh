@@ -59,7 +59,9 @@ sleep 2
 # Montage pour chroot
 mount -t auto  /dev/nbd1p1 /mnt/tmp
 
-cmds=$(cat << EOF
+
+# Script à modifier ici
+chroot /mnt/tmp  <<"EOT"
 echo "chroot!!!"
 apt update
 apt install -y git curl sudo gnupg bridge-utils
@@ -69,12 +71,6 @@ chmod +x ./install.sh
 ./install.sh eve-vtep
 cat $vni > /root/conf
 cat $nb >> /root/conf
-EOF
-)
-
-# Script à modifier ici
-chroot /mnt/tmp  <<"EOT"
-$cmds
 EOT
 
 umount /mnt/tmp
