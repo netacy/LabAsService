@@ -10,7 +10,7 @@ echo "Description - avec espace (ex: AP Cisco ): "
 read description
 
 # Copie de l'image
-cp -r /opt/unetlab/addons/qemu/linux-debian11 /opt/unetlab/addons/qemu/$imageName-vtep
+# cp -r /opt/unetlab/addons/qemu/linux-debian11 /opt/unetlab/addons/qemu/$imageName-vtep
 
 
 # Création d'un template
@@ -29,3 +29,50 @@ sed -i "s/_name_/$imageName/g" $newTemplate
 sed -i "s/_eth_/$eths/g" $newTemplate
 myrand=$RANDOM
 sed -i "s/_xxxx_/_$myrand\_/g" $newTemplate
+
+# Création de l'image
+newImage=/opt/unetlab/addons/qemu/$imageName-vtep
+diskFile=$newImage/virtioa.qcow2
+cp -r /opt/unetlab/addons/qemu/linux-debian11 $newImage
+
+
+# le périphérique nbd doit être libéré au préalable
+echo "Check /dev/nbd1"
+nbd1=$(($(lsblk | grep nbd1 | head -n 1 | wc -l)))
+if [ "$nbd1" -eq 0 ]; then
+        echo "[ok]"
+else
+        echo "[nok] : Le périphérique /dev/nbd1 n'est pas libre"
+        exit
+fi
+
+################################################################
+#
+################################################################
+
+modprobe nbd
+mkdir -p /mnt/tmp
+qemu-nbd -c /dev/nbd1 $diskFile
+
+sleep 2
+
+# Montage pour chroot
+mount -t auto  /dev/nbd1p1 /mnt/tmp
+
+# Script à modifier ici
+chroot /mnt/tmp  <<"EOT"
+echo "chroot!!!"
+apt update
+apt install -y git curl sudo gnupg bridge-utils
+git clone https://github.com/netacy/LabAsService
+cd ./LabAsService
+chmod +x ./install.sh 
+./install.sh eve-vtep
+EOT
+
+umount /mnt/tmp
+#echo "zerofree..."
+#zerofree -v /dev/nbd1p1
+qemu-nbd -d /dev/nbd1
+
+
