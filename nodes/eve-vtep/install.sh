@@ -12,10 +12,6 @@ echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) $FRRVER | sudo tee -
 # update and install FRR
 sudo apt update && sudo apt install -y frr frr-pythontools
 
-# Renommage des interfaces
-sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"net.ifnames=0 biosdevname=0\"/g" /etc/default/grub
-#sudo grub-mkconfig -o /boot/grub/grub.cfg
-
 
 cp ./nodes/eve-vtep/net.sh /root/
 cp ./nodes/eve-vtep/frr/frr.conf /etc/frr/

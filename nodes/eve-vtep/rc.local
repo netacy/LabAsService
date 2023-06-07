@@ -11,18 +11,8 @@
 #
 # By default this script does nothing.
 
-first="/var/.first"
+# Configuration des interface réseau
+/root/net.sh
 
-if [ -f "$first" ]; then
-   # Configuration des interface réseau
-   /root/net.sh
-
-else
-   # fin de parametrage   
-   grub-mkconfig -o /boot/grub/grub.cfg
-   touch $first
-   reboot
-   
-fi
 
 exit 0

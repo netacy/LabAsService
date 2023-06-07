@@ -3,6 +3,13 @@
 
 first=$(cat conf | head -n 1)
 nb=$(cat conf | tail -n 1)
+
+nics=$(ls /sys/class/net/ | grep en | sort -t s -k 2 --numeric-sort)
+#Convert to array
+nics=($nics)
+
+${nics[$nicId]}
+#
 echo "---------------------------------------------"
 
 last=$(($first+$nb-1))
@@ -11,10 +18,13 @@ for vni in $(seq $first $last)
 do
 
 	ip link add vxlan$vni type vxlan id $vni dstport 0 nolearning
-      	ip link set up eth$nicId
+      	#ip link set up eth$nicId
+		ip link set up ${nics[$nicId]}
 
         brctl addbr br$nicId
-        brctl addif br$nicId eth$nicId vxlan$vni
+        #brctl addif br$nicId eth$nicId vxlan$vni
+		brctl addif br$nicId ${nics[$nicId]} vxlan$vni
+		
       	ip link set up br$nicId
 	ip link set up vxlan$vni
 
@@ -29,6 +39,6 @@ mac=00:60:2F$end
 
 echo $mac
 ip link set dev eth$nicId address $mac
-ip link set up eth$nicId
+ip link set up ${nics[$nicId]}
 
-dhclient eth$nicId
+dhclient ${nics[$nicId]}
