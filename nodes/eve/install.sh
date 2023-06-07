@@ -21,8 +21,8 @@ cp ./nodes/eve/includes/config.php /opt/unetlab/html/includes
 cp ./nodes/eve/rc.local /etc
 cp ./nodes/eve/rc.local.service /etc/systemd/system
 chmod +x /etc/rc.local
-systemctl enable rc-local
-
+systemctl enable rc-local.service
+systemctl start rc-local.service
 
 
 
