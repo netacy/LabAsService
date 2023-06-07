@@ -8,7 +8,6 @@ nics=$(ls /sys/class/net/ | grep en | sort -t s -k 2 --numeric-sort)
 #Convert to array
 nics=($nics)
 
-${nics[$nicId]}
 #
 echo "---------------------------------------------"
 
@@ -37,7 +36,6 @@ hexchars="0123456789ABCDEF"
 end=$( for i in {1..6} ; do echo -n ${hexchars:$(( $RANDOM % 16 )):1} ; done | sed -e 's/\(..\)/:\1/g' )
 mac=00:60:2F$end
 
-echo $mac
 ip link set dev ${nics[$nicId]} address $mac
 ip link set up ${nics[$nicId]}
 
