@@ -11,6 +11,7 @@
 #
 # By default this script does nothing.
 
+/opt/unetlab/scripts/addtobridge.sh&
 
 
 exit 0
