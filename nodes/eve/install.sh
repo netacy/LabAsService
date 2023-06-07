@@ -33,10 +33,11 @@ systemctl enable rc-local.service
 systemctl start rc-local.service
 
 apt update
-apt install isc-dhcp-server
+apt install -y isc-dhcp-server
 cp ./nodes/eve/dhcp/dhcpd.conf /etc/dhcp
 echo "INTERFACES=\"pnet99\"" > /etc/default/isc-dhcp-server 
-systemctl restart isc-dhcp-server 
+systemctl enable isc-dhcp-server 
+systemctl start isc-dhcp-server 
 
 cat ./nodes/eve/interfaces >> /etc/network/interfaces
 systemctl restart networking
