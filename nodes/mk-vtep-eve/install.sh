@@ -6,7 +6,7 @@ echo "Nombre de vni : "
 read nb
 echo "Nom de l'image - sans espace (ex: cisco-ap): "
 read imageName
-echo "Description - avec espace (ex: AP Cisco ): "
+echo "Description = Nom du noeud dans l'interface web - espace tolérés (ex: AP Cisco ): "
 read description
 
 # Copie de l'image
