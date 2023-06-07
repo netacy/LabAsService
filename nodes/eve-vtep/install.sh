@@ -1,6 +1,7 @@
 #!/bin/sh
 echo "Installation de eve-vtep"
   
+apt install -y curl sudo
 # add GPG key
 curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
 
