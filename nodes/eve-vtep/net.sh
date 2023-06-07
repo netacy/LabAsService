@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 first=$(cat conf | head -n 1)
 nb=$(cat conf | tail -n 1)

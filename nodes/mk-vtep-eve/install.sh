@@ -23,7 +23,8 @@ do
     echo $id
     eths=$eths"- $imageName$id\r\n"
 done
-echo $eths
+
+
 sed -i "s/_description_/$description/g" $newTemplate
 sed -i "s/_name_/$imageName/g" $newTemplate
 sed -i "s/_eth_/$eths/g" $newTemplate
