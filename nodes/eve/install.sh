@@ -11,7 +11,7 @@ wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download
 
 # Création d'une image Linux debian 11
 mydir=/opt/unetlab/addons/qemu/linux-debian11
-mkdir $mydir
+mkdir -p $mydir
 mv virtioa.qcow2  $mydir
 
 
