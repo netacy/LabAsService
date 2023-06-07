@@ -18,6 +18,14 @@ mv virtioa.qcow2  $mydir
 # Réglages EVE-NG
 # Suppression des templates non disponibles
 cp ./nodes/eve/includes/config.php /opt/unetlab/html/includes
+cp ./nodes/eve/rc.local /etc
+cp ./nodes/eve/rc.local.service /etc/systemd/system
+chmod +x /etc/rc.local
+systemctl enable rc-local
+
+
+
+
 cp ./nodes/eve/scripts/addtobridge.sh /opt/unetlab/scripts
 chmod +x /opt/unetlab/scripts
 cp ./nodes/eve/templates/vtep.yml /opt/unetlab/html/templates/intel
