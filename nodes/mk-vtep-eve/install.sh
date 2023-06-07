@@ -59,7 +59,7 @@ sleep 2
 # Montage pour chroot
 mount -t auto  /dev/nbd1p1 /mnt/tmp
 
-cmds=$(cat EOF
+cmds=$(cat << EOF
 echo "chroot!!!"
 apt update
 apt install -y git curl sudo gnupg bridge-utils
