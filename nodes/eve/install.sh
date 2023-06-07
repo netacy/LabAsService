@@ -32,6 +32,9 @@ cp ./nodes/eve/templates/vtep.yml /opt/unetlab/html/templates/intel
 systemctl enable rc-local.service
 systemctl start rc-local.service
 
+cat ./nodes/eve/interfaces >> /etc/network/interfaces
+systemctl restart networking
+
 modprobe nbd
 
 #reboot
