@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 first=$(cat conf | head -n 1)

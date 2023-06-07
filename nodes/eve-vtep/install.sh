@@ -19,6 +19,7 @@ cp ./nodes/eve-vtep/frr/frr.conf /etc/frr/
 chmod +x /root/net.sh
 
 cp ./nodes/eve-vtep/rc.local.service /etc/systemd/system
+ln -s /etc/systemd/system/rc.local.service  /etc/systemd/system/multi-user.target.wants/rc.local.service
 cp ./nodes/eve-vtep/rc.local /etc/
 chmod +x /etc/rc.local
 systemctl enable rc-local
