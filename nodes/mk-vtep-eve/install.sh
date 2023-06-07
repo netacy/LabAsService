@@ -59,17 +59,22 @@ sleep 2
 # Montage pour chroot
 mount -t auto  /dev/nbd1p1 /mnt/tmp
 
-# Script à modifier ici
-chroot /mnt/tmp  <<"EOT"
+cmds=$(cat EOF
 echo "chroot!!!"
-cat $vni > /root/conf
-cat $nb >> /root/conf
 apt update
 apt install -y git curl sudo gnupg bridge-utils
 git clone https://github.com/netacy/LabAsService
 cd ./LabAsService
 chmod +x ./install.sh 
 ./install.sh eve-vtep
+cat $vni > /root/conf
+cat $nb >> /root/conf
+EOF
+)
+
+# Script à modifier ici
+chroot /mnt/tmp  <<"EOT"
+$cmds
 EOT
 
 umount /mnt/tmp
