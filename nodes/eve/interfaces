@@ -1,5 +1,5 @@
-auto pnet_natnet
-iface pnet_natnet inet static
+auto pnet99
+iface pnet99 inet static
     address 192.168.99.254
     netmask 255.255.255.0
     bridge_ports eth10

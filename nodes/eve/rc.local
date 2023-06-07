@@ -11,6 +11,12 @@
 #
 # By default this script does nothing.
 
+modprobe iptable_nat
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o pnet0 -j MASQUERADE
+iptables -A FORWARD -i pnet99 -j ACCEPT
+
+
 /opt/unetlab/scripts/addtobridge.sh&
 
 
