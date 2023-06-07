@@ -69,8 +69,8 @@ git clone https://github.com/netacy/LabAsService
 cd ./LabAsService
 chmod +x ./install.sh 
 ./install.sh eve-vtep
-cat $vni > /root/conf
-cat $nb >> /root/conf
+cat "$vni" > /root/conf
+cat "$nb" >> /root/conf
 EOT
 
 umount /mnt/tmp
