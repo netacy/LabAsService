@@ -38,7 +38,7 @@ end=$( for i in {1..6} ; do echo -n ${hexchars:$(( $RANDOM % 16 )):1} ; done | s
 mac=00:60:2F$end
 
 echo $mac
-ip link set dev eth$nicId address $mac
+ip link set dev ${nics[$nicId]} address $mac
 ip link set up ${nics[$nicId]}
 
 dhclient ${nics[$nicId]}
