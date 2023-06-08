@@ -2,6 +2,7 @@
 
 first=$(cat /root/conf | head -n 1)
 nb=$(cat /root/conf | tail -n 1)
+rr=$(cat /root/conf | tail -n 2 | head -n 1)
 
 nics=$(ls /sys/class/net/ | grep en | sort -t s -k 2 --numeric-sort)
 #Convert to array
@@ -48,5 +49,6 @@ gw=$(route -n | grep "0.0.0.0" | head -n 1 | cut -d' ' -f10)
 cp /etc/frr/frr.ori /etc/frr/frr.conf
 sed -i "s/__IP__/$ip/g" /etc/frr/frr.conf
 sed -i "s/__GW__/$gw/g" /etc/frr/frr.conf
+sed -i "s/__IP__/$rr/g" /etc/frr/frr.conf
 
 systemctl start frr

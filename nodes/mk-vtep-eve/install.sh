@@ -8,6 +8,8 @@ echo "Nom de l'image - sans espace (ex: cisco-ap): "
 read imageName
 echo "Description = Nom du noeud dans l'interface web - espace tolérés (ex: AP Cisco ): "
 read description
+echo "Adresse IP du reflecteur de route : "
+read rr
 
 # Copie de l'image
 # cp -r /opt/unetlab/addons/qemu/linux-debian11 /opt/unetlab/addons/qemu/$imageName-vtep
@@ -69,7 +71,9 @@ cd ./LabAsService \n
 chmod +x ./install.sh \n 
 ./install.sh eve-vtep \n
 echo $vni > /root/conf \n
+echo $rr >> /root/conf \n
 echo $nb >> /root/conf \n
+
 "
 
 # echo -e $commands > /tmp/script

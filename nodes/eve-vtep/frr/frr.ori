@@ -6,8 +6,8 @@ no ip forwarding
 no ipv6 forwarding
 service integrated-vtysh-config
 !
-ip route 10.108.143.51 255.255.255.255 __GW__
-ip route 10.108.143.50 255.255.255.255 __GW__
+ip route __RR__ 255.255.255.255 __GW__
+
 
 !
 router bgp 65000
@@ -16,8 +16,8 @@ router bgp 65000
  neighbor fabric peer-group
  neighbor fabric remote-as 65000
  neighbor fabric capability extended-nexthop
- neighbor 10.108.143.51 peer-group fabric
- neighbor 10.108.143.51 ttl-security hops 50
+ neighbor __RR__ peer-group fabric
+ neighbor __RR__ ttl-security hops 50
 
 
  !
