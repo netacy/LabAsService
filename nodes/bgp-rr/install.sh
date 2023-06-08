@@ -1,5 +1,5 @@
 #!/bin/sh
-
+ 
 echo "Installation du noeud bgp-vtep"
 apt update && apt install curl sudo gnupg bridge-utils
 # add GPG key
