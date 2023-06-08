@@ -19,7 +19,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 * [adaptateur USB3 -> ethernet]() - mettre la référence
 
 * [PC générique] pour la machine bgp-vtep
-
+ 
 ### Pré-requis
 
 Il convient tout d'abord câbler l'infrastrucure globale :
