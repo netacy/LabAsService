@@ -2,7 +2,7 @@
 
 echo "Le premier numéro de VLAN (ou VNI) : "
 read vni
-echo "Nombre de vni : "
+echo "Nombre d'équipements : "
 read nb
 echo "Nom de l'image - sans espace (ex: cisco-ap): "
 read imageName
