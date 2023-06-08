@@ -57,7 +57,6 @@ Remarques :
 - on retrouvera sur le lien trunk des trames doublement taguées 802.1ad
 - les ports impairs sont utilisé pour connecter les APs : On activrea (ou pas) le POE sur ces ports
 - les ports pairs ne sont pas connecté et sont réservé pour pouvoir connecter les APs dans des infrascrtutures physiques. Pas de POE sur ces ports.
-- Le switch sw-wifi doit avoir une adresse IP d'administration est doit être accessible par srv-poe pour le pilotage on/off des ports POE. Le lien permettant l'administration de ce switch n'est pas représenté sur le schéma précédent.
  
 Un exemple de configuration est disponible ici (TODO). Il conviendra d'adapter l'adresse IP de management et les identifiants de connexion SNMP et les personnalisant un peu ces valeurs...
 
