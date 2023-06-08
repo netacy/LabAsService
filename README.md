@@ -27,8 +27,6 @@ Il convient tout d'abord câbler l'infrastrucure globale :
 - Les points d'accès wifi
 - le serveur bgp-vtep 
  
-En ce qui concerne les point d'accès il convient de câbler par série. Préciser ici TODO
-
 ![Topologie Wifi](img/TopoWifi.png)
 
 Dans votre datacenter préféré vous pouvez provisionner les machines :
