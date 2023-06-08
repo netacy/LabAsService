@@ -163,7 +163,7 @@ On rappelle que le VTEP (VXLAN Tunnel End Point) permettra, depuis une topologie
 
 1. Le premier numéro de VLAN (ou VNI) : 1000
 2. Nombre d'équipements : 8
-3. Nom de l'image - sans espace : vtepUbiquiti
+3. Nom de l'image - sans espace : ubiquitiAP
 4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Ubiquiti
 5. Adresse IP du reflecteur de route : 10.108.143.51, (étape 2/6)
 
@@ -171,7 +171,7 @@ Cette étape est à répéter pour ajouter un deuxième modèle de noeud type Ci
 
 1. Le premier numéro de VLAN (ou VNI) : 1008
 2. Nombre d'équipements : 8
-3. Nom de l'image - sans espace : vtepCisco
+3. Nom de l'image - sans espace : ciscoAP
 4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Cisco
 5. Adresse IP du reflecteur de route : 10.108.143.51, (étape 2/6)
 
@@ -179,7 +179,9 @@ Cette étape est à répéter pour ajouter un deuxième modèle de noeud type Ci
 
 **Vérification**
 
-Dans un lab EVE-NG ajouter un noeud de type "Point d'accès Cisco" non relié 
+Dans un lab EVE-NG ajouter un noeud de type "Point d'accès Cisco" non connecté.
+Une fois démarré (root/Linux) vous devrier pouvoir envoyer des ping vers Internet ou des cibles de votre infrastructure. 
+
 
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
