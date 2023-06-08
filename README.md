@@ -87,7 +87,7 @@ cd ./LabAsService
 ./install.sh srv-poe
 ```
 Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
-Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équiepements que vous déployez rééllement.
+Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
 
 ### Installation 4/6: bgp-vtep
 Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
@@ -102,7 +102,7 @@ git clone https://www.github.com/netacy/LabAsService
 cd ./LabAsService
 ./install.sh bgp-vtep
 ```
-Le nom d'hôte et les interfaces réseaux vont être renomées, attendez le redémarrage.
+Le nom d'hôte et les interfaces réseaux vont être renommées, attendez le redémarrage.
 Nous allons personnaliser votre configuration vxlan en fonction de vos besoins :
 ```
 cd ./LabAsService
