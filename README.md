@@ -41,6 +41,11 @@ Attribuez une adresse IP fixe à chacune des machines et assurez vous qu'elles a
 
 - La machine bgp-vtep doit être déployée à proximité géographique de sw-wifi. Vous pouvez installer Debian 11 directement dessus ou dans une VM. Si vous avez décidé d'utiliser une VM pour cette machine, assurez vous d'avoir un contrôleur USB3 dans les paramètres de virtualisation, et de connecter l'adaptateur USB/Ethernet dans la VM et non dans l'hôte.
 
+### Trafic à autoriser 
+- srv-poe <-> sw-wifi  = UDP port 161 (SNMP)
+- bgp-vtep <-> srv-eve = UDP port 4789 (flux data vxlan)
+- bgp-vtep <-> bgp-rr  = TCP 179 (route BGP)
+
 ### Installation 1/6 : sw-wifi
 Comment évoqué, nous allons déployer 8 points d'accès (AP) Cisco et 8 AP Ubiquiti. Nous proposons la disposition suivante :
 
@@ -52,10 +57,28 @@ Remarques :
 - on retrouvera sur le lien trunk des trames doublement taguées 802.1ad
 - les ports impairs sont utilisé pour connecter les APs : On activrea (ou pas) le POE sur ces ports
 - les ports pairs ne sont pas connecté et sont réservé pour pouvoir connecter les APs dans des infrascrtutures physiques. Pas de POE sur ces ports.
-
+- Le switch sw-wifi doit avoir une adresse IP d'administration est doit être accessible par srv-poe pour le pilotage on/off des ports POE. Le lien permettant l'administration de ce switch n'est pas représenté sur le schéma précédent.
+ 
 Un exemple de configuration est disponible ici (TODO). Il conviendra d'adapter l'adresse IP de management et les identifiants de connexion SNMP et les personnalisant un peu ces valeurs...
 
-### Installation 2/6 : bgp-rr
+### Installation 2/6 : srv-poe
+Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
+
+Passez ensuite à l'installation des dépendances :
+```
+apt update
+apt install git
+git clone https://www.github.com/netacy/LabAsService
+```
+
+```
+cd ./LabAsService
+./install.sh srv-poe
+```
+Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
+Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
+
+### Installation 3/6 : bgp-rr
 Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
 
 Passez ensuite à l'installation des dépendances :
@@ -72,24 +95,6 @@ cd ./LabAsService
 
 Notez bien l'adresse IP de ce serveur bgp-rr (rr = route reflector), nous en aurons besoin pour la suite.
 Dans notre cas @IP RR = 10.108.143.51
-
-
-### Installation 3/6 : srv-poe
-Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
-
-Passez ensuite à l'installation des dépendances :
-```
-apt update
-apt install git
-git clone https://www.github.com/netacy/LabAsService
-```
-
-```
-cd ./LabAsService
-./install.sh srv-poe
-```
-Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
-Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
 
 ### Installation 4/6: bgp-vtep
 Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
