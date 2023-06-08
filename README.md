@@ -25,6 +25,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 L'infrastructure globale est la suivante : 
 
 ![Topologie Wifi](img/TopoWifi.png)
+
 On va donc se préocuper de tout ce petit monde, soit au minimum :
 - 3 VMs
 - 1 machine physique : bgp-vtep
