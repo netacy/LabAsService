@@ -25,19 +25,29 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 L'infrastructure globale est la suivante : 
 
 ![Topologie Wifi](img/TopoWifi.png)
+On va donc se préocuper de tout ce petit monde, soit au minimum :
+- 3 VMs
+- 1 machine physique : bgp-vtep
+- 1 switch : sw-wifi
+- 16 AP wifi : 8 Cisco et 8 Ubiquiti
 
-Dans votre hyperviseur préféré vous pouvez provisionner les machines :
+Dans votre hyperviseur préféré vous pouvez provisionner les 3 machines :
 - srv-poe en (Debian 11)
 - bgp-rr en (Debian 11)
-- eve-ng (5.0.1-19-Community)
+- srv-eve-1 (5.0.1-19-Community) : Le machines EVE peuvent également être excetutées avec VMWare Workstation sur les postes des étudiants. 
 
-Attribuez une adresse IP fixe à chaque machine et assurez vous qu'elle accès bien à Internet et que les résolution de noms se font correctement.
+Attribuez une adresse IP fixe à chacune des machines et assurez vous qu'elles accèdent bien à Internet.
 
 - La machine bgp-vtep doit être déployée à proximité géographique de sw-wifi. Vous pouvez installer Debian 11 directement dessus ou dans une VM.
 
 ### Installation 1/6 : sw-wifi
 En guise d'exemple nous allons déployer 8 points d'accès (AP) Cisco et 8 AP Ubiquiti :
 ![Topologie Wifi](img/InfraSW.png)
+
+Remarques :
+- chaque access point (AP) est cloisonné dans un vlan client,
+- un point d'accès pourra faire transiter sur son lien filaire des trames 802.1q 
+- on retrouvera sur le lien trunk des trames doublement taguées 802.1ad
 
 ### Installation 2/6 : bgp-rr
 Commencez par configurer l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
