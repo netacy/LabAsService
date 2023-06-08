@@ -61,16 +61,16 @@ sleep 2
 mount -t auto  /dev/nbd1p1 /mnt/tmp
 
 
-commands="echo chroot!!! \n
+commands='echo chroot!!! \n
 apt update \n
 apt install -y git curl sudo gnupg bridge-utils \n
 git clone https://github.com/netacy/LabAsService \n
 cd ./LabAsService \n
 chmod +x ./install.sh \n 
 ./install.sh eve-vtep \n
-echo $vni > /root/conf \n
-echo $nb >> /root/conf \n
-"
+echo "$vni" > /root/conf \n
+echo "$nb" >> /root/conf \n
+'
 
 # echo -e $commands > /tmp/script
 #chmod +x /tmp/script
