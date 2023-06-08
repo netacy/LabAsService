@@ -23,6 +23,7 @@ ln -s /etc/systemd/system/rc.local.service  /etc/systemd/system/multi-user.targe
 cp ./nodes/eve-vtep/rc.local /etc/
 chmod +x /etc/rc.local
 systemctl enable rc-local
+systemctl disable frr
 
 # activation du process bgp
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
