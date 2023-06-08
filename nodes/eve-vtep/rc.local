@@ -12,7 +12,7 @@
 # By default this script does nothing.
 
 # Configuration des interface réseau
-/root/net.sh
+/root/net.sh &
 
 
 exit 0
