@@ -1,7 +1,7 @@
 #!/bin/bash
 
-first=$(cat conf | head -n 1)
-nb=$(cat conf | tail -n 1)
+first=$(cat /root/conf | head -n 1)
+nb=$(cat /root/conf | tail -n 1)
 
 nics=$(ls /sys/class/net/ | grep en | sort -t s -k 2 --numeric-sort)
 #Convert to array
