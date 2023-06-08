@@ -39,16 +39,19 @@ Dans votre hyperviseur préféré vous pouvez provisionner les 3 machines :
 
 Attribuez une adresse IP fixe à chacune des machines et assurez vous qu'elles accèdent bien à Internet.
 
-- La machine bgp-vtep doit être déployée à proximité géographique de sw-wifi. Vous pouvez installer Debian 11 directement dessus ou dans une VM.
+- La machine bgp-vtep doit être déployée à proximité géographique de sw-wifi. Vous pouvez installer Debian 11 directement dessus ou dans une VM. Si vous avez décidé d'utiliser une VM pour cette machine, assurez vous d'avoir un contrôleur USB3 dans les paramètres de virtualisation, et de connecter l'adaptateur USB/Ethernet dans la VM et non dans l'hôte.
 
 ### Installation 1/6 : sw-wifi
-En guise d'exemple nous allons déployer 8 points d'accès (AP) Cisco et 8 AP Ubiquiti :
+Comment évoqué, nous allons déployer 8 points d'accès (AP) Cisco et 8 AP Ubiquiti. Nous proposons la disposition suivante :
+
 ![Topologie Wifi](img/InfraSW.png)
 
 Remarques :
 - chaque access point (AP) est cloisonné dans un vlan client,
 - un point d'accès pourra faire transiter sur son lien filaire des trames 802.1q 
 - on retrouvera sur le lien trunk des trames doublement taguées 802.1ad
+- les ports impairs sont utilisé pour connecter les APs : On activrea (ou pas) le POE sur ces ports
+- les ports pairs ne sont pas connecté et sont réservé pour pouvoir connecter les APs dans des infrascrtutures physiques. Pas de POE sur ces ports.
 
 ### Installation 2/6 : bgp-rr
 Commencez par configurer l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
