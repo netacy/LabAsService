@@ -53,6 +53,8 @@ Remarques :
 - les ports impairs sont utilisé pour connecter les APs : On activrea (ou pas) le POE sur ces ports
 - les ports pairs ne sont pas connecté et sont réservé pour pouvoir connecter les APs dans des infrascrtutures physiques. Pas de POE sur ces ports.
 
+Un exemple de conviguration est disponible ici (TODO). Il conviendra d'adapter l'adresse IP de management et les identifiants de connexion SNMP et les peronnalisant un peu...
+
 ### Installation 2/6 : bgp-rr
 Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
 
@@ -88,6 +90,13 @@ cd ./LabAsService
 ```
 Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
 Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
+
+Editez le fichier ``/var/www/hmtl/configMonSW.php`` pour préciser l'adresse IP de management de sw-wifi, les identifiants de connexion SNMP, et le réseau depuis lequel le portail web sera accessible :
+
+- $HOSTS
+- $USER = "_USER_";
+- $PASSWORD = "_PASSWORD_";
+- $ALLOWED_NET="_NETALLOWED_";
 
 ### Installation 4/6: bgp-vtep
 Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
