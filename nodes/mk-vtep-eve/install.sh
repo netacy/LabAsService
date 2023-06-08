@@ -61,7 +61,7 @@ sleep 2
 mount -t auto  /dev/nbd1p1 /mnt/tmp
 
 
-commands="echo chroot!!!
+commands="echo chroot!!! \n
 apt update \n
 apt install -y git curl sudo gnupg bridge-utils \n
 git clone https://github.com/netacy/LabAsService \n
