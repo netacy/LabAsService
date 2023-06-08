@@ -49,6 +49,6 @@ gw=$(ip route | grep default | cut -d' ' -f3)
 cp /etc/frr/frr.ori /etc/frr/frr.conf
 sed -i "s/__IP__/$ip/g" /etc/frr/frr.conf
 sed -i "s/__GW__/$gw/g" /etc/frr/frr.conf
-sed -i "s/__IP__/$rr/g" /etc/frr/frr.conf
+sed -i "s/__RR__/$rr/g" /etc/frr/frr.conf
 
 systemctl start frr
