@@ -24,6 +24,8 @@ Il convient tout d'abord câbler l'infrastrucure globale :
 - Les points d'accès wifi
 - le serveur bgp-vtep 
 
+En ce qui concerne les point d'accès il convient de câbler par série. Préciser ici TODO
+
 ![Topologie Wifi](img/TopoWifi.png)
 
 Dans votre datacenter préféré vous pouvez provisionner les machines :
@@ -114,6 +116,29 @@ Toujours depuis une session root dans la machine EVE-NG :
 cd ./LabAsService
 ./install.sh mk-vtep-eve
 ```
+
+On rappelle que le VTEP (VXLAN Tunnel End Point) permettra, depuis une topologie EVE, d'accèder aux vlans du switch sw-wifi.
+Admettons que vous avez 8 points d'accès Cisco cloisonés dans les vlans 1001 à 1008 :
+
+
+echo "Identifiant du 1er vxlan (vni) : "
+echo "Nombre de vni : "
+echo "Nom de l'image - sans espace (ex: cisco-ap): "
+echo "Description = Nom du noeud dans l'interface web - espace tolérés (ex: AP Cisco ): "
+echo "Adresse IP du reflecteur de route : "
+
+
+
+5 paramètres seront demandés dans le processus d'installation :
+
+1. Le premier numéro de VLAN (ou VNI) : 1001
+2. Nombre d'équipements : 8
+3. Nom de l'image - sans espace : vtepCisco
+4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Cisco 9100
+5. Adresse IP du reflecteur de route : Adresse IP de la machne bgp-rr, (étape 2/6)
+
+Vous pouvez répéter autant de fois que de type d'équipements que vous avez : Si vous avez des AP type Cisco et de Type Ubiquiti, il vous faudra créer 2 VTEP
+
 
 
 ## Auteurs

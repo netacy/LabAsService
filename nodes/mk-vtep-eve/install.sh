@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Identifiant du 1er vxlan (vni) : "
+echo "Le premier numéro de VLAN (ou VNI) : "
 read vni
 echo "Nombre de vni : "
 read nb
