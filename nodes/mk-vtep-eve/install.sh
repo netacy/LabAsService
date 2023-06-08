@@ -72,11 +72,11 @@ cat $vni > /root/conf \n
 cat $nb >> /root/conf \n
 "
 
-echo -e $commands > /tmp/script
-chmod +x /tmp/script
+# echo -e $commands > /tmp/script
+#chmod +x /tmp/script
 
 # Script à modifier ici
-chroot /mnt/tmp  /tmp/script
+echo -e $commands |  chroot /mnt/tmp 
 
 umount /mnt/tmp
 #echo "zerofree..."
