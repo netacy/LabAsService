@@ -89,8 +89,32 @@ br1002          8000.c20468ef7534       no              eth1.1002
 
 
 ### Installation 5/6: eve
+Votre machine EVE-NG doit être installée et doit pouvoir accéder à Internet.
+
+Commencez par ouvrez une session root sur la machine EVE-NG.
+
+```
+apt update
+apt install git
+git clone https://www.github.com/netacy/LabAsService
+```
+```
+cd ./LabAsService
+./install.sh eve
+```
+Le processus d'installation va :
+1. Télécharger un modèle de machine Linux Debian 11 qui sera utilisé dans l'étapge suivante.
+2. Installer un réseau NAT "Cloud99" : Ce réseau (192.168.99.0/24 GW=192.168.99.254) donne accès à Internet pour les totologies EVE. 
 
 ### Installation 6/6: eve-vtep
+Nous allons créer un modèle de noeud qui sera accessible dans l'interface web de EVE-NG. Dans la topologie ce noeud représentera un des équipemets wifi connecté au switch sw-wifi
+
+Toujours depuis une session root dans la machine EVE-NG :
+```
+cd ./LabAsService
+./install.sh mk-vtep-eve
+```
+
 
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
