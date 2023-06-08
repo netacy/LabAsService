@@ -91,13 +91,6 @@ cd ./LabAsService
 Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
 Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
 
-Editez le fichier ``/var/www/hmtl/configMonSW.php`` pour préciser l'adresse IP de management de sw-wifi, les identifiants de connexion SNMP, et le réseau depuis lequel le portail web sera accessible :
-
-- $HOSTS
-- $USER = "_USER_";
-- $PASSWORD = "_PASSWORD_";
-- $ALLOWED_NET="_NETALLOWED_";
-
 ### Installation 4/6: bgp-vtep
 Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
 

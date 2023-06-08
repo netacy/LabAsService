@@ -76,10 +76,6 @@ echo $nb >> /root/conf \n
 
 "
 
-# echo -e $commands > /tmp/script
-#chmod +x /tmp/script
-
-# Script à modifier ici
 echo -e $commands |  chroot /mnt/tmp 
 
 umount /mnt/tmp
