@@ -14,8 +14,11 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 
 ## Ressources matérielles :
 * [Switch Cisco WS-C3750-48PS-S](https://www.cisco.com/c/en/us/products/switches/catalyst-3750-series-switches/datasheet-listing.html) - 137 euros d'occasion
+* En fait n'importe quel swith compatible 802.1ad fera l'affaire (nous utilisons en production un switch DELL EMC Networking N1548P)
+
 * [adaptateur USB3 -> ethernet]() - mettre la référence
-* [PC générique]
+
+* [PC générique] pour la machine bgp-vtep
 
 ### Pré-requis
 
@@ -35,6 +38,9 @@ Dans votre datacenter préféré vous pouvez provisionner les machines :
 Installez également Debian 11 sur la machine bgp-vtep
 
 ### Installation 1/6 : sw-wifi
+En guise d'exemple nous allons déployer 8 points d'accès (AP) Cisco et 8 AP Ubiquiti :
+![Topologie Wifi](img/InfraSW.png)
+
 ### Installation 2/6 : bgp-rr
 Commencez par configurer l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
 
