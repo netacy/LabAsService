@@ -15,7 +15,7 @@ sudo apt update && sudo apt install -y frr frr-pythontools bridge-utils
 
 
 cp ./nodes/eve-vtep/net.sh /root/
-cp ./nodes/eve-vtep/frr/frr.conf /etc/frr/
+cp ./nodes/eve-vtep/frr/frr.ori /etc/frr/
 chmod +x /root/net.sh
 
 cp ./nodes/eve-vtep/rc.local.service /etc/systemd/system
@@ -29,9 +29,4 @@ systemctl disable frr
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 systemctl disable frr
 
-IP="monIP"
-RR="monRR"
-
-sed -i "s/_IP_/$IP/g" /etc/frr/frr.conf
-sed -i "s/_RR_/$RR/g" /etc/frr/frr.conf
 
