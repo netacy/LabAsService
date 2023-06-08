@@ -20,20 +20,20 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 
 * [PC générique] pour la machine bgp-vtep
  
-### Pré-requis
- 
-Il convient tout d'abord câbler l'infrastrucure globale :
+### Infrastructure globale
 
-- Les points d'accès wifi
-- le serveur bgp-vtep 
- 
+L'infrastructure globale est la suivante : 
+
 ![Topologie Wifi](img/TopoWifi.png)
 
-Dans votre datacenter préféré vous pouvez provisionner les machines :
-- srv-poe (Debian 11)
-- bgp-rr (Debian 11)
+Dans votre hyperviseur préféré vous pouvez provisionner les machines :
+- srv-poe en (Debian 11)
+- bgp-rr en (Debian 11)
+- eve-ng (5.0.1-19-Community)
 
-Installez également Debian 11 sur la machine bgp-vtep
+Attribuez une adresse IP fixe à chaque machine et assurez vous qu'elle accès bien à Internet et que les résolution de noms se font correctement.
+
+- La machine bgp-vtep doit être déployée à proximité géographique de sw-wifi. Vous pouvez installer Debian 11 directement dessus ou dans une VM.
 
 ### Installation 1/6 : sw-wifi
 En guise d'exemple nous allons déployer 8 points d'accès (AP) Cisco et 8 AP Ubiquiti :
