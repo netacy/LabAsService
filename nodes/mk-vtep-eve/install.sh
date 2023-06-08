@@ -61,18 +61,22 @@ sleep 2
 mount -t auto  /dev/nbd1p1 /mnt/tmp
 
 
+commands="echo chroot!!!
+apt update \n
+apt install -y git curl sudo gnupg bridge-utils \n
+git clone https://github.com/netacy/LabAsService \n
+cd ./LabAsService \n
+chmod +x ./install.sh \n 
+./install.sh eve-vtep \n
+cat $vni > /root/conf \n
+cat $nb >> /root/conf \n
+"
+
+echo -e $commands > /tmp/script
+chmod +x /tmp/script
+
 # Script à modifier ici
-chroot /mnt/tmp  <<"EOT"
-echo "chroot!!!"
-apt update
-apt install -y git curl sudo gnupg bridge-utils
-git clone https://github.com/netacy/LabAsService
-cd ./LabAsService
-chmod +x ./install.sh 
-./install.sh eve-vtep
-cat "$vni" > /root/conf
-cat "$nb" >> /root/conf
-EOT
+chroot /mnt/tmp  /tmp/script
 
 umount /mnt/tmp
 #echo "zerofree..."
