@@ -43,7 +43,7 @@ dhclient ${nics[$nicId]}
 
 ip=$(ip a | grep ${nics[$nicId]} | tail -n 1 | cut -d' ' -f 6 | cut -d'/' -f1)
 #echo $ip > /tmp/ip
-gw=$(route -n | grep "0.0.0.0" | head -n 1 | cut -d' ' -f10)
+gw=$(ip route | grep default | cut -d' ' -f3)
 
 
 cp /etc/frr/frr.ori /etc/frr/frr.conf
