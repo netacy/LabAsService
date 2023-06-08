@@ -68,8 +68,8 @@ git clone https://github.com/netacy/LabAsService \n
 cd ./LabAsService \n
 chmod +x ./install.sh \n 
 ./install.sh eve-vtep \n
-cat $vni > /root/conf \n
-cat $nb >> /root/conf \n
+echo $vni > /root/conf \n
+echo $nb >> /root/conf \n
 "
 
 # echo -e $commands > /tmp/script
