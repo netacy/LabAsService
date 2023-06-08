@@ -53,7 +53,7 @@ Remarques :
 - les ports impairs sont utilisé pour connecter les APs : On activrea (ou pas) le POE sur ces ports
 - les ports pairs ne sont pas connecté et sont réservé pour pouvoir connecter les APs dans des infrascrtutures physiques. Pas de POE sur ces ports.
 
-Un exemple de conviguration est disponible ici (TODO). Il conviendra d'adapter l'adresse IP de management et les identifiants de connexion SNMP et les peronnalisant un peu...
+Un exemple de configuration est disponible ici (TODO). Il conviendra d'adapter l'adresse IP de management et les identifiants de connexion SNMP et les personnalisant un peu ces valeurs...
 
 ### Installation 2/6 : bgp-rr
 Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
