@@ -47,14 +47,14 @@ Comment évoqué, nous allons déployer 8 points d'accès (AP) Cisco et 8 AP Ubi
 ![Topologie Wifi](img/InfraSW.png)
 
 Remarques :
-- chaque access point (AP) est cloisonné dans un vlan client,
+- chaque access point (AP) est cloisonné dans un vlan client (ici vlans 1000 à 1015)
 - un point d'accès pourra faire transiter sur son lien filaire des trames 802.1q 
 - on retrouvera sur le lien trunk des trames doublement taguées 802.1ad
 - les ports impairs sont utilisé pour connecter les APs : On activrea (ou pas) le POE sur ces ports
 - les ports pairs ne sont pas connecté et sont réservé pour pouvoir connecter les APs dans des infrascrtutures physiques. Pas de POE sur ces ports.
 
 ### Installation 2/6 : bgp-rr
-Commencez par configurer l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
+Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
 
 Passez ensuite à l'installation des dépendances :
 ```
@@ -67,9 +67,27 @@ git clone https://www.github.com/netacy/LabAsService
 cd ./LabAsService
 ./install.sh bgp-rr
 ```
-Et c'est tout ! 
-Notez bien l'adresse IP de ce serveur bgp-rr (rr = route reflector), nous en aurons besoin pour la suite
+
+Notez bien l'adresse IP de ce serveur bgp-rr (rr = route reflector), nous en aurons besoin pour la suite.
+Dans notre cas @IP RR = 10.108.143.51
+
+
 ### Installation 3/6 : srv-poe
+Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
+
+Passez ensuite à l'installation des dépendances :
+```
+apt update
+apt install git
+git clone https://www.github.com/netacy/LabAsService
+```
+
+```
+cd ./LabAsService
+./install.sh srv-poe
+```
+Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
+Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équiepements que vous déployez rééllement.
 
 ### Installation 4/6: bgp-vtep
 Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
@@ -109,9 +127,9 @@ br1002          8000.c20468ef7534       no              eth1.1002
 
 
 ### Installation 5/6: eve
-Votre machine EVE-NG doit être installée et doit pouvoir accéder à Internet.
+Votre machine EVE-NG doit être installée et doit pouvoir accéder à Internet, il n'est pas indispensable qu'elle possède un adresse IP fixe.
 
-Commencez par ouvrez une session root sur la machine EVE-NG.
+Commencez par ouvrir une session root sur la machine EVE-NG.
 
 ```
 apt update
@@ -123,11 +141,15 @@ cd ./LabAsService
 ./install.sh eve
 ```
 Le processus d'installation va :
-1. Télécharger un modèle de machine Linux Debian 11 qui sera utilisé dans l'étapge suivante.
+1. Télécharger un modèle de machine Linux Debian 11 (nom=linux-debian11 login/passwd=root/Linux), elle sera utilisée dans l'étapge suivante (6/6).
 2. Installer un réseau NAT "Cloud99" : Ce réseau (192.168.99.0/24 GW=192.168.99.254) donne accès à Internet pour les totologies EVE. 
+3. Compléter la configuration de EVE-NG pour pouvoir disposer de nouveaux modèles de noeuds 
+
+**Remarque importante**
+- Si cette machine EVE est exécutée dans un hyperviseur ESXi il convient certainement d'acctiver le mode promiscuité sur la carte réseau de la VM. En effet, le réseau de l'hypervieur risque de ne pas apprécier des trames sortantes avec des adresses MAC sources non connues.
 
 ### Installation 6/6: eve-vtep
-Nous allons créer un modèle de noeud qui sera accessible dans l'interface web de EVE-NG. Dans la topologie ce noeud représentera un des équipemets wifi connecté au switch sw-wifi
+Nous allons créer un modèle de noeud qui sera accessible dans l'interface web de EVE-NG. Dans la topologie ce noeud représentera un des équipemets wifi connecté au switch sw-wifi.
 
 Toujours depuis une session root dans la machine EVE-NG :
 ```
@@ -136,28 +158,28 @@ cd ./LabAsService
 ```
 
 On rappelle que le VTEP (VXLAN Tunnel End Point) permettra, depuis une topologie EVE, d'accèder aux vlans du switch sw-wifi.
-Admettons que vous avez 8 points d'accès Cisco cloisonés dans les vlans 1001 à 1008 :
-
-
-echo "Identifiant du 1er vxlan (vni) : "
-echo "Nombre de vni : "
-echo "Nom de l'image - sans espace (ex: cisco-ap): "
-echo "Description = Nom du noeud dans l'interface web - espace tolérés (ex: AP Cisco ): "
-echo "Adresse IP du reflecteur de route : "
-
-
 
 5 paramètres seront demandés dans le processus d'installation :
 
-1. Le premier numéro de VLAN (ou VNI) : 1001
+1. Le premier numéro de VLAN (ou VNI) : 1000
+2. Nombre d'équipements : 8
+3. Nom de l'image - sans espace : vtepUbiquiti
+4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Ubiquiti
+5. Adresse IP du reflecteur de route : 10.108.143.51, (étape 2/6)
+
+Cette étape est à répéter pour ajouter un deuxième modèle de noeud type Cisco :
+
+1. Le premier numéro de VLAN (ou VNI) : 1008
 2. Nombre d'équipements : 8
 3. Nom de l'image - sans espace : vtepCisco
-4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Cisco 9100
-5. Adresse IP du reflecteur de route : Adresse IP de la machne bgp-rr, (étape 2/6)
+4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Cisco
+5. Adresse IP du reflecteur de route : 10.108.143.51, (étape 2/6)
 
-Vous pouvez répéter autant de fois que de type d'équipements que vous avez : Si vous avez des AP type Cisco et de Type Ubiquiti, il vous faudra créer 2 VTEP
+- Il conviendra de modifier l'icône des templates nouvellement crées ``vtepCisco`` et ``vtepUbiquiti`` en éditant les fichiers ``/opt/unetlab/html/templates/intel/vtepCisco.yml`` et ``/opt/unetlab/html/templates/intel/vtepUbiquiti.yml`` les imgages utilisées sont situées dans ``/opt/unetlab/html/templates/images/icons``
 
+**Vérification**
 
+Dans un lab EVE-NG ajouter un noeud de type "Point d'accès Cisco" non relié 
 
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
