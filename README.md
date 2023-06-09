@@ -45,6 +45,7 @@ Attribuez une adresse IP fixe à chacune des machines et assurez vous qu'elles a
 - srv-poe <-> sw-wifi  = UDP port 161 (SNMP)
 - bgp-vtep <-> srv-eve = UDP port 4789 (flux data vxlan)
 - bgp-vtep <-> bgp-rr  = TCP 179 (route BGP)
+- Pour le temps des processus d'installation, les machines doivent pouvoir résoudre des noms et accèder à Internet
 
 ### Installation 1/6 : sw-wifi
 Comment évoqué, nous allons déployer 8 points d'accès (AP) Cisco et 8 AP Ubiquiti. Nous proposons la disposition suivante :
