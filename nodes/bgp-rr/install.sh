@@ -26,7 +26,8 @@ cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
 # CIDR
 
 #MYIP=$(ip a | grep dynamic | head -n 1| cut -d' ' -f6 | cut -d'/' -f1)
-MYIP=$(ip -4 addr show | awk -F"[/ ]+" '/inet / {print $3}' | head -n 1)
+internetIf=$(ip route | grep default | cut -d' ' -f5)
+MYIP=$(ip -4 addr show $internetIf | awk -F"[/ ]+" '/inet / {print $3}' | head -n 1)
 echo "Adresse IP = $MYIP"
 sed -i "s/MYIP/$MYIP/g" /etc/frr/frr.conf
 
