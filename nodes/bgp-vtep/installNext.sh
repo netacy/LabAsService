@@ -1,6 +1,5 @@
 #!/bin/bash
-cp ./nodes/bgp-vtep/frr.conf.ori /etc/frr
-cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
+cp ./nodes/bgp-vtep/frr.conf.ori /etc/frr/frr.conf
 
 echo
 
