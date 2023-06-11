@@ -10,6 +10,7 @@ echo "-------------------------------------"
 
 # nouveau nom de la carte qui donne accès à internet
 mac=$(tail -n 1 /root/tmp)
+oldNic=$(head -n 1 /root/tmp)
 for item in $(ls /sys/class/net)
 do
     address=$(cat /sys/class/net/$item/address)
@@ -17,8 +18,8 @@ do
         nic=$item
     fi
 done
-oldNic=$(head -n 1 /root/tmp)
-sed -i "s/$nic/$newNic/g" /etc/network/interface
+
+sed -i "s/$oldNic/$nic/g" /etc/network/interface
 rm /root/tmp
 
 
