@@ -11,7 +11,7 @@ FRRVER="frr-stable"
 echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) $FRRVER | sudo tee -a /etc/apt/sources.list.d/frr.list
 
 # update and install FRR
-sudo apt update && sudo apt install frr frr-pythontools
+sudo apt update && sudo apt install -y frr frr-pythontools
 hostnamectl set-hostname bgp-rr
 
 # activation du process bgp
@@ -25,7 +25,8 @@ cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
 # NETID 
 # CIDR
 
-MYIP=$(ip a | grep dynamic | head -n 1| cut -d' ' -f6 | cut -d'/' -f1)
+#MYIP=$(ip a | grep dynamic | head -n 1| cut -d' ' -f6 | cut -d'/' -f1)
+IP=$(ip -4 addr show | awk -F"[/ ]+" '/inet / {print $3}' | head -n 1)
 echo "Adresse IP = $MYIP"
 sed -i "s/MYIP/$MYIP/g" /etc/frr/frr.conf
 
