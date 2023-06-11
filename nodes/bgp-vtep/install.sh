@@ -25,7 +25,8 @@ systemctl enable rc-local
 
 internetIf=$(ip route | grep default | cut -d' ' -f5)
 
+#r
 echo $internetIf > /root/tmp
-cat /sys/class/net/$internetIf >> /root/tmp
+cat /sys/class/net/$internetIf/address >> /root/tmp
 
 reboot
