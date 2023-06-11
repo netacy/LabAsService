@@ -44,4 +44,10 @@ do
 
 	echo "#-----------------------------------------------"  >> /etc/network/interfaces
 done
+
+
+# TODO bridge out et in pour les trames non taguées 
+# -> permet le management de sw-wifi
+# ip link set dev br0 type bridge vlan_filtering 1
+# Identifier les cartes in et out
 systemctl restart networking
