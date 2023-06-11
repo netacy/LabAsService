@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installation du noeud bgp-vtep"
-apt update && apt install curl sudo gnupg bridge-utils iptables ebtables
+apt update && apt install -y curl sudo gnupg bridge-utils iptables ebtables
 # add GPG key
 curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
 
@@ -11,7 +11,7 @@ FRRVER="frr-stable"
 echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) $FRRVER | sudo tee -a /etc/apt/sources.list.d/frr.list
 
 # update and install FRR
-sudo apt update && sudo apt install frr frr-pythontools
+sudo apt update && sudo apt install -y frr frr-pythontools
 hostnamectl set-hostname bgp-vtep
 
 sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"net.ifnames=0 biosdevname=0\"/g" /etc/default/grub
