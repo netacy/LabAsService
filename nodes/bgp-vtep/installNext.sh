@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cp ./nodes/bgp-vtep/frr.conf.ori /etc/frr
 cp /etc/frr/frr.conf.ori /etc/frr/frr.conf
 
@@ -7,6 +7,17 @@ echo "Liste des cartes réseaux détéctées : "
 echo "-------------------------------------"
 ls /sys/class/net
 echo "-------------------------------------"
+
+# nouveau nom de la carte qui donne accès à internet
+mac=$(tail -n 1 /root/tmp)
+for item in $(ls /sys/class/net)
+do
+    address=$(cat /sys/class/net/$item/address)
+    if [ "$mac" = "$address" ]; then
+        echo $item
+    fi
+done
+
 echo "Quelle carte vous connecte à internet ? :"
 read nic
 

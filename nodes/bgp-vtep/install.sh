@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Installation du noeud bgp-vtep"
 apt update && apt install curl sudo gnupg bridge-utils iptables ebtables
@@ -23,6 +23,9 @@ chmod +x /etc/rc.local
 
 systemctl enable rc-local
 
+internetIf=$(ip route | grep default | cut -d' ' -f5)
 
+echo $internetIf > /root/tmp
+cat /sys/class/net/$internetIf >> /root/tmp
 
 reboot
