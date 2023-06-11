@@ -19,7 +19,7 @@ do
     fi
 done
 
-sed -i "s/$oldNic/$nic/g" /etc/network/interface
+sed -i "s/$oldNic/$nic/g" /etc/network/interfaces
 rm /root/tmp
 
 
