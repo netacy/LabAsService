@@ -14,12 +14,16 @@ for item in $(ls /sys/class/net)
 do
     address=$(cat /sys/class/net/$item/address)
     if [ "$mac" = "$address" ]; then
-        echo $item
+        nic=$item
     fi
 done
+oldNic=$(head -n 1 /root/tmp)
+sed -i "s/$nic/$newNic/g" /etc/network/interface
+rm /root/tmp
 
-echo "Quelle carte vous connecte à internet ? :"
-read nic
+
+# echo "Quelle carte vous connecte à internet ? :"
+# read nic
 
 IP=$(ip -4 addr show $nic | grep -oP "(?<=inet ).*(?=/)")
 echo "Votre adresse IP" $IP
