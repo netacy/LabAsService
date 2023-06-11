@@ -35,7 +35,9 @@ echo "-------------------------------------"
 echo
 
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
+echo "a"
 sed -i "s/IPADDRESS/$IP/g" /etc/frr/frr.conf
+echo "b"
 sed -i "s/NIC/$nic/g" /etc/frr/frr.conf
 sed -i "s/BGPRR/$rr/g" /etc/frr/frr.conf
 
