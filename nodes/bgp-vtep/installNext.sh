@@ -22,6 +22,8 @@ done
 sed -i "s/$oldNic/$nic/g" /etc/network/interfaces
 rm /root/tmp
 
+systemctl restart networking
+
 
 # echo "Quelle carte vous connecte à internet ? :"
 # read nic
