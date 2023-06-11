@@ -26,6 +26,9 @@ systemctl restart networking
 
 IP=$(ip -4 addr show $nic | grep -oP "(?<=inet ).*(?=/)")
 echo "Votre adresse IP" $IP
+#
+# Demander l'adresse si elle n'est pas détéctée
+# TODO
 echo 
 echo "Donnez l'adresse IP de votre reflecteur BGP EVPN :"
 read rr
