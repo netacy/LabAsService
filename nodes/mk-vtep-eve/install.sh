@@ -5,7 +5,7 @@ mydir=/opt/unetlab/addons/qemu/linux-debian10
 fich=virtioa.qcow2
 
 # Téléchargement si l'image n'existe pas
-if [ ! -a "$mydir/$fich"]; then
+if [ ! -a "$mydir/$fich" ]; then
         wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J" -O $FILENAME && rm -rf /tmp/cookies.txt
         mkdir -p $mydir
         mv v$fich  $mydir
