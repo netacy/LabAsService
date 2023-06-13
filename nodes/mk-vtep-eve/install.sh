@@ -1,4 +1,13 @@
 #!/bin/bash
+FILEID="1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J"
+FILENAME="virtioa.qcow2"
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J" -O $FILENAME && rm -rf /tmp/cookies.txt
+
+# Création d'une image Linux debian 11
+mydir=/opt/unetlab/addons/qemu/linux-debian10
+mkdir -p $mydir
+mv virtioa.qcow2  $mydir
+
 
 echo "Le premier numéro de VLAN (ou VNI) : "
 read vni
