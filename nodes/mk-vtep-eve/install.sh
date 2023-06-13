@@ -12,7 +12,7 @@ echo "Adresse IP du reflecteur de route : "
 read rr
 
 # Copie de l'image
-# cp -r /opt/unetlab/addons/qemu/linux-debian11 /opt/unetlab/addons/qemu/$imageName-vtep
+# cp -r /opt/unetlab/addons/qemu/linux-debian10 /opt/unetlab/addons/qemu/$imageName-vtep
 
 
 # Création d'un template
