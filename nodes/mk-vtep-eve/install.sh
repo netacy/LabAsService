@@ -36,7 +36,7 @@ sed -i "s/_xxxx_/_$myrand\_/g" $newTemplate
 # Création de l'image
 newImage=/opt/unetlab/addons/qemu/$imageName-vtep
 diskFile=$newImage/virtioa.qcow2
-cp -r /opt/unetlab/addons/qemu/linux-debian11 $newImage
+cp -r /opt/unetlab/addons/qemu/linux-debian10 $newImage
 
 
 # le périphérique nbd doit être libéré au préalable
