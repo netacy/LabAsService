@@ -148,7 +148,7 @@ cd ./LabAsService
 ./install.sh eve
 ```
 Le processus d'installation va :
-1. Télécharger un modèle de machine Linux Debian 11 (nom=linux-debian11 login/passwd=root/Linux), elle sera utilisée dans l'étapge suivante (6/6).
+1. Télécharger un modèle de machine Linux Debian 11 (nom=linux-debian10 login/passwd=root/Linux), elle sera utilisée dans l'étapge suivante (6/6).
 2. Installer un réseau NAT "Cloud99" : Ce réseau (192.168.99.0/24 GW=192.168.99.254) donne accès à Internet pour les totologies EVE. 
 3. Compléter la configuration de EVE-NG pour pouvoir disposer de nouveaux modèles de noeuds 
 
