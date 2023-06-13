@@ -41,6 +41,7 @@ done
 sed -i "s/_description_/$description/g" $newTemplate
 sed -i "s/_name_/$imageName/g" $newTemplate
 sed -i "s/_eth_/$eths/g" $newTemplate
+sed -i "s/_nb_/$nb/g" $newTemplate
 myrand=$RANDOM
 sed -i "s/_xxxx_/_$myrand\_/g" $newTemplate
 

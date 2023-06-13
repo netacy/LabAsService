@@ -30,7 +30,7 @@ cpulimit: 1
 icon: 0_UbiquitiNanobeamA.png
 cpu: 1
 ram: 512
-ethernet: 8
+ethernet: _nb_
 eth_name:
 _eth_
 console: vnc
