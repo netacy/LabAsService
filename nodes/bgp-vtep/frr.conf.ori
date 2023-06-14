@@ -5,9 +5,9 @@ log syslog informational
 no ip forwarding
 no ipv6 forwarding
 service integrated-vtysh-config
-!
+!!
 _LANROUTE_
-ip route BGPRR/ __ 
+_RRROUTE_
 !
 router bgp 65000
  bgp router-id IPADDRESS
