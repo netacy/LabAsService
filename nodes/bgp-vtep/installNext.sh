@@ -2,7 +2,6 @@
 cp ./nodes/bgp-vtep/frr.conf.ori /etc/frr/frr.conf
 
 echo
-
 # Le nom de la carte uplink a changé, on détermine son nouveau nom (eth0 ?)
 mac=$(tail -n 1 /root/tmp)
 oldNic=$(head -n 1 /root/tmp)
@@ -20,17 +19,17 @@ systemctl restart networking
 
 
 IP=$(ip -4 addr show $nic | awk -F"[/ ]+" '/inet / {print $3}' | head -n 1)
-
 echo "Votre adresse IP --$IP--"
-#
-# Demander l'adresse si elle n'est pas détéctée
 # TODO
+# Demander l'adresse si elle n'est pas détéctée
+
 echo 
 echo "Donnez l'adresse IP de votre reflecteur BGP EVPN :"
 read rr
 echo "-------------------------------------"
 echo
 
+# Personnalisation du fichier de conf FRR
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 sed -i "s/IPADDRESS/$IP/g" /etc/frr/frr.conf
 sed -i "s/NIC/$nic/g" /etc/frr/frr.conf
