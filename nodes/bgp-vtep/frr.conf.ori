@@ -6,7 +6,8 @@ no ip forwarding
 no ipv6 forwarding
 service integrated-vtysh-config
 !
-ip route BGPRR 255.255.255.255 NIC
+_LANROUTE_
+ip route BGPRR/ __ 
 !
 router bgp 65000
  bgp router-id IPADDRESS

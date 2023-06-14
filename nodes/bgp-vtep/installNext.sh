@@ -37,12 +37,16 @@ echo "-------------------------------------"
 echo
 
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
-echo "a"
 sed -i "s/IPADDRESS/$IP/g" /etc/frr/frr.conf
-echo "b"
 sed -i "s/NIC/$nic/g" /etc/frr/frr.conf
-sed -i "s/BGPRR/$rr/g" /etc/frr/frr.conf
 
+
+netid=$(ip route | grep $IP | cut -d' ' -f1)
+lanRoute="ip route $nedid $nic"
+rrRoute="ip route $rr/32 $nic"
+
+sed -i "s/_LANROUTE_/$lanRoute/g" /etc/frr/frr.conf
+sed -i "s/_RRROUTE_/$rrRoute/g" /etc/frr/frr.conf
 
 
 systemctl stop frr
