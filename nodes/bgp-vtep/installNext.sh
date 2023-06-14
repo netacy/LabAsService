@@ -15,15 +15,13 @@ do
 done
 
 sed -i "s/$oldNic/$nic/g" /etc/network/interfaces
-#rm /root/tmp
+
 
 systemctl restart networking
 
 
-# echo "Quelle carte vous connecte à internet ? :"
-# read nic
 
-#IP=$(ip -4 addr show $nic | grep -oP "(?<=inet ).*(?=/)")
+
 IP=$(ip -4 addr show $nic | awk -F"[/ ]+" '/inet / {print $3}' | head -n 1)
 
 echo "Votre adresse IP --$IP--"
