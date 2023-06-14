@@ -1,12 +1,20 @@
 #!/bin/bash
+version="linux-debian10"
+
+deb11="1k_IDclfdgp41mkH295kWJkbZA8-LWuuN"
 FILEID="1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J"
 FILENAME="virtioa.qcow2"
-mydir=/opt/unetlab/addons/qemu/linux-debian10
+mydir=/opt/unetlab/addons/qemu/$version
 fich=virtioa.qcow2
 
 # Téléchargement si l'image n'existe pas
 if [ ! -a "$mydir/$fich" ]; then
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J" -O $FILENAME && rm -rf /tmp/cookies.txt
+        # deb10
+        # wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J" -O $FILENAME && rm -rf /tmp/cookies.txt
+
+        # deb11
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1k_IDclfdgp41mkH295kWJkbZA8-LWuuN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1k_IDclfdgp41mkH295kWJkbZA8-LWuuN" -O $FILENAME && rm -rf /tmp/cookies.txt
+
         mkdir -p $mydir
         mv v$fich  $mydir
 fi
@@ -22,8 +30,6 @@ read description
 echo "Adresse IP du reflecteur de route : "
 read rr
 
-# Copie de l'image
-# cp -r /opt/unetlab/addons/qemu/linux-debian10 /opt/unetlab/addons/qemu/$imageName-vtep
 
 
 # Création d'un template
@@ -48,7 +54,7 @@ sed -i "s/_xxxx_/_$myrand\_/g" $newTemplate
 # Création de l'image
 newImage=/opt/unetlab/addons/qemu/$imageName-vtep
 diskFile=$newImage/virtioa.qcow2
-cp -r /opt/unetlab/addons/qemu/linux-debian10 $newImage
+cp -r /opt/unetlab/addons/qemu/$version $newImage
 
 
 # le périphérique nbd doit être libéré au préalable
