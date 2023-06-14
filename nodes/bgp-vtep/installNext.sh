@@ -15,7 +15,7 @@ do
 done
 
 sed -i "s/$oldNic/$nic/g" /etc/network/interfaces
-rm /root/tmp
+#rm /root/tmp
 
 systemctl restart networking
 
@@ -42,8 +42,12 @@ sed -i "s/NIC/$nic/g" /etc/frr/frr.conf
 
 
 netid=$(ip route | grep $IP | cut -d' ' -f1)
-lanRoute="ip route $nedid $nic"
-rrRoute="ip route $rr/32 $nic"
+
+ipLAN=$(echo $netid | cut -d'/' -f1)
+maskLAN=$(echo $netid | cut -d'/' -f2)
+
+lanRoute="ip route $ipLAN\/$maskLAN $nic"
+rrRoute="ip route $rr\/32 $nic"
 
 sed -i "s/_LANROUTE_/$lanRoute/g" /etc/frr/frr.conf
 sed -i "s/_RRROUTE_/$rrRoute/g" /etc/frr/frr.conf
