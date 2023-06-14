@@ -26,7 +26,7 @@ systemctl restart networking
 #IP=$(ip -4 addr show $nic | grep -oP "(?<=inet ).*(?=/)")
 IP=$(ip -4 addr show $nic | awk -F"[/ ]+" '/inet / {print $3}' | head -n 1)
 
-echo "Votre adresse IP" $IP
+echo "Votre adresse IP --$IP--"
 #
 # Demander l'adresse si elle n'est pas détéctée
 # TODO
