@@ -16,7 +16,7 @@ if [ ! -a "$mydir/$fich" ]; then
         wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1k_IDclfdgp41mkH295kWJkbZA8-LWuuN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1k_IDclfdgp41mkH295kWJkbZA8-LWuuN" -O $FILENAME && rm -rf /tmp/cookies.txt
 
         mkdir -p $mydir
-        mv v$fich  $mydir
+        mv $fich  $mydir
 fi
 
 echo "Le premier numéro de VLAN (ou VNI) : "
