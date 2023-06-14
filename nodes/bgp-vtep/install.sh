@@ -14,21 +14,23 @@ echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) $FRRVER | sudo tee -
 sudo apt update && sudo apt install -y frr frr-pythontools
 hostnamectl set-hostname bgp-vtep
 
+
+# Renommage des interface réseau en ethX (sinon bug de config qinq !!)
 sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"net.ifnames=0 biosdevname=0\"/g" /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
+# Script de démarrage /etc/rc.local
 cp ./nodes/bgp-vtep/rc.local.service /etc/systemd/system
 cp ./nodes/bgp-vtep/rc.local /etc/
 chmod +x /etc/rc.local
-
 systemctl enable rc-local
 
+# Sauvegrade du nom de l'interface uplink et son @MAC
 internetIf=$(ip route | grep default | cut -d' ' -f5)
-
-
 echo $internetIf > /root/tmp
 cat /sys/class/net/$internetIf/address >> /root/tmp
 
+# Démarrage automatique de l'interface uplink
 isAuto=$(cat /etc/network/interfaces | grep "auto $internetIf" | wc -l)
 if [ "$isAuto" = 0 ]; then
     sed -i "s/allow-hotplug $internetIf/auto $internetIf\nallow-hotplug $internetIf/g" /etc/network/interfaces
