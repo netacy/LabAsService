@@ -29,9 +29,9 @@ internetIf=$(ip route | grep default | cut -d' ' -f5)
 echo $internetIf > /root/tmp
 cat /sys/class/net/$internetIf/address >> /root/tmp
 
-isAuto=$(cat /etc/network/interfaces | grep "auto $nic" | wc -l)
-if [ ! $isAuto -eq 0]; then
-    sed -i "s/allow_hotplug $internetIf/auto $internetIf\nallow-hotplug $internetIf/g" /etc/network/interfaces
+isAuto=$(cat /etc/network/interfaces | grep "auto $internetIf" | wc -l)
+if [ "$isAuto" = 0]; then
+    sed -i "s/allow-hotplug $internetIf/auto $internetIf\nallow-hotplug $internetIf/g" /etc/network/interfaces
 fi
 
 reboot
