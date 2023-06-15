@@ -58,4 +58,4 @@ systemctl stop frr
 systemctl start frr
 
 chmod +x ./nodes/bgp-vtep/genIf.sh
-./nodes/bgp-vtep/genIf.sh
+./nodes/bgp-vtep/genIf.sh $nic

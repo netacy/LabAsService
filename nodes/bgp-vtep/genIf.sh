@@ -1,4 +1,5 @@
 #!/bin/sh
+nicUplink=$1
 echo "---------------------------------------------------------------------------------------"
 echo " Vous allez déterminer les identifiants de vlan de votre infrastructure"
 echo " Soyez prévoyant : Pour déployer 24 AP vous pouvez définir"
@@ -23,6 +24,14 @@ read nic
 echo
 
 cp /etc/network/interfaces /etc/network/interfaces.ori
+
+echo "" >> /etc/network/interfaces
+echo "auto brRoot" >> /etc/network/interfaces
+echo "iface brRoot inet manual" >> /etc/network/interfaces
+echo "bridge_ports $nic $nicUplink" >> /etc/network/interfaces
+echo "up ip link set dev brRoot type bridge vlan_filtering 1" >> /etc/network/interfaces
+echo "bridge_stp off"  >> /etc/network/interfaces
+
 for vni in $(seq $first $last)
 do
     # Création de l'interface VXLAN
@@ -46,8 +55,5 @@ do
 done
 
 
-# TODO bridge out et in pour les trames non taguées 
-# -> permet le management de sw-wifi
-# ip link set dev br0 type bridge vlan_filtering 1
-# Identifier les cartes in et out
+
 systemctl restart networking
