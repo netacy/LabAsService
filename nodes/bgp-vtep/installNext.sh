@@ -19,7 +19,16 @@ systemctl restart networking
 
 
 IP=$(ip -4 addr show $nic | awk -F"[/ ]+" '/inet / {print $3}' | head -n 1)
-echo "Votre adresse IP --$IP--"
+echo "Votre adresse IP=$IP, est-ce correct (o/n) ?"
+read ok
+if [ "$ok" != "o" ]; then
+    echo "Indiquez l'adresse IP de cette hôte :"
+    read IP
+fi
+
+
+
+
 # TODO
 # Demander l'adresse si elle n'est pas détéctée
 
