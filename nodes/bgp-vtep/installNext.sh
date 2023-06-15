@@ -63,3 +63,7 @@ systemctl start frr
 
 chmod +x ./nodes/bgp-vtep/genIf.sh
 ./nodes/bgp-vtep/genIf.sh $nic
+
+echo "La machine va redémarrer une dernière fois..."
+sleep 3
+reboot
