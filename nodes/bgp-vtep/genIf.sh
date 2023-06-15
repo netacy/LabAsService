@@ -25,12 +25,12 @@ echo
 
 cp /etc/network/interfaces /etc/network/interfaces.ori
 
-# echo "" >> /etc/network/interfaces
-# echo "auto brRoot" >> /etc/network/interfaces
-# echo "iface brRoot inet manual" >> /etc/network/interfaces
-# echo "bridge_ports $nic $nicUplink" >> /etc/network/interfaces
-# echo "up ip link set dev brRoot type bridge vlan_filtering 1" >> /etc/network/interfaces
-# echo "bridge_stp off"  >> /etc/network/interfaces
+echo "" >> /etc/network/interfaces
+echo "auto brRoot" >> /etc/network/interfaces
+echo "iface brRoot inet manual" >> /etc/network/interfaces
+echo "bridge_ports $nic $nicUplink" >> /etc/network/interfaces
+echo "up ip link set dev brRoot type bridge vlan_filtering 1" >> /etc/network/interfaces
+echo "bridge_stp off"  >> /etc/network/interfaces
 
 for vni in $(seq $first $last)
 do
