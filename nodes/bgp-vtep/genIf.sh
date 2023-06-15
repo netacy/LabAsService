@@ -33,7 +33,7 @@ sed -i "s/$nicUplink/br0/g" /etc/network/interfaces
 sed -ri "s/(iface br0.+)/\1\nbridge_ports $nicUplink $nic\nbridge_stp off\nup ip link set dev br0 type bridge vlan_filtering 1/g" /etc/network/interfaces
 sed -ri "s/allow-hotplug br0/\niface $nicUplink inet manual\n\nallow-hotplug br0/g" /etc/network/interfaces
 
-for vni in $(seq $first $$nicUplink)
+for vni in $(seq $first $nicUplink)
 do
     # Création de l'interface VXLAN
 	echo "#-----------------------------------------------"  >> /etc/network/interfaces
