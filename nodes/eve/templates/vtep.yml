@@ -27,7 +27,7 @@ type: qemu
 description: _description_
 name: _name_
 cpulimit: 1
-icon: 0_UbiquitiNanobeamA.png
+icon: ap2.png
 cpu: 1
 ram: 512
 ethernet: _nb_
