@@ -25,17 +25,23 @@ echo
 
 cp /etc/network/interfaces /etc/network/interfaces.ori
 
-echo $nic > /root/tmp2
 echo $nicUplink >> /root/tmp2
+echo $nic > /root/tmp2
+
+# On applique la config IP de l'uplink sur br0
+sed -i "s/$nicUplink/br0/g" /etc/network/interfaces
+sed -ri "s/(iface br0.+)/\1\nbridge_ports $nicUplink $nic\nbridge_stp off\nup ip link set dev br0 type bridge vlan_filtering 1/g" /etc/network/interfaces
+sed -ri "s/allow-hotplug br0/\niface $nicUplink inet manual\n\nallow-hotplug br0/g" /etc/network/interfaces
+
+
 # echo "" >> /etc/network/interfaces
-# echo "auto brRoot" >> /etc/network/interfaces
-# echo "iface brRoot inet manual" >> /etc/network/interfaces
+# echo "auto br0" >> /etc/network/interfaces
+# echo "iface br0 inet manual" >> /etc/network/interfaces
 # echo "bridge_ports $nic $nicUplink" >> /etc/network/interfaces
-# echo "up ip link set dev brRoot type bridge vlan_filtering 1" >> /etc/network/interfaces
+# echo "up ip link set dev br0 type bridge vlan_filtering 1" >> /etc/network/interfaces
 # echo "bridge_stp off"  >> /etc/network/interfaces
 
-for vni in $(seq $first $last)
-do
+for vni in $(seq $first $$nicUplinktbr0
     # Création de l'interface VXLAN
 	echo "#-----------------------------------------------"  >> /etc/network/interfaces
 	echo "auto $nic.$vni" >> /etc/network/interfaces
