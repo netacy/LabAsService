@@ -2,14 +2,28 @@
 
 
 $NODES = [
-	'ap1' => ['parent' => 'sw_wifi', 'port' => 2],
-	'ap2' => ['parent' => 'sw_wifi', 'port' => 4],
-	'ap3' => ['parent' => 'sw_wifi', 'port' => 6],
-	'ap4' => ['parent' => 'sw_wifi', 'port' => 8],
-	'ap5' => ['parent' => 'sw_wifi', 'port' => 10],
-	'ap6' => ['parent' => 'sw_wifi', 'port' => 12],
-	'ap7' => ['parent' => 'sw_wifi', 'port' => 14],
-	'ap8' => ['parent' => 'sw_wifi', 'port' => 16],	
+
+	'Point d\'accès Cisco' = [
+		'ap1' => ['parent' => 'sw_wifi', 'port' => 2],
+		'ap2' => ['parent' => 'sw_wifi', 'port' => 4],
+		'ap3' => ['parent' => 'sw_wifi', 'port' => 6],
+		'ap4' => ['parent' => 'sw_wifi', 'port' => 8],
+		'ap5' => ['parent' => 'sw_wifi', 'port' => 10],
+		'ap6' => ['parent' => 'sw_wifi', 'port' => 12],
+		'ap7' => ['parent' => 'sw_wifi', 'port' => 14],
+		'ap8' => ['parent' => 'sw_wifi', 'port' => 16],	
+	],
+	'Point d\'accès Ubiquiti' = [
+		'ap1' => ['parent' => 'sw_wifi', 'port' => 18],
+		'ap2' => ['parent' => 'sw_wifi', 'port' => 20],
+		'ap3' => ['parent' => 'sw_wifi', 'port' => 22],
+		'ap4' => ['parent' => 'sw_wifi', 'port' => 24],
+		'ap5' => ['parent' => 'sw_wifi', 'port' => 26],
+		'ap6' => ['parent' => 'sw_wifi', 'port' => 28],
+		'ap7' => ['parent' => 'sw_wifi', 'port' => 30],
+		'ap8' => ['parent' => 'sw_wifi', 'port' => 32],	
+	],
+
 ];
 
 // Il est possible de piloter plusieurs switch et complétant le tableau suivant 
