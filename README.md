@@ -78,6 +78,15 @@ cd ./LabAsService
 Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
 Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
 
+Depuis la console de votre switch POE vous devriez visualiser les notifications up/down lorsque vous manipulez l'interface web :
+```
+Switch#
+*Jun 19 20:34:26.003: %SYS-5-CONFIG_I: Configured from 10.108.133.251 by snmp
+Switch#
+*Jun 19 20:34:28.003: %LINK-3-UPDOWN: Interface Ethernet3/1, changed state to up
+Switch#
+*Jun 19 20:34:30.019: %LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet3/1, changed state to up
+```
 ### Installation 3/6 : bgp-rr
 Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
 
