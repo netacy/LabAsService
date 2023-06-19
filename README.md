@@ -80,6 +80,7 @@ Vous devez modifier le fichier ``/var/www/html/config.php`` pour adapter le dash
 
 Le fichier permet de créer des groupes de points d'accès (idéalement par modèle/marque), l'interface web permet le pilotage des ports du/des commutateurs POE utilisé(s) dans votre projet.
 
+![WebUI](img/webui.png)
 
 Depuis la console de votre switch POE vous devriez visualiser les notifications up/down lorsque vous manipulez l'interface web :
 ```
