@@ -1,7 +1,7 @@
 <?php
 
-$USER = "tp-wifi274";
-$PASSWORD = "wifi@C274";
+$USER = "tp-wifi";
+$PASSWORD = "wifi@C";
 
 $HOSTS = [
 	'sw_wifi' => [ 	'ip' => "10.108.135.252",
