@@ -1,0 +1,71 @@
+<?php
+
+$USER = "tp-wifi";
+$PASSWORD = "wifi@C";
+
+$HOSTS = [
+	'sw_wifi' => [ 	'ip' => "10.102.74.252",
+					'oidState' => ['1.3.6.1.2.1.105.1.1.1.3.1', '1.3.6.1.2.1.2.2.1.7'],	  // POE State et AdminStatus
+					'valueOn' => "1",
+					'portOffset' => 0],
+
+	'sw2_C274' => [ 'ip' => "10.102.74.246",
+					'oidState' => ['1.3.6.1.2.1.105.1.1.1.3.2'],                          // POE State
+					'valueOn' => "1",
+					'portOffset' => 2],
+];
+
+$NODES = [
+
+	'Point d\'accès Ubiquiti' => [
+		'AP1' => ['parent' => 'sw_wifi', 'port' => 2],
+		'AP2' => ['parent' => 'sw_wifi', 'port' => 4],
+		'AP3' => ['parent' => 'sw_wifi', 'port' => 6],
+		'AP4' => ['parent' => 'sw_wifi', 'port' => 8],
+		'AP5' => ['parent' => 'sw_wifi', 'port' => 10],
+		'AP6' => ['parent' => 'sw_wifi', 'port' => 12],
+		'AP7' => ['parent' => 'sw_wifi', 'port' => 14],
+		'AP8' => ['parent' => 'sw_wifi', 'port' => 16],	
+		'AP9' => ['parent' => 'sw2_C274', 'port' => 27],	
+	],
+	'Ponts Ubiquiti (1-4)' => [
+		'BR1A' => ['parent' => 'sw_wifi', 'port' => 18],
+		'BR1B' => ['parent' => 'sw_wifi', 'port' => 20],
+		'BR2A' => ['parent' => 'sw_wifi', 'port' => 22],
+		'BR2B' => ['parent' => 'sw_wifi', 'port' => 24],
+		'BR3A' => ['parent' => 'sw_wifi', 'port' => 26],
+		'BR3B' => ['parent' => 'sw_wifi', 'port' => 28],
+		'BR4A' => ['parent' => 'sw_wifi', 'port' => 30],
+		'BR4B' => ['parent' => 'sw_wifi', 'port' => 32],	
+	],
+	'Ponts Ubiquiti (5-4)' => [
+		'BR5A' => ['parent' => 'sw2_C274', 'port' => 9],
+		'BR5B' => ['parent' => 'sw2_C274', 'port' => 11],
+		'BR6A' => ['parent' => 'sw2_C274', 'port' => 13],
+		'BR6B' => ['parent' => 'sw2_C274', 'port' => 15],
+		'BR7A' => ['parent' => 'sw2_C274', 'port' => 17],
+		'BR7B' => ['parent' => 'sw2_C274', 'port' => 19],
+		'BR8A' => ['parent' => 'sw2_C274', 'port' => 21],
+		'BR8B' => ['parent' => 'sw2_C274', 'port' => 23],	
+	],
+	'Bornes légères Cisco' => [
+		'LAP1' => ['parent' => 'sw_wifi', 'port' => 34],
+		'LAP2' => ['parent' => 'sw_wifi', 'port' => 36],
+		'LAP3' => ['parent' => 'sw_wifi', 'port' => 38],
+		'LAP4' => ['parent' => 'sw_wifi', 'port' => 40],
+		'LAP5' => ['parent' => 'sw2_C274', 'port' => 1],
+		'LAP6' => ['parent' => 'sw2_C274', 'port' => 3],
+		'LAP7' => ['parent' => 'sw2_C274', 'port' => 5],
+		'LAP8' => ['parent' => 'sw2_C274', 'port' => 7],	
+	],
+	'Bornes monitor' => [
+		'MON1' => ['parent' => 'sw_wifi', 'port' => 41],
+		'MON2' => ['parent' => 'sw_wifi', 'port' => 42],
+		'MON3' => ['parent' => 'sw_wifi', 'port' => 43],
+		'MON4' => ['parent' => 'sw_wifi', 'port' => 44],		
+		'MON5' => ['parent' => 'sw_wifi', 'port' => 45],		
+	],
+
+];
+
+?>
