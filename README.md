@@ -76,7 +76,10 @@ cd ./LabAsService
 ./install.sh srv-poe
 ```
 Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
-Vous pourrez vous inspirer des pages html/php pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
+Vous devez modifier le fichier ``/var/www/html/config.php`` pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
+
+Le fichier permet de créer des groupes de points d'accès (idéalement par modèle/marque), l'interface web permet le pilotage des ports du/des commutateurs POE utilisé(s) dans votre projet.
+
 
 Depuis la console de votre switch POE vous devriez visualiser les notifications up/down lorsque vous manipulez l'interface web :
 ```
