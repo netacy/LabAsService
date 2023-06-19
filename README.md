@@ -195,7 +195,8 @@ Cette étape est à répéter pour ajouter un deuxième modèle de noeud type Ci
 4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Cisco
 5. Adresse IP du reflecteur de route : 10.108.143.51, (étape 2/6)
 
-- Pour avoir un visuer plus réaliste vous pouvez modifier les icônes des templates nouvellement crées ``vtepCisco`` et ``vtepUbiquiti`` 
+**Optionel**
+- Pour avoir un visuel plus réaliste vous pouvez modifier les icônes des templates nouvellement crées ``vtepCisco`` et ``vtepUbiquiti`` 
 Dans un premier temps il faut charger le fichier de l'icône (png 54x54) dans le dossier ``/opt/unetlab/html/templates/images/icons``
 puis il faut éditer les fichiers ``/opt/unetlab/html/templates/intel/vtepCisco.yml`` et ``/opt/unetlab/html/templates/intel/vtepUbiquiti.yml`` pour faire référence à au fichier .png précédemment téléchargé.
 
