@@ -204,7 +204,6 @@ Une fois démarré (root/Linux) vous devrier pouvoir envoyer des ping vers Inter
 
 
 ## Auteurs
-Listez le(s) auteur(s) du projet ici !
 * **Julien HOARAU** 
 
 
