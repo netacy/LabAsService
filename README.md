@@ -120,16 +120,14 @@ $HOSTS = [
 $NODES = [
 
 	'Point d\'accès Ubiquiti' => [
-		'AP1' => ['parent' => 'sw_wifi', 'port' => 1],
-		'AP2' => ['parent' => 'sw_wifi', 'port' => 2],
-            ...
-		'AP8' => ['parent' => 'sw_wifi', 'port' => 8],			
+        'AP1' => ['parent' => 'sw_wifi', 'port' => 1],
+        'AP2' => ['parent' => 'sw_wifi', 'port' => 3],
+        'AP8' => ['parent' => 'sw_wifi', 'port' => 15],			
 	],
 	'Ponts Ubiquiti (1-4)' => [
-		'BR1A' => ['parent' => 'sw_wifi', 'port' => 9],
-		'BR1B' => ['parent' => 'sw_wifi', 'port' => 10],
-            ...
-		'BR4B' => ['parent' => 'sw_wifi', 'port' => 16],	
+		'BR1A' => ['parent' => 'sw_wifi', 'port' => 17],
+		'BR1B' => ['parent' => 'sw_wifi', 'port' => 19],
+		'BR4B' => ['parent' => 'sw_wifi', 'port' => 31],	
 	],
 ];
 ```
