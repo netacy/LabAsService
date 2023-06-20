@@ -104,7 +104,7 @@ Dans le fichier `config.php` modifiez les varaiables :
 
 - $NODES -> Permet de déclarer les points d'accès, les grouper par type, de les associer à un commutateur particulier et de définir le numéro de port physique utilisé par chaque AP.
 
-**Exemple de fichier config.php**
+**Extrait fichier config.php**
 
 ```php
 $USER = "userWifi";
@@ -122,13 +122,13 @@ $NODES = [
 	'Point d\'accès Ubiquiti' => [
 		'AP1' => ['parent' => 'sw_wifi', 'port' => 1],
 		'AP2' => ['parent' => 'sw_wifi', 'port' => 2],
-        ...
+            ...
 		'AP8' => ['parent' => 'sw_wifi', 'port' => 8],			
 	],
 	'Ponts Ubiquiti (1-4)' => [
 		'BR1A' => ['parent' => 'sw_wifi', 'port' => 9],
 		'BR1B' => ['parent' => 'sw_wifi', 'port' => 10],
-        ...
+            ...
 		'BR4B' => ['parent' => 'sw_wifi', 'port' => 16],	
 	],
 ];
