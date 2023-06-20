@@ -262,6 +262,14 @@ puis il faut éditer les fichiers ``/opt/unetlab/html/templates/intel/vtepCisco.
 Dans un lab EVE-NG ajouter un noeud de type "Point d'accès Cisco" non connecté.
 Une fois démarré (root/Linux) vous devrier pouvoir envoyer des ping vers Internet ou des cibles de votre infrastructure. 
 
+**Remarque importante**
+Les "VxLAN Tunnel End Point" VTEP sont :
+- bgp-vtep
+- les noeuds dans EVE-NG crées lors de l'étape 6/6
+
+Chaque VTEP doit avoir une route (statique ou dynamique) vers le réseau des autres VTEP, il convient au besoin d'éditer les fichiers :
+- '/etc/frr/frr.conf' pour la machine **bgp-vtep**
+- '/etc/frr/frr.ori' pour les noeuds virtuels de EVE-NG [procédure](doc/eve-vtep.md)
 
 ## Auteurs
 * **Julien HOARAU** 
