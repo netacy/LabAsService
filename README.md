@@ -108,28 +108,27 @@ Dans le fichier `config.php` modifiez les varaiables :
 
 ```php
 <?php
-$USER = "userWifi";
-$PASSWORD = "passWifi";
+$USER = "userWifi";     // changer
+$PASSWORD = "passWifi"; // changer
 
 $HOSTS = [
 	'sw_wifi' => [ 	
-        'ip' => "10.108.135.252",
-        'oidState' => ['1.3.6.1.2.1.2.2.1.7'],	  // AdminStatus
+        'ip' => "10.108.135.252", // changer
+        'oidState' => ['1.3.6.1.2.1.2.2.1.7'],	  // AdminStatus, doit convenir quelque soit le modèle de sw
         'valueOn' => "1",
         'portOffset' => 0],
 ];
 
 $NODES = [
-
-	'Point d\'accès Ubiquiti' => [
-        'AP1' => ['parent' => 'sw_wifi', 'port' => 1],
-        'AP2' => ['parent' => 'sw_wifi', 'port' => 3],
-        'AP8' => ['parent' => 'sw_wifi', 'port' => 15],			
+	'Points d\'accès Ubiquiti' => [
+    'AP1' => ['parent' => 'sw_wifi', 'port' => 1],
+    'AP2' => ['parent' => 'sw_wifi', 'port' => 3],
+    'AP8' => ['parent' => 'sw_wifi', 'port' => 15],			
 	],
-	'Ponts Ubiquiti (1-4)' => [
-		'BR1A' => ['parent' => 'sw_wifi', 'port' => 17],
-		'BR1B' => ['parent' => 'sw_wifi', 'port' => 19],
-		'BR4B' => ['parent' => 'sw_wifi', 'port' => 31],	
+	'Points d\'accès Cisco' => [
+    'BR1A' => ['parent' => 'sw_wifi', 'port' => 17],
+    'BR1B' => ['parent' => 'sw_wifi', 'port' => 19],
+    'BR4B' => ['parent' => 'sw_wifi', 'port' => 31],	
 	],
 ];
 ?>
