@@ -65,13 +65,13 @@ Un exemple de configuration est disponible ici (nodes/sw-wifi/config.txt). Il co
 Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
 
 Passez ensuite à l'installation des dépendances :
-```
+```bash
 apt update
 apt install git
 git clone https://www.github.com/netacy/LabAsService
 ```
 
-```
+```bash
 cd ./LabAsService
 ./install.sh srv-poe
 ```
@@ -82,7 +82,7 @@ Vous devez modifier le fichier ``/var/www/html/config.php`` pour adapter le dash
 
 Via le protovole SNMP, srv-poe va éteindre/allumer les ports de connexion des équipements wifi. Il convient d'identifier la références des ports dans lors d'une intérogation de sw-wifi.
 Ex :
-```
+```bash
 root@debian:/var/www/html# snmpwalk -v 3 -u userWifi -l authNoPriv -a md5 -A passWifi 10.102.74.230 1.3.6.1.2.1.2.2.1.7
 iso.3.6.1.2.1.2.2.1.7.1 = INTEGER: 1
 iso.3.6.1.2.1.2.2.1.7.10001 = INTEGER: 1
@@ -109,7 +109,7 @@ Dans le fichier `config.php` modifiez les varaiables :
 ![WebUI](img/webui2.png)
 
 Depuis la console de votre switch POE vous devriez visualiser les notifications up/down lorsque vous manipulez l'interface web :
-```
+```bash
 Switch#
 *Jun 19 20:34:26.003: %SYS-5-CONFIG_I: Configured from 10.108.133.251 by snmp
 Switch#
@@ -121,13 +121,13 @@ Switch#
 Si ce n'est déjà fait, configurez l'interface réseau avec une IP fixe en éditant le fichier ``/etc/network/interfaces``
 
 Passez ensuite à l'installation des dépendances :
-```
+```bash
 apt update
 apt install git
 git clone https://www.github.com/netacy/LabAsService
 ```
 
-```
+```bash
 cd ./LabAsService
 ./install.sh bgp-rr
 ```
@@ -139,18 +139,18 @@ Dans notre cas @IP RR = 10.108.143.51
 Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
 
 Passez ensuite à l'installation des dépendances :
-```
+```bash
 apt update
 apt install git
 git clone https://www.github.com/netacy/LabAsService
 ```
-```
+```bash
 cd ./LabAsService
 ./install.sh bgp-vtep
 ```
 Le nom d'hôte et les interfaces réseaux vont être renommées, attendez le redémarrage.
 Nous allons personnaliser votre configuration vxlan en fonction de vos besoins :
-```
+```bash
 cd ./LabAsService
 ./install.sh bgp-vtep2
 ```
@@ -161,7 +161,7 @@ Attention, la carte réseau vous connectant à internet a certainement été ren
  
  **Vérification 2/2**
 La commande ``brctl show``commande doit faire apparaitre les ponts entre les réseaux vxlan et qinq :
-```
+```bash
 root@bgp-vtep:~# brctl show
 bridge name     bridge id               STP enabled     interfaces
 br1001          8000.3aa97a437e71       no              eth1.1001
@@ -177,12 +177,12 @@ Votre machine EVE-NG doit être installée et doit pouvoir accéder à Internet,
 
 Commencez par ouvrir une session root sur la machine EVE-NG.
 
-```
+```bash
 apt update
 apt install git
 git clone https://www.github.com/netacy/LabAsService
 ```
-```
+```bash
 cd ./LabAsService
 ./install.sh eve
 ```
@@ -198,7 +198,7 @@ Le processus d'installation va :
 Nous allons créer un modèle de noeud qui sera accessible dans l'interface web de EVE-NG. Dans la topologie ce noeud représentera un des équipemets wifi connecté au switch sw-wifi.
 
 Toujours depuis une session root dans la machine EVE-NG :
-```
+```bash
 cd ./LabAsService
 ./install.sh mk-vtep-eve
 ```
