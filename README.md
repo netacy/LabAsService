@@ -107,6 +107,7 @@ Dans le fichier `config.php` modifiez les varaiables :
 **Extrait fichier config.php**
 
 ```php
+<?php
 $USER = "userWifi";
 $PASSWORD = "passWifi";
 
@@ -131,6 +132,7 @@ $NODES = [
 		'BR4B' => ['parent' => 'sw_wifi', 'port' => 31],	
 	],
 ];
+?>
 ```
 
 ![WebUI](img/webui2.png)
