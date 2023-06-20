@@ -111,10 +111,11 @@ $USER = "userWifi";
 $PASSWORD = "passWifi";
 
 $HOSTS = [
-	'sw_wifi' => [ 	'ip' => "10.108.135.252",
-					'oidState' => ['1.3.6.1.2.1.2.2.1.7'],	  // AdminStatus
-					'valueOn' => "1",
-					'portOffset' => 0],
+	'sw_wifi' => [ 	
+        'ip' => "10.108.135.252",
+        'oidState' => ['1.3.6.1.2.1.2.2.1.7'],	  // AdminStatus
+        'valueOn' => "1",
+        'portOffset' => 0],
 ];
 
 $NODES = [
