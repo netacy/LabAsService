@@ -10,9 +10,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 
 * [Debian 11 en machine virtuelle](https://www.debian.org) 
 * [Eventuellent Debian 11 sur une machine physique](https://www.debian.org) pour bgp-vtep
-* [FRRouting](https://frrouting.org) - Plan de contrôle de l'infrastructure VXLAN - BGP EVPN (FRR version 8.5.1 à la date de rédaction)
 * [Environnement de virtualisation - EVE-NG](https://www.eve-ng.net/) (version Community Edition 5.0.1-19 à la date de rédaction)
-
 
 ## Ressources matérielles :
 * [Switch Cisco WS-C3750-48PS-S](https://www.cisco.com/c/en/us/products/switches/catalyst-3750-series-switches/datasheet-listing.html) - 137 euros d'occasion
