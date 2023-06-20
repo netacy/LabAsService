@@ -269,7 +269,8 @@ Les "VxLAN Tunnel End Point" VTEP sont :
 
 Chaque VTEP doit avoir une route (statique ou dynamique) vers le réseau des autres VTEP, il convient au besoin d'éditer les fichiers :
 - '/etc/frr/frr.conf' pour la machine **bgp-vtep**
-- '/etc/frr/frr.ori' pour les noeuds virtuels de EVE-NG [procédure](doc/eve-vtep.md)
+- '/etc/frr/frr.ori' pour les noeuds virtuels de EVE-NG 
+[Exemple de procédure](doc/vtep.md)
 
 ## Auteurs
 * **Julien HOARAU** 
