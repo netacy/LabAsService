@@ -79,6 +79,7 @@ Le service web déployé permet de piloter l'état des port POE (les ports impai
 Vous devez modifier le fichier ``/var/www/html/config.php`` pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
 
 **Paramétrage**
+
 Via le protovole SNMP, srv-poe va éteindre/allumer les ports de connexion des équipements wifi. Il convient d'identifier la références des ports dans lors d'une intérogation de sw-wifi.
 Ex :
 ```
