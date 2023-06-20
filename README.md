@@ -78,6 +78,20 @@ cd ./LabAsService
 Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
 Vous devez modifier le fichier ``/var/www/html/config.php`` pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
 
+**Paramètrage**
+
+
+```
+root@debian:/var/www/html# snmpwalk -v 3 -u userWifi -l authNoPriv -a md5 -A passWifi 10.102.74.230 1.3.6.1.2.1.2.2.1.7
+iso.3.6.1.2.1.2.2.1.7.1 = INTEGER: 1
+iso.3.6.1.2.1.2.2.1.7.10001 = INTEGER: 1
+iso.3.6.1.2.1.2.2.1.7.10002 = INTEGER: 1
+iso.3.6.1.2.1.2.2.1.7.10003 = INTEGER: 1
+iso.3.6.1.2.1.2.2.1.7.10004 = INTEGER: 1
+iso.3.6.1.2.1.2.2.1.7.10005 = INTEGER: 1
+iso.3.6.1.2.1.2.2.1.7.10006 = INTEGER: 1
+```
+
 Le fichier permet de créer des groupes de points d'accès (idéalement par modèle/marque), l'interface web permet le pilotage des ports du/des commutateurs POE utilisé(s) dans votre projet.
 
 ![WebUI](img/webui2.png)

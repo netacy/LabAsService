@@ -3,192 +3,244 @@ hostname mySwitch
 !
 vlan 1001-1016
 !
-!
-interface FastEthernet0/0
- switchport access vlan 1001
- switchport mode dot1q-tunnel
- no cdp enable
+vtp mode transparent
 !
 interface FastEthernet0/1
  switchport access vlan 1001
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/2
- switchport access vlan 1002
+ switchport access vlan 1001
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/3
  switchport access vlan 1002
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/4
- switchport access vlan 1003
+ switchport access vlan 1002
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/5
  switchport access vlan 1003
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/6
- switchport access vlan 1004
+ switchport access vlan 1003
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/7
  switchport access vlan 1004
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/8
- switchport access vlan 1005
+ switchport access vlan 1004
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/9
  switchport access vlan 1005
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/10
- switchport access vlan 1006
+ switchport access vlan 1005
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/11
  switchport access vlan 1006
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/12
- switchport access vlan 1007
+ switchport access vlan 1006
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/13
  switchport access vlan 1007
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/14
- switchport access vlan 1008
+ switchport access vlan 1007
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/15
  switchport access vlan 1008
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/16
- switchport access vlan 1009
+ switchport access vlan 1008
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/17
  switchport access vlan 1009
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/18
- switchport access vlan 1010
+ switchport access vlan 1009
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/19
  switchport access vlan 1010
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/20
- switchport access vlan 1011
+ switchport access vlan 1010
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/21
  switchport access vlan 1011
  switchport mode dot1q-tunnel
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/22
- switchport access vlan 1012
+ switchport access vlan 1011
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/23
  switchport access vlan 1012
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
-!
+ power inline auto
+ no shutdown
+no cdp enable
+
 interface FastEthernet0/24
- switchport access vlan 1013
+ switchport access vlan 1012
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/25
  switchport access vlan 1013
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/26
- switchport access vlan 1014
+ switchport access vlan 1013
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/27
  switchport access vlan 1014
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/28
- switchport access vlan 1015
+ switchport access vlan 1014
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/29
  switchport access vlan 1015
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/30
- switchport access vlan 1016
+ switchport access vlan 1015
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/31
  switchport access vlan 1016
  switchport mode dot1q-tunnel
- shutdown
- no cdp enable
+ power inline auto
+ no shutdown
+no cdp enable
+!
+interface FastEthernet0/32
+ switchport access vlan 1016
+ switchport mode dot1q-tunnel
+ power inline never
+ no shutdown
+no cdp enable
 !
 interface FastEthernet0/48
  switchport trunk encapsulation dot1q
  switchport mode trunk
 !
 !
-interface Vlan1
- no ip address
- shutdown
-!
 interface vlan1
- ip address 192.168.1.253 255.255.252.0
+ ip address 10.102.74.230 255.255.255.0
 !
-ip route 0.0.0.0 0.0.0.0 192.168.1.254
+ip route 0.0.0.0 0.0.0.0 10.102.74.254
 !
 snmp-server group groupTPWifi v3 auth read vieWifi write vieWifi
-snmp-server user "USERNAME" groupTPWifi auth md5 PASSWD
+snmp-server user userWifi groupTPWifi v3 auth md5 passWifi
 snmp-server view vieWifi iso included
 !
