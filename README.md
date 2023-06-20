@@ -78,9 +78,9 @@ cd ./LabAsService
 Le service web déployé permet de piloter l'état des port POE (les ports impairs) de sw-wifi.
 Vous devez modifier le fichier ``/var/www/html/config.php`` pour adapter le dashboard en fonction des équipements que vous déployez rééllement.
 
-**Paramètrage**
-
-
+**Paramétrage**
+Via le protovole SNMP, srv-poe va éteindre/allumer les ports de connexion des équipements wifi. Il convient d'identifier la références des ports dans lors d'une intérogation de sw-wifi.
+Ex :
 ```
 root@debian:/var/www/html# snmpwalk -v 3 -u userWifi -l authNoPriv -a md5 -A passWifi 10.102.74.230 1.3.6.1.2.1.2.2.1.7
 iso.3.6.1.2.1.2.2.1.7.1 = INTEGER: 1
@@ -91,8 +91,19 @@ iso.3.6.1.2.1.2.2.1.7.10004 = INTEGER: 1
 iso.3.6.1.2.1.2.2.1.7.10005 = INTEGER: 1
 iso.3.6.1.2.1.2.2.1.7.10006 = INTEGER: 1
 ```
+Dans cet exemple, nous voyons que les ports FastEthernet0/1, FastEthernet0/2, etc sont associés aux identifiants 10001, 10002, etc. (justificaiton ?). Nous considérerons par la suite qu'il y a un décalage (offset) de 10000 entre les références de port utilisés par SNMP et les références classiquement utilisées dans les configuration en CLI.
 
-Le fichier permet de créer des groupes de points d'accès (idéalement par modèle/marque), l'interface web permet le pilotage des ports du/des commutateurs POE utilisé(s) dans votre projet.
+Le fichier config.php permet de construire l'interface web et défini également les paramètres techniques pour le pilotage de sw-wifi.
+Dans le fichier `config.php` modifiez les varaiables :
+
+- $USER      -> utilisateur snmp pour l'intérrogation de sw-wifi
+- $PASSWORD  -> mot de passe snmp pour l'intérrogation de sw-wifi
+
+- $HOSTS -> Tableau associatif qui permet de définir l'adresse IP de sw-wifi, l'OID pour piloter/lister l'état des ports et définir la valeur d'offset. Au besoin, cette variable permet de définir l'existence de plusieurs commutateurs.
+
+- $NODES -> Permet de déclarer les points d'accès, les grouper par type, de les associer à un commutateur particulier et de définir le numéro de port physique utilisé par chaque AP.
+
+
 
 ![WebUI](img/webui2.png)
 
