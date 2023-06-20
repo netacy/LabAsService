@@ -183,10 +183,11 @@ Nous allons personnaliser votre configuration vxlan en fonction de vos besoins :
 cd ./LabAsService
 ./install.sh bgp-vtep2
 ```
-Attention, la carte réseau vous connectant à internet a certainement été renommée en eth0 (ou ethX), il convient de rééditer le fichier ``/etc/network/interfaces`` pour corriger ca...
+
+LA machine va redémarrer une dernière fois.
 
 **Vérification 1/2**
- Votre machine doit pouvoir accéder au réseau de votre département/internet
+ Votre machine doit pouvoir accéder au réseau de votre département/internet. (ping a.b.c.d)
  
  **Vérification 2/2**
 La commande ``brctl show``commande doit faire apparaitre les ponts entre les réseaux vxlan et qinq :
@@ -199,7 +200,6 @@ br1002          8000.c20468ef7534       no              eth1.1002
                                                         vxlan1002
 ...                                                     
 ```
-
 
 ### Installation 5/6: eve
 Votre machine EVE-NG doit être installée et doit pouvoir accéder à Internet, il n'est pas indispensable qu'elle possède un adresse IP fixe.
@@ -216,8 +216,8 @@ cd ./LabAsService
 ./install.sh eve
 ```
 Le processus d'installation va :
-1. Télécharger un modèle de machine Linux Debian 11 (nom=linux-debian10 login/passwd=root/Linux), elle sera utilisée dans l'étapge suivante (6/6).
-2. Installer un réseau NAT "Cloud99" : Ce réseau (192.168.99.0/24 GW=192.168.99.254) donne accès à Internet pour les totologies EVE. 
+1. Télécharger un modèle de machine Linux Debian 11 (nom=linux-debian10 login/passwd=root/Linux), elle sera utilisée dans l'étape suivante (6/6).
+2. Installer un réseau NAT "Cloud99" : Ce réseau (192.168.99.0/24 GW=192.168.99.254) donne accès à Internet pour les totologies EVE. L'usage d'un réseau de sortie NATé est recommandé pour éviter le raccordement de topololie de plusieurs instances EVE...
 3. Compléter la configuration de EVE-NG pour pouvoir disposer de nouveaux modèles de noeuds 
 
 **Remarque importante**
@@ -236,17 +236,17 @@ On rappelle que le VTEP (VXLAN Tunnel End Point) permettra, depuis une topologie
 
 5 paramètres seront demandés dans le processus d'installation :
 
-1. Le premier numéro de VLAN (ou VNI) : 1000
+1. Le premier numéro de VLAN (ou VNI) : 1001
 2. Nombre d'équipements : 8
-3. Nom de l'image - sans espace : ubiquitiAP
+3. Nom de l'image - sans espace : ubiquiti-ap
 4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Ubiquiti
 5. Adresse IP du reflecteur de route : 10.108.143.51, (étape 2/6)
 
 Cette étape est à répéter pour ajouter un deuxième modèle de noeud type Cisco :
 
-1. Le premier numéro de VLAN (ou VNI) : 1008
+1. Le premier numéro de VLAN (ou VNI) : 1009
 2. Nombre d'équipements : 8
-3. Nom de l'image - sans espace : ciscoAP
+3. Nom de l'image - sans espace : cisco-ap
 4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Cisco
 5. Adresse IP du reflecteur de route : 10.108.143.51, (étape 2/6)
 
