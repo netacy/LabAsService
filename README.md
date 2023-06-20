@@ -84,6 +84,8 @@ Via le protovole SNMP, srv-poe va Ã©teindre/allumer les ports de connexion des Ã
 Ex :
 ```bash
 root@debian:/var/www/html# snmpwalk -v 3 -u userWifi -l authNoPriv -a md5 -A passWifi 10.102.74.230 1.3.6.1.2.1.2.2.1.7
+```
+```
 iso.3.6.1.2.1.2.2.1.7.1 = INTEGER: 1
 iso.3.6.1.2.1.2.2.1.7.10001 = INTEGER: 1
 iso.3.6.1.2.1.2.2.1.7.10002 = INTEGER: 1
