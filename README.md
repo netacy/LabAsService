@@ -92,17 +92,18 @@ iso.3.6.1.2.1.2.2.1.7.10004 = INTEGER: 1
 iso.3.6.1.2.1.2.2.1.7.10005 = INTEGER: 1
 iso.3.6.1.2.1.2.2.1.7.10006 = INTEGER: 1
 ```
-Dans cet exemple, nous voyons que les ports FastEthernet0/1, FastEthernet0/2, etc sont associés aux identifiants 10001, 10002, etc. (justificaiton ?). Nous considérerons par la suite qu'il y a un décalage (offset) de 10000 entre les références de port utilisés par SNMP et les références classiquement utilisées dans les configuration en CLI.
 
-Le fichier config.php permet de construire l'interface web et défini également les paramètres techniques pour le pilotage de sw-wifi.
-Dans le fichier `config.php` modifiez les varaiables :
+Dans cet exemple, nous voyons que les ports FastEthernet0/1, FastEthernet0/2, etc sont associés aux identifiants 10001, 10002, etc.(justification ???). Nous considérerons par la suite qu'il y a un décalage (offset) de 10000 entre les références de port utilisés par SNMP et les références classiquement utilisées dans les configuration en CLI.
 
-- $USER      -> utilisateur snmp pour l'intérrogation de sw-wifi
-- $PASSWORD  -> mot de passe snmp pour l'intérrogation de sw-wifi
+Le fichier `config.php` permet de construire l'interface web et défini également les paramètres techniques pour le pilotage de sw-wifi.
+Dans ce fichier modifiez les variables :
 
-- $HOSTS -> Tableau associatif qui permet de définir l'adresse IP de sw-wifi, l'OID pour piloter/lister l'état des ports et définir la valeur d'offset. Au besoin, cette variable permet de définir l'existence de plusieurs commutateurs.
+- $USER      : utilisateur snmp pour l'intérrogation de sw-wifi
+- $PASSWORD  : mot de passe snmp pour l'intérrogation de sw-wifi
 
-- $NODES -> Permet de déclarer les points d'accès, les grouper par type, de les associer à un commutateur particulier et de définir le numéro de port physique utilisé par chaque AP.
+- $HOSTS : Tableau associatif qui permet de définir l'adresse IP de sw-wifi, l'OID pour piloter/lister l'état des ports et définir la valeur d'offset. Au besoin, cette variable permet de définir l'existence de plusieurs commutateurs.
+
+- $NODES : Permet de déclarer les points d'accès, les grouper par type, de les associer à un commutateur particulier et de définir le numéro de port physique utilisé par chaque AP.
 
 **Extrait fichier config.php**
 
@@ -120,8 +121,8 @@ $HOSTS = [
 ];
 
 $NODES = [
-	'Points d\'accès Ubiquiti' => [
-    'AP1' => ['parent' => 'sw_wifi', 'port' => 1],
+	'Points d\'accès Ubiquiti' => [ // adapter
+    'AP1' => ['parent' => 'sw_wifi', 'port' => 1], // adapter
     'AP2' => ['parent' => 'sw_wifi', 'port' => 3],
     'AP8' => ['parent' => 'sw_wifi', 'port' => 15],			
 	],
