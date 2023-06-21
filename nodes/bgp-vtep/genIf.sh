@@ -53,10 +53,10 @@ do
 
 	echo "#-----------------------------------------------"  >> /etc/network/interfaces
 done
-	echo "" >> /etc/network/interfaces
-	echo "auto $nic" >> /etc/network/interfaces
-	echo "iface $nic inet static" >> /etc/network/interfaces
-	echo "address 192.168.252.2" >> /etc/network/interfaces
-	echo "netmask 255.255.255.0" >> /etc/network/interfaces
+	# echo "" >> /etc/network/interfaces
+	# echo "auto $nic" >> /etc/network/interfaces
+	# echo "iface $nic inet static" >> /etc/network/interfaces
+	# echo "address 192.168.252.2" >> /etc/network/interfaces
+	# echo "netmask 255.255.255.0" >> /etc/network/interfaces
 	
 
