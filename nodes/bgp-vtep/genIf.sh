@@ -56,9 +56,17 @@ done
 	echo "" >> /etc/network/interfaces
 	echo "auto $nic" >> /etc/network/interfaces
 	echo "iface $nic inet static" >> /etc/network/interfaces
-	echo "address 192.168.254.2" >> /etc/network/interfaces
+	echo "address 192.168.252.2" >> /etc/network/interfaces
 	echo "netmask 255.255.255.0" >> /etc/network/interfaces
 	
 
+# Personnalisation de frr.conf
+netid=$(ip route | grep $IP | cut -d' ' -f1)
+ipLAN=$(echo $netid | cut -d'/' -f1)
+maskLAN=$(echo $netid | cut -d'/' -f2)
 
-systemctl restart networking
+lanRoute="ip route $ipLAN\/$maskLAN $nic"
+rrRoute="ip route $rr\/32 $nic"
+
+sed -i "s/_LANROUTE_/$lanRoute/g" /etc/frr/frr.conf
+sed -i "s/_RRROUTE_/$rrRoute/g" /etc/frr/frr.conf
