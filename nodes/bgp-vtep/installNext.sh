@@ -26,10 +26,6 @@ if [ "$ok" != "o" ]; then
     read IP
 fi
 
-
-
-
-# TODO
 # Demander l'adresse si elle n'est pas détéctée
 
 echo 
@@ -48,11 +44,11 @@ netid=$(ip route | grep $IP | cut -d' ' -f1)
 ipLAN=$(echo $netid | cut -d'/' -f1)
 maskLAN=$(echo $netid | cut -d'/' -f2)
 
-# lanRoute="ip route $ipLAN\/$maskLAN $nic"
-# rrRoute="ip route $rr\/32 $nic"
+# lanRoute="ip route $ipLAN\/$maskLAN br0"
+# rrRoute="ip route $rr\/32 br0"
 
-lanRoute="ip route $ipLAN\/$maskLAN br0"
-rrRoute="ip route $rr\/32 br0"
+lanRoute="ip route $ipLAN\/$maskLAN $nic"
+rrRoute="ip route $rr\/32 $nic"
 
 sed -i "s/_LANROUTE_/$lanRoute/g" /etc/frr/frr.conf
 sed -i "s/_RRROUTE_/$rrRoute/g" /etc/frr/frr.conf
