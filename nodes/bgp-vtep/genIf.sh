@@ -29,8 +29,8 @@ echo $nicUplink >> /root/tmp2
 echo $nic > /root/tmp2
 
 # On applique la config IP de l'uplink sur br0
-sed -i "s/$nicUplink/br0/g" /etc/network/interfaces
-sed -ri "s/(iface br0.+)/\1\nbridge_ports $nicUplink $nic\nbridge_stp off\nup ip link set dev br0 type bridge vlan_filtering 1/g" /etc/network/interfaces
+# sed -i "s/$nicUplink/br0/g" /etc/network/interfaces
+# sed -ri "s/(iface br0.+)/\1\nbridge_ports $nicUplink $nic\nbridge_stp off\nup ip link set dev br0 type bridge vlan_filtering 1/g" /etc/network/interfaces
 
 for vni in $(seq $first $last)
 do

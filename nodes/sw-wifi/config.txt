@@ -251,11 +251,11 @@ interface FastEthernet0/48
  switchport mode trunk
 !
 !
+! 
 interface vlan1
- ip address 10.102.74.230 255.255.255.0
+ ip address 192.168.255.1 255.255.255.0
  no shutdown
 !
-ip route 0.0.0.0 0.0.0.0 10.102.74.254
 !
 snmp-server group groupTPWifi v3 auth read vieWifi write vieWifi
 snmp-server user userWifi groupTPWifi v3 auth md5 passWifi
