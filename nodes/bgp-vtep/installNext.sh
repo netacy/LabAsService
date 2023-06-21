@@ -40,6 +40,16 @@ sed -i "s/IPADDRESS/$IP/g" /etc/frr/frr.conf
 sed -i "s/NIC/$nic/g" /etc/frr/frr.conf
 sed -i "s/BGPRR/$rr/g" /etc/frr/frr.conf
 
+netid=$(ip route | grep $IP | cut -d' ' -f1)
+ipLAN=$(echo $netid | cut -d'/' -f1)
+maskLAN=$(echo $netid | cut -d'/' -f2)
+
+lanRoute="ip route $ipLAN\/$maskLAN br0"
+rrRoute="ip route $rr\/32 br0"
+
+sed -i "s/_LANROUTE_/$lanRoute/g" /etc/frr/frr.conf
+sed -i "s/_RRROUTE_/$rrRoute/g" /etc/frr/frr.conf
+
 
 chmod +x ./nodes/bgp-vtep/genIf.sh
 ./nodes/bgp-vtep/genIf.sh $nic

@@ -29,8 +29,8 @@ echo $nicUplink >> /root/tmp2
 echo $nic > /root/tmp2
 
 # On applique la config IP de l'uplink sur br0
-# sed -i "s/$nicUplink/br0/g" /etc/network/interfaces
-# sed -ri "s/(iface br0.+)/\1\nbridge_ports $nicUplink $nic\nbridge_stp off\nup ip link set dev br0 type bridge vlan_filtering 1/g" /etc/network/interfaces
+sed -i "s/$nicUplink/br0/g" /etc/network/interfaces
+sed -ri "s/(iface br0.+)/\1\nbridge_ports $nicUplink $nic\nbridge_stp off\nup ip link set dev br0 type bridge vlan_filtering 1/g" /etc/network/interfaces
 
 for vni in $(seq $first $last)
 do
@@ -60,13 +60,3 @@ done
 	echo "netmask 255.255.255.0" >> /etc/network/interfaces
 	
 
-# Personnalisation de frr.conf
-netid=$(ip route | grep $IP | cut -d' ' -f1)
-ipLAN=$(echo $netid | cut -d'/' -f1)
-maskLAN=$(echo $netid | cut -d'/' -f2)
-
-lanRoute="ip route $ipLAN\/$maskLAN $nic"
-rrRoute="ip route $rr\/32 $nic"
-
-sed -i "s/_LANROUTE_/$lanRoute/g" /etc/frr/frr.conf
-sed -i "s/_RRROUTE_/$rrRoute/g" /etc/frr/frr.conf

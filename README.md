@@ -170,6 +170,7 @@ Dans notre cas @IP RR = 10.108.143.51
 ### Installation 4/6: bgp-vtep
 Commencez par configurer l'interface eth0 avec une IP fixe (ou DHCP) en éditant le fichier ``/etc/network/interfaces``
 
+
 Passez ensuite à l'installation des dépendances :
 ```bash
 apt update
