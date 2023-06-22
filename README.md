@@ -228,6 +228,9 @@ Le processus d'installation va :
 - Si cette machine EVE est exécutée dans un hyperviseur ESXi il convient certainement d'acctiver le mode promiscuité sur la carte réseau de la VM. En effet, le réseau de l'hypervieur risque de ne pas apprécier des trames sortantes avec des adresses MAC sources non connues.
 
 ### Installation 6/6: eve-vtep
+
+TODO : Cleaner /etc/netwok/interface...
+
 Nous allons créer un modèle de noeud qui sera accessible dans l'interface web de EVE-NG. Dans la topologie ce noeud représentera un des équipemets wifi connecté au switch sw-wifi.
 
 Toujours depuis une session root dans la machine EVE-NG :
