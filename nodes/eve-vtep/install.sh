@@ -29,4 +29,5 @@ systemctl disable frr
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 systemctl disable frr
 
+cp ./nodes/eve-vtep/interfaces /etc/network
 
