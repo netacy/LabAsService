@@ -8,6 +8,7 @@ service integrated-vtysh-config
 !
 _LANROUTE_
 _RRROUTE_
+ip route 10.0.0.0/8 br0
 !
 router bgp 65000
  bgp router-id IPADDRESS
