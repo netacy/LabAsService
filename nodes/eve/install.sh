@@ -53,7 +53,7 @@ echo "function genUuid() {
 ?>
 " >> /opt/unetlab/html/includes/functions.php
 
-
+# Ajout du réseau nat dans le fichier interfaces
 cat ./nodes/eve/interfaces >> /etc/network/interfaces
 systemctl restart networking
 
