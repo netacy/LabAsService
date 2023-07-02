@@ -40,6 +40,9 @@ echo "INTERFACES=\"pnet99\"" > /etc/default/isc-dhcp-server
 systemctl enable isc-dhcp-server 
 systemctl start isc-dhcp-server 
 
+# Permet l'ouverture simultanée de plusieurs sessions sur une VM
+echo "mysql-default-max-connections-per-user: 10" >> /etc/guacamole/guacamole.properties
+
 cat ./nodes/eve/interfaces >> /etc/network/interfaces
 systemctl restart networking
 
