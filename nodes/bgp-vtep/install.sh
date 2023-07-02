@@ -13,7 +13,7 @@ echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) $FRRVER | sudo tee -
 # update and install FRR
 sudo apt update && sudo apt install -y frr frr-pythontools
 hostnamectl set-hostname bgp-vtep
-echo "127.0.0.1 bgp-vtep" >> /etc/hosts
+echo "127.0.0.1 bgp-vtep " >> /etc/hosts
 
 
 # Renommage des interface réseau en ethX (sinon bug de config qinq !!)
