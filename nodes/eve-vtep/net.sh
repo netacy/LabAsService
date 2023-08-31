@@ -14,7 +14,7 @@ echo "---------------------------------------------"
 
 last=$(($first+$nb-1))
 nicId=0
-for vni in $(seq $first $last)
+for vni in $(seq $first $last) $extra
 do
 
 	ip link add vxlan$vni type vxlan id $vni dstport 0 nolearning
