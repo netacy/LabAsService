@@ -91,6 +91,7 @@ chmod +x ./install.sh \n
 echo $vni > /root/conf \n
 echo $rr >> /root/conf \n
 echo $nb >> /root/conf \n
+echo "" >> /root/conf \n
 
 "
 
