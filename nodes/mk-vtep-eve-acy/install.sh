@@ -92,7 +92,11 @@ chmod +x ./install.sh \n
 ./install.sh eve-vtep-acy \n
 echo $vni > /root/conf \n
 echo $rr >> /root/conf \n
-echo $nb >> /root/conf \n
+
+nbExtra=$(echo $extra | wc -w)
+nbTotal=$(($extra+$nb))
+
+echo $nbTobal >> /root/conf \n
 echo $extra >> /root/conf \n
 
 "
