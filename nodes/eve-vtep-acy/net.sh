@@ -6,7 +6,7 @@ nb=$(cat /root/conf | head -n 3 | tail -n 1)
 extra=$(cat /root/conf | head -n 4 | tail -n 1)
 
 
-nics=$(ls /sys/class/net/ | grep en | sort -t s -k 2 --numeric-sort)
+nics=$(ls -v /sys/class/net/ | grep en | sort -t s -k 2 --numeric-sort)
 #Convert to array
 nics=($nics)
 
@@ -41,8 +41,8 @@ mac=00:60:2F$end
 ip link set dev ${nics[$nicId]} address $mac
 ip link set up ${nics[$nicId]}
 
-dhclient ${nics[$nicId]}
 
+dhclient ${nics[$nicId]}
 ip=$(ip a | grep ${nics[$nicId]} | tail -n 1 | cut -d' ' -f 6 | cut -d'/' -f1)
 gw=$(ip route | grep default | cut -d' ' -f3)
 
