@@ -25,6 +25,8 @@ echo "Nombre d'équipements : "
 read nb
 echo "Nom de l'image - sans espace (ex: cisco-ap): "
 read imageName
+echo "Extra VNI (liste séprée par des espaces) :"
+read extra
 echo "Description = Nom du noeud dans l'interface web - espace tolérés (ex: AP Cisco ): "
 read description
 echo "Adresse IP du reflecteur de route : "
@@ -91,6 +93,7 @@ chmod +x ./install.sh \n
 echo $vni > /root/conf \n
 echo $rr >> /root/conf \n
 echo $nb >> /root/conf \n
+echo $extra >> /root/conf \n
 
 "
 

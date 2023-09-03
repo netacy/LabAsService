@@ -1,0 +1,31 @@
+frr version 7.2
+frr defaults traditional
+hostname eve-ng
+log syslog informational
+no ip forwarding
+no ipv6 forwarding
+service integrated-vtysh-config
+!
+ip route __RR__ 255.255.255.255 __GW__
+ip route 10.0.0.0/8 __GW__
+
+!
+router bgp 65000
+ bgp router-id __IP__
+ no bgp default ipv4-unicast
+ neighbor fabric peer-group
+ neighbor fabric remote-as 65000
+ neighbor fabric capability extended-nexthop
+ neighbor __RR__ peer-group fabric
+ neighbor __RR__ ttl-security hops 50
+
+
+ !
+ address-family l2vpn evpn
+  neighbor fabric activate
+  advertise-all-vni
+  advertise-default-gw
+ exit-address-family
+!
+line vty
+!

@@ -32,7 +32,5 @@ $NODES = [
 		'BR4A' => ['parent' => 'sw_wifi', 'port' => 15],
 		'BR4B' => ['parent' => 'sw_wifi', 'port' => 16],	
 	],
-	
-
 ];
 ?>

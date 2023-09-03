@@ -3,6 +3,7 @@
 first=$(cat /root/conf | head -n 1)
 rr=$(cat /root/conf | head -n 2 | tail -n 1)
 nb=$(cat /root/conf | head -n 3 | tail -n 1)
+extra=$(cat /root/conf | head -n 3 | tail -n 1)
 
 
 nics=$(ls /sys/class/net/ | grep en | sort -t s -k 2 --numeric-sort)
@@ -14,7 +15,7 @@ echo "---------------------------------------------"
 
 last=$(($first+$nb-1))
 nicId=0
-for vni in $(seq $first $last)
+for vni in $(seq $first $last) $extra
 do
 
 	ip link add vxlan$vni type vxlan id $vni dstport 0 nolearning
