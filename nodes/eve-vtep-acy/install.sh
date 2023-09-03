@@ -14,13 +14,13 @@ echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) $FRRVER | sudo tee -
 sudo apt update && sudo apt install -y frr frr-pythontools bridge-utils
 
 
-cp ./nodes/eve-vtep/net.sh /root/
-cp ./nodes/eve-vtep/frr/frr.ori /etc/frr/
+cp ./nodes/eve-vtep-acy/net.sh /root/
+cp ./nodes/eve-vtep-acy/frr/frr.ori /etc/frr/
 chmod +x /root/net.sh
 
-cp ./nodes/eve-vtep/rc.local.service /etc/systemd/system
+cp ./nodes/eve-vtep-acy/rc.local.service /etc/systemd/system
 ln -s /etc/systemd/system/rc.local.service  /etc/systemd/system/multi-user.target.wants/rc.local.service
-cp ./nodes/eve-vtep/rc.local /etc/
+cp ./nodes/eve-vtep-acy/rc.local /etc/
 chmod +x /etc/rc.local
 systemctl enable rc-local
 systemctl disable frr
@@ -29,7 +29,6 @@ systemctl disable frr
 sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 systemctl disable frr
 
-cp ./nodes/eve-vtep/interfaces /etc/network
-mkdir /mnt/cdrom
-echo "/dev/cdrom /mnt/cdrom iso9660 ro,noauto 0 0" >> /etc/fstab
+cp ./nodes/eve-vtep-acy/interfaces /etc/network
+
 
