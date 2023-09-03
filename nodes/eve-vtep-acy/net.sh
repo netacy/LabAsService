@@ -44,7 +44,6 @@ ip link set up ${nics[$nicId]}
 dhclient ${nics[$nicId]}
 
 ip=$(ip a | grep ${nics[$nicId]} | tail -n 1 | cut -d' ' -f 6 | cut -d'/' -f1)
-#echo $ip > /tmp/ip
 gw=$(ip route | grep default | cut -d' ' -f3)
 
 

@@ -89,7 +89,7 @@ apt install -y git curl sudo gnupg bridge-utils \n
 git clone https://github.com/netacy/LabAsService \n
 cd ./LabAsService \n
 chmod +x ./install.sh \n 
-./install.sh eve-vtep \n
+./install.sh eve-vtep-acy \n
 echo $vni > /root/conf \n
 echo $rr >> /root/conf \n
 echo $nb >> /root/conf \n

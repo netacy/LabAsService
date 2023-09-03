@@ -12,7 +12,13 @@
 # By default this script does nothing.
 
 # Configuration des interface réseau
+
+
 /root/net.sh &
 
+mount -a
+sleep 2
+/root/myIp
+/etc/frr/start.sh
 
 exit 0
