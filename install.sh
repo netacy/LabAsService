@@ -27,6 +27,12 @@ case $1 in
   mk-vtep-eve)
     ./nodes/mk-vtep-eve/install.sh
     ;;
+  eve-vtep-acy)
+    ./nodes/eve-vtep-acy/install.sh
+    ;;
+  mk-vtep-eve-acy)
+    ./nodes/mk-vtep-eve-acy/install.sh
+    ;;
 
   *)
     echo -n "Parmètre invalide"
