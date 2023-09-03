@@ -7,6 +7,8 @@ FILENAME="virtioa.qcow2"
 mydir=/opt/unetlab/addons/qemu/$version
 fich=virtioa.qcow2
 
+hostId=$(cat /root/id)
+
 # Téléchargement si l'image n'existe pas
 if [ ! -f "$mydir/$fich" ]; then
         # deb10
@@ -27,6 +29,8 @@ echo "Nom de l'image - sans espace (ex: cisco-ap): "
 read imageName
 echo "Extra VNI (liste séprée par des espaces) :"
 read extra
+echo "Device offset (pour ip static):"
+read deviceOffset
 echo "Description = Nom du noeud dans l'interface web - espace tolérés (ex: AP Cisco ): "
 read description
 echo "Adresse IP du reflecteur de route : "
@@ -55,10 +59,17 @@ sed -i "s/_nb_/$nbTotal/g" $newTemplate
 myrand=$RANDOM
 sed -i "s/_xxxx_/_$myrand\_/g" $newTemplate
 
+
+
 # Création de l'image
 newImage=/opt/unetlab/addons/qemu/$imageName-vtep
 diskFile=$newImage/virtioa.qcow2
 cp -r /opt/unetlab/addons/qemu/$version $newImage
+
+echo $hostId > config
+echo $deviceOffset >> config
+mkiso -o /opt/unetlab/addons/qemu/$imageName-vtep/cdrom.iso -graft-points config
+
 
 
 # le périphérique nbd doit être libéré au préalable

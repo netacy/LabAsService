@@ -19,6 +19,9 @@ cp ./nodes/eve-vtep-acy/frr/frr.ori /etc/frr/
 chmod +x /root/net.sh
 
 cp ./nodes/eve-vtep-acy/rc.local.service /etc/systemd/system
+cp ./nodes/eve-vtep-acy/myIp /root
+chmod +x /root/myIp
+
 ln -s /etc/systemd/system/rc.local.service  /etc/systemd/system/multi-user.target.wants/rc.local.service
 cp ./nodes/eve-vtep-acy/rc.local /etc/
 chmod +x /etc/rc.local

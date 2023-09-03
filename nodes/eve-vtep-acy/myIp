@@ -1,5 +1,6 @@
 #!/bin/sh
-last=$(($(cat /mnt/eve/id)*10+1))
+id=$(ls /media/cdrom0/)
+last=$(($id*10+1))
 myIp=10.108.140.$last
 nic=$(ls  /sys/class/net/ | grep eth | tail -n 1)
 ip a a $myIp/16 dev $nic
