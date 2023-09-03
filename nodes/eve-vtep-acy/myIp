@@ -1,6 +1,7 @@
 #!/bin/sh
-id=$(ls /media/cdrom0/)
-last=$(($id*10+1))
+hostId=$(cat /media/cdrom0/config | head -n 1)
+offset=$(cat /media/cdrom0/config | tail -n 1)
+last=$(($hostId*10+$offset))
 myIp=10.108.140.$last
 nic=$(ls  /sys/class/net/ | grep eth | tail -n 1)
 ip a a $myIp/16 dev $nic
