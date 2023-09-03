@@ -33,7 +33,7 @@ echo "Adresse IP du reflecteur de route : "
 read rr
 
 nbExtra=$(echo $extra | wc -w)
-nbTotal=$(($extra+$nb))
+nbTotal=$(($nbExtra+$nb))
 
 
 # Création d'un template
