@@ -67,7 +67,6 @@ diskFile=$newImage/virtioa.qcow2
 cp -r /opt/unetlab/addons/qemu/$version $newImage
 
 echo $hostId > config
-echo $deviceOffset >> config
 mkisofs -o /opt/unetlab/addons/qemu/$imageName-vtep/cdrom.iso -graft-points config
 
 
@@ -107,6 +106,7 @@ echo $vni > /root/conf \n
 echo $rr >> /root/conf \n
 echo $nbTobal >> /root/conf \n
 echo $extra >> /root/conf \n
+echo $deviceOffset > /root/deviceOffset
 
 "
 

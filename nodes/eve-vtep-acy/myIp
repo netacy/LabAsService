@@ -1,8 +1,8 @@
 #!/bin/sh
 hostId=$(cat /media/cdrom0/config | head -n 1)
-offset=$(cat /media/cdrom0/config | tail -n 1)
+offset=$(cat /root/deviceOffset)
 last=$(($hostId*10+$offset))
 myIp=10.108.140.$last
-nic=$(ls  /sys/class/net/ | grep eth | tail -n 1)
+nic=$(ls -v /sys/class/net/ | grep ens | tail -n 1)
 ip a a $myIp/16 dev $nic
 route add default gw 10.108.255.254
