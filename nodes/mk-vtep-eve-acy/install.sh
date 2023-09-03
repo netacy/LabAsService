@@ -1,5 +1,5 @@
 #!/bin/bash
-version="linux-debian10"
+version="linux-debian11"
 
 deb11="1k_IDclfdgp41mkH295kWJkbZA8-LWuuN"
 FILEID="1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J"
@@ -51,7 +51,7 @@ done
 sed -i "s/_description_/$description/g" $newTemplate
 sed -i "s/_name_/$imageName/g" $newTemplate
 sed -i "s/_eth_/$eths/g" $newTemplate
-sed -i "s/_nb_/$nb/g" $newTemplate
+sed -i "s/_nb_/$nbTotal/g" $newTemplate
 myrand=$RANDOM
 sed -i "s/_xxxx_/_$myrand\_/g" $newTemplate
 

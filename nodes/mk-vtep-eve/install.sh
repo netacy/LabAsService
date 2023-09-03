@@ -1,5 +1,5 @@
 #!/bin/bash
-version="linux-debian10"
+version="linux-debian11"
 
 deb11="1k_IDclfdgp41mkH295kWJkbZA8-LWuuN"
 FILEID="1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J"
