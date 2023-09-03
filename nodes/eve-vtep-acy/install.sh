@@ -31,5 +31,5 @@ systemctl disable frr
 
 cp ./nodes/eve-vtep/interfaces /etc/network
 mkdir /mnt/cdrom
-echo "/dev/cdrom /cdrom iso9660 ro,noauto 0 0" >> /etc/fstab
+echo "/dev/cdrom /mnt/cdrom iso9660 ro,noauto 0 0" >> /etc/fstab
 
