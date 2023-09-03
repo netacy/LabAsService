@@ -30,6 +30,6 @@ sed -i "s/bgpd=no/bgpd=yes/g" /etc/frr/daemons
 systemctl disable frr
 
 cp ./nodes/eve-vtep/interfaces /etc/network
-mkdir /mnt/eve
-echo "hostshare       /mnt/eve        9p      defaults,uid=1001,rw,nofail,trans=virtio,version=9p2000.L 0 0" >> /etc/fstab
+mkdir /mnt/cdrom
+echo "/dev/cdrom /cdrom iso9660 ro,noauto 0 0" >> /etc/fstab
 
