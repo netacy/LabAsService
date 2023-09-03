@@ -3,7 +3,7 @@
 first=$(cat /root/conf | head -n 1)
 rr=$(cat /root/conf | head -n 2 | tail -n 1)
 nb=$(cat /root/conf | head -n 3 | tail -n 1)
-extra=$(cat /root/conf | head -n 3 | tail -n 1)
+extra=$(cat /root/conf | head -n 4 | tail -n 1)
 
 
 nics=$(ls /sys/class/net/ | grep en | sort -t s -k 2 --numeric-sort)
