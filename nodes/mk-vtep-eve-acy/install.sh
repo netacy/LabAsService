@@ -68,7 +68,7 @@ cp -r /opt/unetlab/addons/qemu/$version $newImage
 
 echo $hostId > config
 echo $deviceOffset >> config
-mkiso -o /opt/unetlab/addons/qemu/$imageName-vtep/cdrom.iso -graft-points config
+mkisofs -o /opt/unetlab/addons/qemu/$imageName-vtep/cdrom.iso -graft-points config
 
 
 
