@@ -16,7 +16,9 @@ sudo apt update && sudo apt install -y frr frr-pythontools bridge-utils
 
 cp ./nodes/eve-vtep-acy/net.sh /root/
 cp ./nodes/eve-vtep-acy/frr/frr.ori /etc/frr/
+cp ./nodes/eve-vtep-acy/frr/start.sh /etc/frr/
 chmod +x /root/net.sh
+chmod +x /etc/frr/start.sh
 
 cp ./nodes/eve-vtep-acy/rc.local.service /etc/systemd/system
 cp ./nodes/eve-vtep-acy/myIp /root

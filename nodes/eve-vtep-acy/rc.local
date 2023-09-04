@@ -20,6 +20,6 @@ mount /media/cdrom0
 
 sleep 2
 /root/myIp
-#/etc/frr/start.sh
+/etc/frr/start.sh
 
 exit 0
