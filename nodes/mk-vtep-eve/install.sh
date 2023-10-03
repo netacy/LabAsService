@@ -43,6 +43,7 @@ then
 
         else
                 echo "probleme"
+                exit
         fi
 
         exit
