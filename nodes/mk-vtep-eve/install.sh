@@ -34,6 +34,7 @@ then
         echo "Choix effectué : ${images[$choix]}"
         
         vm="$imagesPath/${images[$choix]}"
+        echo $vm
         if [ -d "$vm" ] ;
         then
                 echo "image ok"
