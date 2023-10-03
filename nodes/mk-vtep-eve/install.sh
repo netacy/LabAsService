@@ -7,17 +7,38 @@ FILENAME="virtioa.qcow2"
 mydir=/opt/unetlab/addons/qemu/$version
 fich=virtioa.qcow2
 
-# Téléchargement si l'image n'existe pas
-if [ ! -f "$mydir/$fich" ]; then
-        # deb10
-        # wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J" -O $FILENAME && rm -rf /tmp/cookies.txt
 
-        # deb11
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1k_IDclfdgp41mkH295kWJkbZA8-LWuuN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1k_IDclfdgp41mkH295kWJkbZA8-LWuuN" -O $FILENAME && rm -rf /tmp/cookies.txt
+echo "Il est nécessaire de disposer en local d'une image générique de Linux Debian pour la suite des opérations."
+echo "Souhaitez vous en télécharger une ou utiliser une image existante sur votre machine EVE ?"
+echo "1 - Télécharger l'image"
+echo "2 - Utiliser une image existante"
+echo "Votre choix ([1]|2) : "
+read choix
 
-        mkdir -p $mydir
-        mv $fich  $mydir
+if [ "$choix" = 2];
+then
+        images=$(ls /opt/unetlab/addons/qemu)
+        cpt=0
+        for image in $images
+        do
+                cpt=$(($cpt+1))
+        done
+
+else
+        # Téléchargement si l'image n'existe pas
+        if [ ! -f "$mydir/$fich" ]; then
+                # deb10
+                # wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J" -O $FILENAME && rm -rf /tmp/cookies.txt
+
+                # deb11
+                wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1k_IDclfdgp41mkH295kWJkbZA8-LWuuN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1k_IDclfdgp41mkH295kWJkbZA8-LWuuN" -O $FILENAME && rm -rf /tmp/cookies.txt
+
+                mkdir -p $mydir
+                mv $fich  $mydir
+        fi
 fi
+
+
 
 echo "Le premier numéro de VLAN (ou VNI) : "
 read vni

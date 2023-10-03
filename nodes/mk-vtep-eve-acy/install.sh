@@ -66,8 +66,9 @@ newImage=/opt/unetlab/addons/qemu/$imageName-vtep
 diskFile=$newImage/virtioa.qcow2
 cp -r /opt/unetlab/addons/qemu/$version $newImage
 
-echo $hostId > config
-mkisofs -o /opt/unetlab/addons/qemu/$imageName-vtep/cdrom.iso -graft-points config
+#echo $hostId > config
+ln -s 
+#mkisofs -o /opt/unetlab/addons/qemu/$imageName-vtep/cdrom.iso -graft-points config
 
 
 
