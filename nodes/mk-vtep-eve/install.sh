@@ -18,12 +18,16 @@ read choix
 if [ "$choix" = "2" ];
 then
         images=$(ls /opt/unetlab/addons/qemu)
-        cpt=0
+        cpt=1
         for image in $images
         do
+                echo $cpt - $image
                 cpt=$(($cpt+1))
         done
-
+        max=$(($cpt-1))
+        echo "Votre choix (1-$max):"
+        read $choix
+        echo "Choix effectué : $images[$(($choix-1))]"
 else
         # Téléchargement si l'image n'existe pas
         if [ ! -f "$mydir/$fich" ]; then
