@@ -33,13 +33,15 @@ then
         images=($images)
         echo "Choix effectué : ${images[$choix]}"
         
-        vm="$imagesPath/${images[$choix]}"
-        echo $vm
-        if [ -d "$vm" ] ;
-        then
-                echo "image ok"
+        vmPath="$imagesPath/${images[$choix]}"
+        diskPath="$vmPath/virtioa.qcow2"
+        echo $diskPath
+        if [ -f "$diskPath" ] ;
+        
+                echo "disk ok"
+
         else
-                echo "non ok"
+                echo "probleme"
         fi
 
         exit
