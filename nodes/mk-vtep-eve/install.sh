@@ -15,7 +15,7 @@ echo "2 - Utiliser une image existante"
 echo "Votre choix ([1]|2) : "
 read choix
 
-if [ "$choix" = 2];
+if [ "$choix" = "2" ];
 then
         images=$(ls /opt/unetlab/addons/qemu)
         cpt=0
