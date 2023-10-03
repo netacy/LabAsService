@@ -17,6 +17,7 @@ echo "2 - Utiliser une image existante"
 echo "Votre choix ([1]|2) : "
 read choix
 
+echo "Choisissez une VM à utiliser comme modèle pour générer le VTEP :"
 if [ "$choix" = "2" ];
 then
         images=$(ls $imagesPath)
@@ -32,18 +33,18 @@ then
         choix=$(($choix-1))
         images=($images)
         echo "Choix effectué : ${images[$choix]}"
-        
+
+        version=${images[$choix]}
         vmPath="$imagesPath/${images[$choix]}"
         diskPath=$(ls $vmPath/*.qcow2 | head -n 1)
-        echo $diskPath
+        
         if [ ! -f "$diskPath" ] ;
         then
         
-                echo "Impossible d'aller plus loin, relancer le script et modifiez vos choix !"
+                echo "Impossible d'aller plus loin, relancez le script et modifiez vos choix !"
                 exit
         fi
-
-        exit
+        
 else
         # Téléchargement si l'image n'existe pas
         if [ ! -f "$mydir/$fich" ]; then
