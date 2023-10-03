@@ -27,6 +27,7 @@ then
         max=$(($cpt-1))
         echo "Votre choix (1-$max):"
         read choix
+        choix=$(($choix-1))
         images=($images)
         echo "Choix effectué : ${images[$choix]}"
         exit
