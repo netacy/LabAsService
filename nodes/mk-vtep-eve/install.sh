@@ -27,8 +27,8 @@ then
         max=$(($cpt-1))
         echo "Votre choix (1-$max):"
         read choix
-        echo "Choix effectué : $images[$(($choix-1))]"
-        pause
+        echo "Choix effectué : $images[$(($choix))]"
+        exit
 else
         # Téléchargement si l'image n'existe pas
         if [ ! -f "$mydir/$fich" ]; then
