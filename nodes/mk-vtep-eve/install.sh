@@ -34,7 +34,7 @@ then
         echo "Choix effectué : ${images[$choix]}"
         
         vmPath="$imagesPath/${images[$choix]}"
-        diskPath=$(ls "$vmPath/*.qcow2" | head -n 1)
+        diskPath=$(ls $vmPath/*.qcow2 | head -n 1)
         echo $diskPath
         if [ -f "$diskPath" ] ;
         then
