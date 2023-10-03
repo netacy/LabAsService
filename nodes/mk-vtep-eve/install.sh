@@ -37,6 +37,7 @@ then
         diskPath="$vmPath/virtioa.qcow2"
         echo $diskPath
         if [ -f "$diskPath" ] ;
+        then
         
                 echo "disk ok"
 
