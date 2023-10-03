@@ -28,7 +28,7 @@ then
         echo "Votre choix (1-$max):"
         read choix
         images=($images)
-        echo "Choix effectué : $images[$(($choix))]"
+        echo "Choix effectué : ${images[$choix]}"
         exit
 else
         # Téléchargement si l'image n'existe pas
