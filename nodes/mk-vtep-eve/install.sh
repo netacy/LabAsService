@@ -4,8 +4,10 @@ version="linux-debian11"
 deb11="1k_IDclfdgp41mkH295kWJkbZA8-LWuuN"
 FILEID="1Bfu8_0Ew2uQ2Eidne2L2ys5RkXetso4J"
 FILENAME="virtioa.qcow2"
-mydir=/opt/unetlab/addons/qemu/$version
+imagesPath=/opt/unetlab/addons/qemu
+mydir=$imagesPath/$version
 fich=virtioa.qcow2
+
 
 
 echo "Il est nécessaire de disposer en local d'une image générique de Linux Debian pour la suite des opérations."
@@ -17,7 +19,7 @@ read choix
 
 if [ "$choix" = "2" ];
 then
-        images=$(ls /opt/unetlab/addons/qemu)
+        images=$(ls $imagesPath)
         cpt=1
         for image in $images
         do
@@ -30,6 +32,15 @@ then
         choix=$(($choix-1))
         images=($images)
         echo "Choix effectué : ${images[$choix]}"
+        
+        vm="$imagesPath/${images[$choix]}"
+        if [ -d "$vm" ] ;
+        then
+                echo "image ok"
+        else
+                echo "non ok"
+        fi
+
         exit
 else
         # Téléchargement si l'image n'existe pas
