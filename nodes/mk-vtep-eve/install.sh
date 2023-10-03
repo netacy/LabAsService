@@ -36,13 +36,10 @@ then
         vmPath="$imagesPath/${images[$choix]}"
         diskPath=$(ls $vmPath/*.qcow2 | head -n 1)
         echo $diskPath
-        if [ -f "$diskPath" ] ;
+        if [ ! -f "$diskPath" ] ;
         then
         
-                echo "disk ok"
-
-        else
-                echo "probleme"
+                echo "Impossible d'aller plus loin, relancer le script et modifiez vos choix !"
                 exit
         fi
 
