@@ -95,7 +95,13 @@ sed -i "s/_xxxx_/_$myrand\_/g" $newTemplate
 
 # Création de l'image
 newImage=/opt/unetlab/addons/qemu/$imageName-vtep
-diskFile=$newImage/virtioa.qcow2
+diskFile=$(ls $newImage/*.qcow2 | head -n 1)
+if [ ! -f "$diskFile" ];
+then
+        echo "Impossible de monter l'image disk $diskFile"
+        exit
+fi
+
 cp -r /opt/unetlab/addons/qemu/$version $newImage
 
 
