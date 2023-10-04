@@ -96,7 +96,7 @@ sed -i "s/_xxxx_/_$myrand\_/g" $newTemplate
 # Creation de l'image
 newImage=/opt/unetlab/addons/qemu/$imageName-vtep
 diskFile=$(ls $newImage/*.qcow2 | head -n 1)
-if [ ! -f "$diskFile" ];
+if [ ! -f $diskFile ];
 then
         echo "Impossible de monter l'image disk $diskFile"
         exit
