@@ -230,9 +230,8 @@ cd ./LabAsService
 ./install.sh eve
 ```
 Le processus d'installation va :
-1. Télécharger un modèle de machine Linux Debian 11 (nom=linux-debian10 login/passwd=root/Linux), elle sera utilisée dans l'étape suivante (6/6).
-2. Installer un réseau NAT "Cloud99" : Ce réseau (192.168.99.0/24 GW=192.168.99.254) donne accès à Internet pour les totologies EVE. L'usage d'un réseau de sortie NATé est recommandé pour éviter le raccordement de topololie de plusieurs instances EVE...
-3. Compléter la configuration de EVE-NG pour pouvoir disposer de nouveaux modèles de noeuds 
+1. Installer un réseau NAT "Cloud99" : Ce réseau (192.168.99.0/24 GW=192.168.99.254) donne accès à Internet pour les totologies EVE. L'usage d'un réseau de sortie NATé est recommandé pour éviter le raccordement de topololie de plusieurs instances EVE...
+2. Compléter la configuration de EVE-NG pour pouvoir disposer de nouveaux modèles de noeuds 
 
 **Remarque importante**
 - Si cette machine EVE est exécutée dans un hyperviseur ESXi il convient certainement d'acctiver le mode promiscuité sur la carte réseau de la VM. En effet, le réseau de l'hypervieur risque de ne pas apprécier des trames sortantes avec des adresses MAC sources non connues.
