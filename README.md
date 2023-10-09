@@ -127,12 +127,22 @@ $NODES = [
 	'Points d\'accès Ubiquiti' => [ // adapter
     'AP1' => ['parent' => 'sw_wifi', 'port' => 1], // adapter
     'AP2' => ['parent' => 'sw_wifi', 'port' => 3],
-    'AP8' => ['parent' => 'sw_wifi', 'port' => 15],			
+    'AP3' => ['parent' => 'sw_wifi', 'port' => 5],
+    'AP4' => ['parent' => 'sw_wifi', 'port' => 7],
+    'AP5' => ['parent' => 'sw_wifi', 'port' => 9],
+    'AP6' => ['parent' => 'sw_wifi', 'port' => 11],
+    'AP7' => ['parent' => 'sw_wifi', 'port' => 13],
+    'AP8' => ['parent' => 'sw_wifi', 'port' => 15],    
 	],
 	'Points d\'accès Cisco' => [
-    'BR1A' => ['parent' => 'sw_wifi', 'port' => 17],
-    'BR1B' => ['parent' => 'sw_wifi', 'port' => 19],
-    'BR4B' => ['parent' => 'sw_wifi', 'port' => 31],	
+    'LAP1' => ['parent' => 'sw_wifi', 'port' => 17],
+    'LAP2' => ['parent' => 'sw_wifi', 'port' => 19],
+    'LAP3' => ['parent' => 'sw_wifi', 'port' => 21],	
+    'LAP4' => ['parent' => 'sw_wifi', 'port' => 23],
+    'LAP5' => ['parent' => 'sw_wifi', 'port' => 25],
+    'LAP6' => ['parent' => 'sw_wifi', 'port' => 27],
+    'LAP7' => ['parent' => 'sw_wifi', 'port' => 29],
+    'LAP8' => ['parent' => 'sw_wifi', 'port' => 31],    
 	],
 ];
 ?>
