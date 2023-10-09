@@ -117,7 +117,7 @@ $PASSWORD = "passWifi"; // changer
 
 $HOSTS = [
 	'sw_wifi' => [ 	
-        'ip' => "10.108.135.252", // changer
+        'ip' => "10.102.74.230", // changer
         'oidState' => ['1.3.6.1.2.1.2.2.1.7'],	  // AdminStatus, doit convenir quelque soit le modèle de sw
         'valueOn' => "1",
         'portOffset' => 0],
