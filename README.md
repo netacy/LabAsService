@@ -29,7 +29,7 @@ L'infrastructure globale est la suivante :
 ![Topologie Wifi](img/TopoWifi.png)
 
 On va donc se préocuper de tout ce petit monde, soit au minimum :
-- 3 VMs
+- 3 VMs (bgp-rr, srv-por et srv-eve-x)
 - 1 machine physique : bgp-vtep
 - 1 switch : sw-wifi
 - 16 AP wifi : 8 Cisco et 8 Ubiquiti
@@ -41,7 +41,7 @@ Dans votre hyperviseur préféré vous pouvez provisionner les 3 machines :
 
 Attribuez une adresse IP fixe à chacune des machines et assurez vous qu'elles accèdent bien à Internet.
 
-- La machine bgp-vtep doit être déployée à proximité géographique de sw-wifi. Vous pouvez installer Debian 11 directement dessus ou dans une VM. Si vous avez décidé d'utiliser une VM pour cette machine, assurez vous d'avoir un contrôleur USB3 dans les paramètres de virtualisation, et de connecter l'adaptateur USB/Ethernet dans la VM et non dans l'hôte.
+- **bgp-vtep** doit être reliée à **sw-wifi**, il est donc préférable de placer cette machine pas trop loin de switch. Vous pouvez installer Debian 11 directement dessus ou dans une VM. Si vous avez décidé d'utiliser une VM pour cette machine, assurez vous d'avoir un contrôleur USB3 dans les paramètres de virtualisation, et de connecter l'adaptateur USB/Ethernet à la VM et non à l'hôte.
 
 ### Trafic à autoriser 
 - srv-poe <-> sw-wifi  = UDP port 161 (SNMP)
