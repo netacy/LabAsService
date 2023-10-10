@@ -22,7 +22,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 * PC générique pour la machine bgp-vtep. 
 
 * Points d'accès pour les TPs  
-### Infrastructure globale
+### Architecture globale
 
 L'infrastructure globale est la suivante : 
 
