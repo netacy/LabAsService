@@ -8,7 +8,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 
 ## Ressources logicielles :
 
-* [Debian 11 en machine virtuelle](https://www.debian.org) 
+* [Debian 11 pour toutes les machines (virutelles et physique)](https://www.debian.org) 
 * [Eventuellent Debian 11 sur une machine physique](https://www.debian.org) pour bgp-vtep
 * [Environnement de virtualisation - EVE-NG](https://www.eve-ng.net/) (version Community Edition 5.0.1-19 à la date de rédaction)
 
@@ -18,7 +18,6 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 
 * [adaptateur USB3 -> ethernet](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/fr/network_adapters_usb_adapters/eu-4306/) 
 
-<!-- ![image](img/edimax.jpg) -->
 <img src="img/edimax.jpg" width="100">
 
 
