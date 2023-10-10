@@ -17,7 +17,8 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 * En fait n'importe quel swith compatible 802.1ad fera l'affaire (nous utilisons en production un switch DELL EMC Networking N1548P)
 
 * [adaptateur USB3 -> ethernet](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/fr/network_adapters_usb_adapters/eu-4306/) 
-![Adaptateur USB](img/edimax.jpg){ width=50% }
+
+![Adaptateur USB](img/edimax.jpg){width=10%}
 
 * [PC générique] pour la machine bgp-vtep
  
