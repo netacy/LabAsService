@@ -17,7 +17,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 * En fait n'importe quel swith compatible 802.1ad fera l'affaire (nous utilisons en production un switch DELL EMC Networking N1548P)
 
 * [adaptateur USB3 -> ethernet](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/fr/network_adapters_usb_adapters/eu-4306/) 
-![Adaptateur USB3 - Gigabit Ethernet](img/TopoWifi.png)
+![Adaptateur USB3 - Gigabit Ethernet](img/edimax.jpg =120x)
 
 * [PC générique] pour la machine bgp-vtep
  
@@ -25,7 +25,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 
 L'infrastructure globale est la suivante : 
 
-![Topologie Wifi](img/edimax.jpg)
+![Topologie Wifi](img/TopoWifi.png)
 
 On va donc se préocuper de tout ce petit monde, soit au minimum :
 - 3 VMs
