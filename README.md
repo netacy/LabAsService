@@ -9,7 +9,6 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 ## Ressources logicielles :
 
 * [Debian 11 pour toutes les machines (virutelles et physique)](https://www.debian.org) 
-* [Eventuellent Debian 11 sur une machine physique](https://www.debian.org) pour bgp-vtep
 * [Environnement de virtualisation - EVE-NG](https://www.eve-ng.net/) (version Community Edition 5.0.1-19 à la date de rédaction)
 
 ## Ressources matérielles :
