@@ -16,7 +16,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 * [Switch Cisco WS-C3750-48PS-S](https://www.cisco.com/c/en/us/products/switches/catalyst-3750-series-switches/datasheet-listing.html) - 137 euros d'occasion
 * En fait n'importe quel swith compatible 802.1ad fera l'affaire (nous utilisons en production un switch DELL EMC Networking N1548P)
 
-* [adaptateur USB3 -> ethernet]() - mettre la référence
+* [adaptateur USB3 -> ethernet](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/fr/network_adapters_usb_adapters/eu-4306/) 
 
 * [PC générique] pour la machine bgp-vtep
  
