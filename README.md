@@ -18,7 +18,7 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 
 * [adaptateur USB3 -> ethernet](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/fr/network_adapters_usb_adapters/eu-4306/) 
 
-![](img/edimax.jpg | width=100)
+![](img/edimax.jpg | width=10)
 <!-- ![Adaptateur USB](img/edimax.jpg | width=100) -->
 
 * [PC générique] pour la machine bgp-vtep
