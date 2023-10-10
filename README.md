@@ -19,9 +19,9 @@ Ce projet décrit la mise en oeuvre d'une infratructure permettant d'accéder à
 
 <img src="img/edimax.jpg" width="100">
 
-
 * PC générique pour la machine bgp-vtep. 
- 
+
+* Points d'accès pour les TPs  
 ### Infrastructure globale
 
 L'infrastructure globale est la suivante : 
