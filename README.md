@@ -210,10 +210,10 @@ La commande ``brctl show``commande doit faire apparaitre les ponts entre les ré
 ```bash
 root@bgp-vtep:~# brctl show
 bridge name     bridge id               STP enabled     interfaces
-br1001          8000.3aa97a437e71       no              eth1.1001
+br1000          8000.3aa97a437e71       no              eth1.1000
+                                                        vxlan1000
+br1001          8000.c20468ef7534       no              eth1.1001
                                                         vxlan1001
-br1002          8000.c20468ef7534       no              eth1.1002
-                                                        vxlan1002
 ...                                                     
 ```
 
@@ -254,7 +254,7 @@ On rappelle que le VTEP (VXLAN Tunnel End Point) permettra, depuis une topologie
 
 5 paramètres seront demandés dans le processus d'installation :
 
-1. Le premier numéro de VLAN (ou VNI) : 1001
+1. Le premier numéro de VLAN (ou VNI) : 1000
 2. Nombre d'équipements : 8
 3. Nom de l'image - sans espace : ubiquiti-ap
 4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Ubiquiti
@@ -262,7 +262,7 @@ On rappelle que le VTEP (VXLAN Tunnel End Point) permettra, depuis une topologie
 
 Cette étape est à répéter pour ajouter un deuxième modèle de noeud type Cisco :
 
-1. Le premier numéro de VLAN (ou VNI) : 1009
+1. Le premier numéro de VLAN (ou VNI) : 1008
 2. Nombre d'équipements : 8
 3. Nom de l'image - sans espace : cisco-ap
 4. Description = Nom du noeud dans l'interface web - espace tolérés : Point d'accès Cisco
