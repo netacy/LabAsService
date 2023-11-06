@@ -43,6 +43,9 @@ systemctl start isc-dhcp-server
 # Permet l'ouverture simultanée de plusieurs sessions sur une VM
 echo "mysql-default-max-connections-per-user: 10" >> /etc/guacamole/guacamole.properties
 
+# routage
+sed -i "s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g" /etc/sysctl.conf
+
 # Ouverture de session multiples sur eve-ng
 sed -i "s/genUuid/genUuid2/g" /opt/unetlab/html/includes/__lab.php
 sed -i "s/genUuid/genUuid2/g" /opt/unetlab/html/includes/functions.php
